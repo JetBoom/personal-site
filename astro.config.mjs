@@ -4,9 +4,14 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import { remarkReadingTime } from './src/utils/readTime.ts'
 
+import postcssImport from "postcss-import"
+import postcssNesting from "tailwindcss/nesting"
+import tailwindcss from "tailwindcss"
+import autoprefixer from "autoprefixer"
+
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://blog-template-gray.vercel.app/', // Write here your website url
+	site: 'https://average.website/', // Write here your website url
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		drafts: true,
@@ -26,5 +31,12 @@ export default defineConfig({
 		}),
 		sitemap(),
 		tailwind()
-	]
+	],
+	vite: {
+		css: {
+			postcss: {
+				plugins: [postcssImport, postcssNesting, tailwindcss, autoprefixer],
+		  	},
+		},
+	},
 })

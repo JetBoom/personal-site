@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+	html {
+		font-family: 'Inter Tight Variable';
+	}
+
 	body {
 		transition: background-color 0.5s ease;
 	}
@@ -12,23 +16,14 @@
 	}
 
 	@font-face {
-		font-family: Manrope;
-		src: url(../assets/fonts/Manrope-SemiBold.woff2) format('woff2');
+		font-family: 'Inter Tight Variable';
+		src: url(../assets/fonts/InterTight-VariableFont_wght.ttf);
 	}
 
 	@font-face {
-		font-family: Manrope;
-		src: url(../assets/fonts/Manrope-Medium.woff2) format('woff2');
-	}
-
-	@font-face {
-		font-family: Manrope;
-		src: url(../assets/fonts/Manrope-Light.woff2) format('woff2');
-	}
-
-	@font-face {
-		font-family: Manrope;
-		src: url(../assets/fonts/Manrope-Regular.woff2) format('woff2');
+		font-family: 'Inter Tight Variable';
+		font-style: italic;
+		src: url(../assets/fonts/InterTight-Italic-VariableFont_wght.ttf);
 	}
 
 	/* prose styles here */

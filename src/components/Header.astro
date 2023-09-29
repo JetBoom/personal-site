@@ -1,6 +1,5 @@
 ---
 import HeaderLink from '@/components/HeaderLink'
-import TwitterIcon from '@/components/icons/TwitterIcon'
 import GithubIcon from '@/components/icons/GithubIcon'
 import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
@@ -11,20 +10,24 @@ import ToggleTheme from './ToggleTheme.astro'
 const SOCIALNETWORKS = [
 	{
 		name: 'Github',
-		url: 'https://github.com/danielcgilibert/blog-template',
+		url: 'https://github.com/JetBoom',
 		icon: GithubIcon
-	},
+	}
 
-	{
+	/*{
 		name: 'Twitter',
 		url: 'https://github.com/danielcgilibert/blog-template',
 		icon: TwitterIcon
-	}
+	}*/
 ]
 ---
 
-<header class='relative flex items-center h-12 font-semibold'>
-	<a class='text-lg mr-auto' href='/'>Home</a>
+<header class='relative flex items-center justify-between font-semibold'>
+	<nav class='flex items-center justify-start grow gap-8 text-lg'>
+		<a href='/'>About Me</a>
+		<a href='/posts'>Posts</a>
+		<a href='/projects'>Projects</a>
+	</nav>
 
 	<div
 		id='astro-header-drawer'

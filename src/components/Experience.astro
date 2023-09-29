@@ -1,0 +1,14 @@
+---
+const { title, company, from, to } = Astro.props
+---
+
+<article>
+	<div class='flex justify-between items-center border-l pl-2'>
+		<div>
+			<h4 class='text-lg font-bold leading-tight'>{company}</h4>
+			<div>{title}</div>
+		</div>
+		<div class='text-sm opacity-50'>{from} - {to}</div>
+	</div>
+	<p class='mt-4 text-sm'><slot /></p>
+</article>
