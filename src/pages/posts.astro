@@ -7,10 +7,12 @@ import { getPosts } from '@/utils'
 
 const MAX_POSTS = 9 // max number of posts to show on the home page
 const posts = await getPosts(MAX_POSTS)
+
+const title = 'Posts'
 ---
 
-<BaseLayout title='Home'>
-	<TitlePage title='Posts' />
+<BaseLayout title={title}>
+	<TitlePage title={title} />
 	<ListCategories />
 
 	<div>

@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon'
 import FormattedDate from '@/components/FormattedDate'
-import ArrowUp from '@/components/icons/ArrowUp'
 
 const {
 	data: { title, description, pubDate, heroImage, category },
@@ -10,39 +10,62 @@ const {
 } = Astro.props
 ---
 
-<article class='relative group grid effect grid-rows-[300px_auto]'>
-	<a class='absolute inset-0 z-50' href={`/post/${slug}/`}></a>
+<div class='card'>
+	<Image src={heroImage} class='h-32 w-full object-cover' alt='' />
 
-	<Image
-		src={heroImage}
-		width={600}
-		height={600}
-		format='webp'
-		class='absolute h-full min-w-full object-cover hover:scale-[101%] transition-all duration-200 rounded-[2px]'
-		alt=''
-	/>
+	<div class='flex flex-col grow p-4'>
+		<a class='card__link text-lg' href={`/post/${slug}/`}>{title}</a>
 
-	<div
-		class='z-30 absolute inset-0 text-center flex flex-col justify-center items-center p-4 bg-[rgba(0,0,0,0.5)]'
-	>
-		<span class='text-lg text-white font-semibold -tracking-wider'>
-			{title}
-		</span>
+		<p class='text-sm'>{description}</p>
 
-		<p class='line-clamp-3 text-white'>
-			{description}
-		</p>
-	</div>
+		<div class='grow'></div>
 
-	<div class='z-30 absolute bottom-0 w-full h-14'>
-		<div class='-z-10 absolute bottom-0 glass w-full min-h-full'></div>
-		<div class='flex items-center justify-between gap-x-1 text-white px-3 py-2'>
-			<div class='flex flex-col gap-1 items-center justify-center'>
-				<FormattedDate date={pubDate} />
-				<span class='text-sm'> {readTime}</span>
+		<div class='flex justify-between items-end'>
+			<div class='flex items-center'>
+				<Icon name='fe:calendar' class='text-current h-[1em]' /><FormattedDate date={pubDate} />
 			</div>
 
-			<span class='pb-2'>{category}</span>
+			<div class='text-sm'>{readTime}</div>
+
+			<div>{category}</div>
 		</div>
 	</div>
-</article>
+</div>
+
+<style>
+	.card {
+		display: flex;
+		flex-direction: column;
+		border: 2px solid;
+		border-radius: 0.5rem;
+		position: relative;
+		overflow: hidden;
+		transition: box-shadow 0.15s ease-in-out;
+		min-height: 300px;
+	}
+
+	.card:hover,
+	.card:focus-within {
+		box-shadow: 0 0 0 0.25rem;
+	}
+
+	.card:focus-within a:focus {
+		text-decoration: none;
+		box-shadow: none;
+		outline: none;
+	}
+
+	.card__link {
+		text-decoration: none;
+	}
+
+	.card__link:focus {
+		text-decoration: underline;
+	}
+
+	.card__link::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+	}
+</style>

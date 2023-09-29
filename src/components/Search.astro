@@ -2,12 +2,12 @@
 // Inspired by -> https://github.com/chrismwilliams/astro-theme-cactus/blob/main/src/components/Search.astro
 
 import '@pagefind/default-ui/css/ui.css'
-import SearchIcon from '@/components/icons/SearchIcon'
+import { Icon } from 'astro-icon'
 ---
 
 <site-search id='search' class='ms-auto'>
 	<button data-open-modal disabled class='flex items-center justify-center rounded-md gap-1'>
-		<SearchIcon />
+		<Icon name='mdi:search' class='text-current h-[1.5em]' />
 		<!-- <span class='md:hidden text-2xl'> Search</span> -->
 	</button>
 	<dialog
