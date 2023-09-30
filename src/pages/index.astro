@@ -1,7 +1,7 @@
 ---
 import TitlePage from '@/components/TitlePage'
 import Experience from '@/components/Experience'
-import ExperienceList from '@/components/ExperienceList'
+import NamedList from '@/components/NamedList'
 import BaseLayout from '@/layouts/BaseLayout'
 
 const title = 'About'
@@ -10,8 +10,8 @@ const title = 'About'
 <BaseLayout title={title}>
 	<TitlePage title={title} />
 
-	<ExperienceList>
-		<Experience company='Undisclosed' title='Senior Software Engineer' from='06/2023' to='Now'>
+	<NamedList name="Experience" description="Where I've been professionally for the last few years.">
+		<Experience title="Undisclosed" subtitle="Senior Software Engineer" dates="06/2023 - Now">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 			laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -19,12 +19,7 @@ const title = 'About'
 			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		</Experience>
 
-		<Experience
-			company='Apricity Health'
-			title='Senior Software Engineer'
-			from='12/2022'
-			to='01/2023'
-		>
+		<Experience title="Apricity Health" subtitle="Senior Software Engineer" dates="12/2022 - 01/2023">
 			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
 			laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
 			beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
@@ -34,14 +29,14 @@ const title = 'About'
 			voluptatem.
 		</Experience>
 
-		<Experience company='Mosaic Learning' title='Software Engineer' from='01/2020' to='11/2022'>
+		<Experience title="Mosaic Learning" subtitle="Software Engineer" dates="01/2020 - 11/2022">
 			At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
 			voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
 			cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est
 			laborum et dolorum fuga.
 		</Experience>
 
-		<Experience company='NoxFire Group' title='Software Engineer' from='12/2018' to='12/2019'>
+		<Experience title="NoxFire Group" subtitle="Software Engineer" dates="12/2018 - 12/2019">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
 			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 			laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -49,7 +44,7 @@ const title = 'About'
 			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		</Experience>
 
-		<Experience company='Altik' title='Software Engineer' from='04/2017' to='12/2018'>
+		<Experience title="Altik" subtitle="Software Engineer" dates="04/2017 - 12/2018">
 			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
 			laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
 			beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
@@ -58,5 +53,13 @@ const title = 'About'
 			sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
 			voluptatem.
 		</Experience>
-	</ExperienceList>
+	</NamedList>
+
+	<NamedList name="Education" description="">
+		<Experience title="Stony Brook University" subtitle="B.S. Technological Systems Management, Specialization in Computer Science">
+			Areas of interests were in game development, computer graphics, and project management.
+			<br />Entered in to and won 1st place in the university's annual Game Programming Competition.
+		</Experience>
+		<Experience title="Suffolk Community College" subtitle="A.S. Computer Science" />
+	</NamedList>
 </BaseLayout>

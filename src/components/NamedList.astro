@@ -1,0 +1,17 @@
+---
+const {
+	name,
+	description,
+} = Astro.props
+---
+
+<div class="grid gap-8 max-md:flex-col md:border-l">
+	<div class="md:pl-4 md:basis-[600px] overflow-visible">
+		<h2 class="font-bold text-3xl">{name}</h2>
+		<p>{description}</p>
+	</div>
+
+	<div class="grid grid-cols-1 gap-8 md:gap-12 grow md:pl-16 max-md:mt-4">
+		<slot />
+	</div>
+</div>

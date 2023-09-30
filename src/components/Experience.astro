@@ -1,14 +1,14 @@
 ---
-const { title, company, from, to } = Astro.props
+const { title, subtitle, dates } = Astro.props
 ---
 
 <article>
-	<div class='flex justify-between items-center border-l pl-2'>
+	<div class="flex justify-between items-center border-l pl-2">
 		<div>
-			<h4 class='text-lg font-bold leading-tight'>{company}</h4>
-			<div>{title}</div>
+			<h4 class="text-lg font-bold leading-tight">{title}</h4>
+			<div>{subtitle}</div>
 		</div>
-		<div class='text-sm opacity-50'>{from} - {to}</div>
+		<div class="text-sm opacity-50">{dates}</div>
 	</div>
-	<p class='mt-4 text-sm'><slot /></p>
+	<p class="mt-4 text-sm"><slot /></p>
 </article>
