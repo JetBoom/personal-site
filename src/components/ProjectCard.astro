@@ -4,7 +4,7 @@ import { Icon } from 'astro-icon'
 import FormattedDate from '@/components/FormattedDate'
 
 const {
-	data: { title, description, pubDate, image, category },
+	data: { title, description, pubDate, image },
 	readTime,
 	slug
 } = Astro.props
@@ -14,7 +14,7 @@ const {
 	<Image src={image} class='h-32 w-full object-cover' alt='' />
 
 	<div class='flex flex-col grow p-4'>
-		<a class='card__link text-lg' href={`/post/${slug}/`}>{title}</a>
+		<a class='card__link text-lg' href={`/project/${slug}/`}>{title}</a>
 
 		<p class='text-sm'>{description}</p>
 
@@ -26,8 +26,6 @@ const {
 			</div>
 
 			<div class='text-sm'>{readTime}</div>
-
-			<div>{category}</div>
 		</div>
 	</div>
 </div>

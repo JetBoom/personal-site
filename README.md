@@ -179,7 +179,7 @@ Example :
 title: MacBook Pro 2022
 description: 'The new MacBook Pro 2022 is here. With the Apple M2 chip, a new design, and more, the new MacBook Pro is the best laptop Apple has ever made.'
 pubDate: 'Jul 02 2022'
-heroImage: '../../assets/bg.jpg'
+image: '../../assets/bg.jpg'
 category: 'Category 1'
 tags: ['JavaScript', 'css', 'HTML5', 'GitHub']
 draft: true <---
@@ -192,7 +192,7 @@ draft: true <---
 - Title
 - Description
 - pubDate
-- heroImage (post cover)
+- image (post cover)
 - category (Choose a category from src/data/categories.ts)
 
 ## Optional properties:

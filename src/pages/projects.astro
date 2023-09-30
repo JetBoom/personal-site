@@ -1,12 +1,21 @@
 ---
+import ListProjects from '@/components/ListProjects'
 import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
+import { getProjects } from '@/utils'
+
+const projects = await getProjects()
+
+const title = 'Projects'
 ---
 
-<BaseLayout title='Projects'>
-	<TitlePage title='Projects' />
+<BaseLayout title={title}>
+	<TitlePage title={title} />
 
 	<div>
-		<p>Page coming soon...</p>
+		<p class="text-lg text-center">
+			Examples of some of my projects that I've worked on. You can view more on my <a href="https://github.com/JetBoom">GitHub</a>.
+		</p>
+		<ListProjects projects={projects} />
 	</div>
 </BaseLayout>
