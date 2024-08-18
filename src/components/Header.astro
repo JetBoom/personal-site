@@ -5,6 +5,7 @@ import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
 import TagIcon from './icons/TagIcon.astro'
 import ToggleTheme from './ToggleTheme.astro'
+import ListIcon from './icons/ListIcon.astro'
 
 // ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
@@ -24,9 +25,15 @@ const SOCIALNETWORKS = [
 
 <header class='relative flex items-center justify-between font-semibold'>
 	<nav class='flex items-center justify-start grow gap-8 text-lg'>
-		<a href='/'>About Me</a>
-		<a href='/posts'>Posts</a>
-		<a href='/projects'>Projects</a>
+		<HeaderLink href='/' class='flex items-center gap-1'>
+			<TagIcon /> About Me
+		</HeaderLink>
+		<!-- <HeaderLink href='/posts' class='flex items-center gap-1'>
+			<ListIcon /> Posts
+		</HeaderLink> -->
+		<HeaderLink href='https://github.com/JetBoom' class='flex items-center gap-1'>
+			<GithubIcon /> Projects
+		</HeaderLink>
 	</nav>
 
 	<div
