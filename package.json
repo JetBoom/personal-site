@@ -35,31 +35,31 @@
 		"postbuild": "pagefind --site dist"
 	},
 	"dependencies": {
-		"@astrojs/rss": "3.0.0",
+		"@astrojs/rss": "4.0.5",
 		"@tinacms/cli": "^1.5.29",
-		"astro": "3.3.1",
+		"astro": "3.6.4",
 		"astro-icon": "^0.8.1",
 		"sass": "^1.68.0",
 		"tinacms": "^1.5.20"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "1.1.2",
-		"@astrojs/sitemap": "3.0.1",
-		"@astrojs/tailwind": "5.0.1",
+		"@astrojs/mdx": "1.1.5",
+		"@astrojs/sitemap": "3.1.1",
+		"@astrojs/tailwind": "5.0.2",
 		"@pagefind/default-ui": "^1.0.3",
 		"@tailwindcss/typography": "0.5.10",
 		"@typescript-eslint/parser": "^6.5.0",
 		"clsx": "2.0.0",
 		"eslint": "^8.50.0",
-		"eslint-plugin-astro": "^0.29.0",
+		"eslint-plugin-astro": "^0.31.0",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"mdast-util-to-string": "^4.0.0",
 		"motion": "^10.16.2",
 		"pagefind": "^1.0.2",
 		"reading-time": "^1.5.0",
 		"slugify": "^1.6.6",
-		"tailwind-merge": "1.14.0",
-		"tailwindcss": "3.3.3",
+		"tailwind-merge": "2.2.0",
+		"tailwindcss": "3.4.0",
 		"typescript": "^5.2.2"
 	}
 }
