@@ -1,13 +1,20 @@
 {
-	"name": "blog-template",
+	"name": "personal-site",
 	"type": "module",
 	"version": "1.1.0",
-	"description": "A template for creating a blog with Astro",
-	"author": "danielcgilibert",
+	"description": "My personal blog and portfolio",
+	"author": {
+		"name": "William Moodhe",
+		"email": "williammoodhe@gmail.com",
+		"url": "https://average.website"
+	},
 	"license": "GPL-3.0-only",
+	"contributors": [
+		"danielcgilibert"
+	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/danielcgilibert/blog-template"
+		"url": "https://github.com/jetboom/personal-site"
 	},
 	"keywords": [
 		"astro",
