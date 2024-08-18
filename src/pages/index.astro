@@ -3,6 +3,8 @@ import TitlePage from '@/components/TitlePage'
 import Experience from '@/components/Experience'
 import NamedList from '@/components/NamedList'
 import BaseLayout from '@/layouts/BaseLayout'
+import UnorderedList from '@/components/UnorderedList'
+import ListItem from '@/components/ListItem'
 
 const title = 'About'
 ---
@@ -11,47 +13,43 @@ const title = 'About'
 	<TitlePage title={title} />
 
 	<NamedList name="Experience" description="Where I've been professionally for the last few years.">
-		<Experience title="Undisclosed" subtitle="Senior Software Engineer" dates="06/2023 - Now">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-			laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		<Experience title="SustainaBase" subtitle="Senior Software Engineer" dates="05/2023 - 04/2024">
+			Main engineer for both the React front-end and Node back-end.
+			Used modern TypeScript and cloud services (AWS).
+			We provided carbon tax accounting software for businesses.
+			<br />Key skills: Redux, Tailwind, MySQL, MongoDB, Prisma, Auth0, Express, Serverless, S3.
+    		<UnorderedList>
+				<ListItem>Automated customer data processing, reducing time needed from data engineers by 70%.</ListItem>
+    			<ListItem>Restructured legacy database, reducing page load times by 30%. Reduced storage cost by 50%.</ListItem>
+			</UnorderedList>
 		</Experience>
 
 		<Experience title="Apricity Health" subtitle="Senior Software Engineer" dates="12/2022 - 01/2023">
-			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-			laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-			beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-			odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-			Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-			sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-			voluptatem.
+			Took ownership of the front-end and did back-end development for multiple React and Node apps.
+			Mentored and reviewed the code of entire team.
+			Resolved years of technical debt, eliminated security vulnerabilities, and refactored code to modern standards.
+			<br />Key skills: TypeScript, Redux, GraphQL, Jest, DocumentDB, Serverless, S3, SQS, Docker, Material UI.
+    		<UnorderedList>
+				<ListItem>Created a data caching system, vastly reducing page load times by up to 90%.</ListItem>
+    			<ListItem>Resolved years of technical debt and refactored the code base size down by 30%, reducing required work from developers.</ListItem>
+			</UnorderedList>
 		</Experience>
 
 		<Experience title="Mosaic Learning" subtitle="Software Engineer" dates="01/2020 - 11/2022">
-			At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-			voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
-			cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est
-			laborum et dolorum fuga.
+			Worked on many different projects that included Ember, React, Node, PHP, Java, or Laravel.
+			Chosen out of a company of roughly 15 engineers to spearhead the company migration from Ember, Java, and PHP to modern React and Node.
+			Took front-end ownership of a conferencing app which saw success during COVID and was featured in a post on the official AWS blog. Mentored other engineers, especially for front-end development.
+			<br />Key skills: JavaScript, Express, Jest, Storybook, MongoDB, GraphQL, DynamoDB, S3, Lambda, Serverless, EC2, Docker, Cognito, IVS, MySQL, Java, Web Sockets, Material UI.
 		</Experience>
 
 		<Experience title="NoxFire Group" subtitle="Software Engineer" dates="12/2018 - 12/2019">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-			laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-			voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Worked on company and event websites. Conducted event broadcasts.
+			<br />Key skills: JavaScript, Node, React, Express, UI/UX, Photoshop.
 		</Experience>
 
 		<Experience title="Altik" subtitle="Software Engineer" dates="04/2017 - 12/2018">
-			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-			laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-			beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-			odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-			Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-			sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-			voluptatem.
+			Worked on back-end and front-end of sportsbook software.
+			<br />Key skills: JavaScript, Node, PHP, MySQL, HTML/CSS, jQuery 
 		</Experience>
 	</NamedList>
 
@@ -61,5 +59,34 @@ const title = 'About'
 			<br />Entered in to and won 1st place in the university's annual Game Programming Competition.
 		</Experience>
 		<Experience title="Suffolk Community College" subtitle="A.S. Computer Science" />
+	</NamedList>
+
+	<NamedList name="Awards" description="">
+		<Experience title="SBU Game Programming Competition" subtitle="1st place in 2015">
+			Won 1st place in the university's annual game programming competition out of 100+ entries and 16 finalists for <i>"Valhalla Run"</i>.
+			<br />Programmed in C# with the Unity engine and entered solo.
+			<br /><a href="https://www3.cs.stonybrook.edu/~games/history.html">www3.cs.stonybrook.edu/~games/history.html</a>
+		</Experience>
+	</NamedList>
+
+	<NamedList name="Skills" description="Skill list isn't exhaustive. There's way too much tech to list and these are just the key ones people look for.">
+		<UnorderedList>
+			<ListItem><b>Languages:</b> TypeScript, JavaScript, Python, C++, Lua, Java, PHP, C# and .NET</ListItem>
+			<ListItem><b>Back-end::</b> Node, Express, Django, Laravel, NestJS</ListItem>
+			<ListItem><b>Front-end:</b> React, Ember, HTML and CSS, NextJS, Preact, Vite, Storybook, Static-site generators</ListItem>
+			<ListItem><b>Web:</b> Tailwind, Bootstrap, Material UI, Ant Design, Unstyled Components, Web Sockets, REST/CRUD, jquery, Webpack, babel</ListItem>
+			<ListItem><b>Databases:</b> SQL, NoSQL, MySQL, PostgresDB, MongoDB, DocumentDB, DynamoDB, Redis</ListItem>
+			<ListItem><b>State management:</b> Redux, Mobx, React Query, GraphQL, tRPC</ListItem>
+			<ListItem><b>Cloud:</b> AWS (Amazon), GCP (Google), S3, Serverless, Lambda, EC2, ECS, SQS, IVS</ListItem>
+			<ListItem><b>Authentication:</b> Auth0, Cognito</ListItem>
+			<ListItem><b>Testing:</b> Jest, Cypress, React Testing Library</ListItem>
+			<ListItem><b>Source management:</b> Git, SVN</ListItem>
+			<ListItem><b>Package management:</b> npm, pnpm, yarn, pip, bun</ListItem>
+			<ListItem><b>Sandboxing:</b> Docker, Kubernetes</ListItem>
+			<ListItem><b>Collaboration:</b> Slack, Teams, Bitbucket, GitHub, Confluence</ListItem>
+			<ListItem><b>Creative:</b> Photoshop</ListItem>
+			<ListItem><b>Game engines:</b> Unreal, Unity, Source</ListItem>
+			<ListItem><b>Other:</b> NGINX, CI/CD, Linux</ListItem>
+		</UnorderedList>
 	</NamedList>
 </BaseLayout>
