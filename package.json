@@ -35,7 +35,7 @@
 		"postbuild": "pagefind --site dist"
 	},
 	"dependencies": {
-		"@astrojs/rss": "4.0.5",
+		"@astrojs/rss": "4.0.7",
 		"@tinacms/cli": "^1.5.29",
 		"astro": "3.6.5",
 		"astro-icon": "^0.8.1",
