@@ -5,6 +5,7 @@ import NamedList from '@/components/NamedList'
 import BaseLayout from '@/layouts/BaseLayout'
 import UnorderedList from '@/components/UnorderedList'
 import ListItem from '@/components/ListItem'
+import { SKILLS } from '@/data/skills'
 
 const title = 'About'
 ---
@@ -12,7 +13,7 @@ const title = 'About'
 <BaseLayout title={title}>
 	<TitlePage title={title} />
 
-	<NamedList name="Experience" description="Where I've been professionally for the last few years.">
+	<NamedList name="Experience" description="Where I've been professionally...">
 		<Experience title="SustainaBase" subtitle="Senior Software Engineer" dates="05/2023 - 04/2024">
 			Main engineer for both the React front-end and Node back-end.
 			Used modern TypeScript and cloud services (AWS).
@@ -69,24 +70,9 @@ const title = 'About'
 		</Experience>
 	</NamedList>
 
-	<NamedList name="Skills" description="Skill list isn't exhaustive. There's way too much tech to list and these are just the key ones people look for.">
+	<NamedList name="Skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
 		<UnorderedList>
-			<ListItem><b>Languages:</b> TypeScript, JavaScript, Python, C++, Lua, Java, PHP, C# and .NET</ListItem>
-			<ListItem><b>Back-end::</b> Node, Express, Django, Laravel, NestJS</ListItem>
-			<ListItem><b>Front-end:</b> React, Ember, HTML and CSS, NextJS, Preact, Vite, Storybook, Static-site generators</ListItem>
-			<ListItem><b>Web:</b> Tailwind, Bootstrap, Material UI, Ant Design, Unstyled Components, Web Sockets, REST/CRUD, jquery, Webpack, babel</ListItem>
-			<ListItem><b>Databases:</b> SQL, NoSQL, MySQL, PostgresDB, MongoDB, DocumentDB, DynamoDB, Redis</ListItem>
-			<ListItem><b>State management:</b> Redux, Mobx, React Query, GraphQL, tRPC</ListItem>
-			<ListItem><b>Cloud:</b> AWS (Amazon), GCP (Google), S3, Serverless, Lambda, EC2, ECS, SQS, IVS</ListItem>
-			<ListItem><b>Authentication:</b> Auth0, Cognito</ListItem>
-			<ListItem><b>Testing:</b> Jest, Cypress, React Testing Library</ListItem>
-			<ListItem><b>Source management:</b> Git, SVN</ListItem>
-			<ListItem><b>Package management:</b> npm, pnpm, yarn, pip, bun</ListItem>
-			<ListItem><b>Sandboxing:</b> Docker, Kubernetes</ListItem>
-			<ListItem><b>Collaboration:</b> Slack, Teams, Bitbucket, GitHub, Confluence</ListItem>
-			<ListItem><b>Creative:</b> Photoshop</ListItem>
-			<ListItem><b>Game engines:</b> Unreal, Unity, Source</ListItem>
-			<ListItem><b>Other:</b> NGINX, CI/CD, Linux</ListItem>
+			{ SKILLS.map(grp => <ListItem><b>{grp.category}:</b> {grp.skills.join(', ')}</ListItem> )}
 		</UnorderedList>
 	</NamedList>
 </BaseLayout>
