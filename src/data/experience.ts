@@ -31,7 +31,8 @@ export const EXPERIENCE: ExperienceType[] = [
         endDate: '01/2023',
         description: `Took ownership of the front-end and did back-end development for multiple React and Node apps.
 			Mentored and reviewed the code of entire team.
-			Resolved years of technical debt, eliminated security vulnerabilities, and refactored code to modern standards.`,
+			Resolved years of technical debt, eliminated security vulnerabilities, and refactored code to modern standards.
+            Maintained HIPAA compliance, SOC 2 compliance, and worked with FHIR records while creating patient portals.`,
 		skills: ['TypeScript', 'Redux', 'GraphQL', 'Jest', 'DocumentDB', 'Serverless', 'S3', 'SQS', 'Docker', 'Material UI.'],
     	bullets: [
             'Created a data caching system, vastly reducing page load times by up to 90%.',
