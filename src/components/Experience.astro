@@ -11,12 +11,12 @@ const {
 	<div class="flex justify-between items-center">
 		<div class="border-l pl-2 grow">
 			<div class="flex items-center">
-				<h4 class="text-lg font-bold leading-tight">{title}</h4>
+				<h4 class="text-lg font-bold">{title}</h4>
 				{image && <img src={image} alt="" class="text-lg h-[1em] pl-4" />}
 			</div>
 			<div>{subtitle}</div>
 		</div>
-		<div class="text-sm opacity-50">{dates}</div>
+		<div class="text-sm opacity-80">{dates}</div>
 	</div>
 	<p class="mt-4 text-sm"><slot /></p>
 </article>
