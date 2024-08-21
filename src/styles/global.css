@@ -33,7 +33,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-zinc-800 dark:text-zinc-100   !important;
+		@apply text-zinc-100 !important;
 	}
 }
 

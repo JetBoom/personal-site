@@ -5,13 +5,13 @@ const {
 } = Astro.props
 ---
 
-<div class="grid gap-6 max-md:flex-col md:border-l">
-	<div class="md:pl-4 md:basis-[600px] overflow-visible">
+<div class="grid gap-6 max-md:flex-col">
+	<div class="md:basis-[600px] overflow-visible">
 		<h2 class="font-bold text-3xl">{name}</h2>
 		{description && <p>{description}</p>}
 	</div>
 
-	<div class="grid grid-cols-1 gap-6 md:gap-8 grow md:pl-16 max-md:mt-3">
+	<div class="grid grid-cols-1 gap-6 md:gap-8 grow md:pl-8 max-md:mt-3">
 		<slot />
 	</div>
 </div>

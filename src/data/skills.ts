@@ -63,4 +63,8 @@ export const SKILLS = [
 		category: 'Other',
 		skills: ['NGINX', 'CI/CD', 'Linux'],
 	},
+	{
+		category: 'Industry-specific',
+		skills: ['HIPAA', 'SOC 2', 'FHIR'],
+	},
 ] as const
