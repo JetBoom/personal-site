@@ -26,6 +26,10 @@ module.exports = {
 				'3xl': '100px',
 				'4xl': '150px',
 			},
+			boxShadow: {
+				glow: '0 0 1rem #fff8',
+				'glow-lg': '0 0 2rem #fff8',
+			},
 		},
 		letterSpacing: {
 			tightest: '-.05em',
