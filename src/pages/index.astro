@@ -1,5 +1,5 @@
 ---
-import TitlePage from '@/components/TitlePage'
+//import TitlePage from '@/components/TitlePage'
 import Experience from '@/components/Experience'
 import NamedList from '@/components/NamedList'
 import BaseLayout from '@/layouts/BaseLayout'
@@ -12,7 +12,25 @@ const title = 'About'
 ---
 
 <BaseLayout title={title}>
-	<TitlePage title={title} />
+	<!-- <TitlePage title={title} /> -->
+
+	<div class="flex gap-8 justify-center items-center">
+		<div>
+			<div class="size-32 md:size-64 bg-[url(myself.jpg)] bg-cover rounded-[25%] border-2 border-slate filter-bw" />
+		</div>
+		<div class="flex flex-col">
+			<p class="text-lg text-white font-bold">
+				William Moodhe
+			</p>
+			<p class="text-sm">
+				Hi, I'm a senior software engineer!
+			</p>
+			<p class="text-xs whitespace-pre-line">
+				Site still a bit under construction as I write pages for my personal projects
+				and migrate blog posts from my old personal site.
+			</p>
+		</div>
+	</div>
 
 	<NamedList name="Experience" description="Where I've been professionally...">
 		{EXPERIENCE.map(experience => (
