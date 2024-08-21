@@ -16,7 +16,12 @@ const title = 'About'
 
 	<NamedList name="Experience" description="Where I've been professionally...">
 		{EXPERIENCE.map(experience => (
-			<Experience title={experience.company} subtitle={experience.title} dates={`${experience.startDate} - ${experience.endDate}`}>
+			<Experience
+				title={experience.company}
+				subtitle={experience.title}
+				dates={`${experience.startDate} - ${experience.endDate}`}
+				image={experience.image}
+			>
 				{experience.description}
 				{experience.skills?.length && <>
 					<br />Key skills: {experience.skills.join(', ')}
@@ -29,11 +34,19 @@ const title = 'About'
 	</NamedList>
 
 	<NamedList name="Education">
-		<Experience title="Stony Brook University" subtitle="B.S. Technological Systems Management, Specialization in Computer Science">
+		<Experience
+			title="Stony Brook University"
+			subtitle="B.S. Technological Systems Management, Specialization in Computer Science"
+			image="logos/stonybrookuniversity.jpg"
+		>
 			Areas of interests were in game development, computer graphics, and project management.
 			<br />Entered in to and won 1st place in the university's annual Game Programming Competition.
 		</Experience>
-		<Experience title="Suffolk Community College" subtitle="A.S. Computer Science" />
+		<Experience
+			title="Suffolk Community College"
+			subtitle="A.S. Computer Science"
+			image="logos/sccc.png"
+		/>
 	</NamedList>
 
 	<NamedList name="Awards">

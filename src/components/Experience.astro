@@ -1,11 +1,19 @@
 ---
-const { title, subtitle, dates } = Astro.props
+const {
+	title,
+	subtitle,
+	dates,
+	image,
+} = Astro.props
 ---
 
 <article>
-	<div class="flex justify-between items-center border-l pl-2">
-		<div>
-			<h4 class="text-lg font-bold leading-tight">{title}</h4>
+	<div class="flex justify-between items-center">
+		<div class="border-l pl-2 grow">
+			<div class="flex items-center">
+				<h4 class="text-lg font-bold leading-tight">{title}</h4>
+				{image && <img src={image} alt="" class="text-lg h-[1em] pl-4" />}
+			</div>
 			<div>{subtitle}</div>
 		</div>
 		<div class="text-sm opacity-50">{dates}</div>
