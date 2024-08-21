@@ -27,7 +27,15 @@ module.exports = {
 				'4xl': '150px',
 			},
 		},
-		
+		letterSpacing: {
+			tightest: '-.05em',
+			tighter: '-.025em',
+			tight: '0',
+			normal: '.05em',
+			wide: '.075em',
+			wider: '.1em',
+			widest: '.25em',
+		},
 	},
 	plugins: [require('@tailwindcss/typography')]
 }

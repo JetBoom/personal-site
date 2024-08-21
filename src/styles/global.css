@@ -9,6 +9,13 @@
 
 	body {
 		transition: background-color 0.5s ease;
+		letter-spacing: 0.05em;
+	}
+
+	@supports (letter-spacing: 1cap) {
+		body {
+			letter-spacing: 0.05cap;
+		}
 	}
 
 	.prose code {
