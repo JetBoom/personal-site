@@ -9,7 +9,7 @@ interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
 	author: 'William Moodhe',
-	title: 'Average Website',
+	title: 'William\'s Average Website',
 	description: 'My personal blog and portfolio.',
 	lang: 'en-US',
 	ogLocale: 'en_US',

@@ -16,16 +16,16 @@ const title = 'About'
 
 	<div class="flex gap-8 justify-center items-center">
 		<div>
-			<div class="size-32 md:size-64 bg-[url(/myself.jpg)] bg-cover rounded-[25%] border-2 border-slate shadow-glow" />
+			<div class="size-32 md:size-64 bg-[url(/myself.jpg)] bg-cover rounded-[25%] shadow-glow" />
 		</div>
 		<div class="flex flex-col">
-			<p class="text-lg text-white font-bold">
+			<p class="text-2xl text-white font-bold">
 				William Moodhe
 			</p>
-			<p class="text-sm">
-				Hi, I'm a senior software engineer!
+			<p class="text-lg font-bold">
+				Hi, I'm a <span class="text-primary">senior software engineer</span>!
 			</p>
-			<p class="text-xs whitespace-pre-line">
+			<p class="text-sm whitespace-pre-line">
 				The site is still a bit under construction as I write pages for my personal projects
 				and migrate blog posts from my old personal site.
 			</p>
@@ -41,8 +41,8 @@ const title = 'About'
 				image={experience.image}
 			>
 				{experience.description}
-				{experience.skills?.length && <>
-					<br />Key skills: {experience.skills.join(', ')}
+				{experience.skills && <>
+					<br />Key skills: {experience.skills}
 				</>}
 				{experience.bullets?.length && <UnorderedList>
 					{experience.bullets.map(item => <ListItem>{item}</ListItem>)}
@@ -72,6 +72,7 @@ const title = 'About'
 			image="logos/stonybrookuniversity.jpg"
 		>
 			Areas of interests were in game development, computer graphics, and project management.
+			<br />Did volunteer computer science tutoring.
 			<br />Entered in to and won 1st place in the university's annual Game Programming Competition.
 		</Experience>
 		<Experience

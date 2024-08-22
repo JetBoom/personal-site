@@ -1,14 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const colors = {
+	white: '#f9f8f6',
+	primary: '#c6563a',
+	accent: '#e58569',
+	//secondary: '#a4939a',
+	dark: '#110f10',
+}
+
 module.exports = {
 	darkMode: 'dark',
 	content: ['./src/**/*.{astro,html,js,md,mdx,ts}'],
 	theme: {
 		extend: {
-			colors: {
-				white: '#d8d1d0'
-			},
+			colors,
 			fontFamily: {
 				body: ['"Inter Tight Variable"', ...defaultTheme.fontFamily.sans]
 			},
@@ -27,8 +33,8 @@ module.exports = {
 				'4xl': '150px',
 			},
 			boxShadow: {
-				glow: '0 0 1rem #fff8',
-				'glow-lg': '0 0 2rem #fff8',
+				glow: `0 0 1rem ${colors.primary}88`,
+				'glow-lg': `0 0 2rem ${colors.primary}88`,
 			},
 		},
 		letterSpacing: {
