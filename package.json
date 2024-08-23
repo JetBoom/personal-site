@@ -51,7 +51,7 @@
 		"@tailwindcss/typography": "0.5.14",
 		"@typescript-eslint/parser": "^8.2.0",
 		"clsx": "2.1.1",
-		"eslint": "^9.9.0",
+		"eslint": "^8.57.0",
 		"eslint-plugin-astro": "^1.2.3",
 		"eslint-plugin-jsx-a11y": "^6.9.0",
 		"mdast-util-to-string": "^4.0.0",
