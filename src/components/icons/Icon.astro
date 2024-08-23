@@ -1,7 +1,7 @@
 ---
-import { Icon as AstroIcon } from 'astro-icon'
+import { Icon as AstroIcon } from 'astro-icon/components'
 
-const { icon } = Astro.props
+const { name } = Astro.props
 ---
 
-<AstroIcon name={icon} class="text-current h-[1.5em]" />
+<AstroIcon name={name} class="text-current text-[1.5em]" />

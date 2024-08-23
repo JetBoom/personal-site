@@ -8,6 +8,7 @@ import postcssImport from "postcss-import"
 import postcssNesting from "tailwindcss/nesting"
 import tailwindcss from "tailwindcss"
 import autoprefixer from "autoprefixer"
+import icon from "astro-icon"
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,7 +31,10 @@ export default defineConfig({
 			drafts: true
 		}),
 		sitemap(),
-		tailwind()
+		tailwind(),
+		icon({
+			iconDir: 'src/assets/icons',
+		}),
 	],
 	vite: {
 		css: {

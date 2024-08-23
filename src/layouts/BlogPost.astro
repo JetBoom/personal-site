@@ -55,7 +55,7 @@ const articleDate = pubDate.toISOString()
 						quality={100}
 						format='jpg'
 						loading='eager'
-						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
+						class='rounded-md w-full max-h-[300px] md:max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
 						alt={`img of ${title}`}
 					/>
 				)
@@ -67,7 +67,7 @@ const articleDate = pubDate.toISOString()
 			</div>
 		</div>
 
-		<hr />
+		<hr class="border-primary" />
 
 		<div>
 			<slot />
@@ -107,19 +107,19 @@ const articleDate = pubDate.toISOString()
 			const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
 
 			if (entry.isIntersecting) {
-				index?.classList.remove('bg-slate-800') // remove bg
+				index?.classList.remove('bg-dark') // remove bg
 				index?.classList.add(
-					'bg-indigo-700',
-					'text-white',
+					'bg-primary',
+					//'text-white',
 					'font-bold',
 					'transition-colors',
 					'duration-200'
 				)
 			} else {
-				index?.classList.add('bg-slate-800') // add bg
+				index?.classList.add('bg-dark') // add bg
 				index?.classList.remove(
-					'bg-indigo-700',
-					'text-white',
+					'bg-primary',
+					//'text-white',
 					'font-bold',
 					'transition-colors',
 					'duration-200'
