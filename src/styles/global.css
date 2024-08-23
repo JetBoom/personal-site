@@ -23,7 +23,7 @@
 	}
 
 	.prose code {
-		@apply text-base;
+		@apply text-sm;
 	}
 
 	@font-face {
@@ -44,6 +44,10 @@
 	h5, .prose h5,
 	h6, .prose h6 {
 		@apply text-primary;
+	}
+
+	.prose p {
+		text-align: justify;
 	}
 }
 
