@@ -4,8 +4,8 @@ import GithubIcon from '@/components/icons/GithubIcon'
 import InstagramIcon from '@/components/icons/InstagramIcon'
 import MenuIcon from '@/components/icons/MenuIcon'
 import Search from '@/components/Search'
-import TagIcon from '@/components/icons/TagIcon'
-//import ListIcon from '@/components/icons/ListIcon'
+import Icon from '@/components/icons/Icon'
+import PostIcon from '@/components/icons/PostIcon'
 
 // ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
@@ -26,11 +26,11 @@ const SOCIALNETWORKS = [
 <header class='relative flex items-center justify-between font-semibold text-md'>
 	<nav class='flex items-center justify-start grow gap-8'>
 		<HeaderLink href='/' class='flex items-center gap-1'>
-			<TagIcon /> About Me
+			<Icon name="ri:user-heart-fill" /> About Me
 		</HeaderLink>
-		<!-- <HeaderLink href='/posts' class='flex items-center gap-1'>
-			<ListIcon /> Posts
-		</HeaderLink> -->
+		<HeaderLink href='/posts' class='flex items-center gap-1'>
+			<PostIcon /> Posts
+		</HeaderLink>
 		<HeaderLink href='https://github.com/JetBoom' class='flex items-center gap-1'>
 			<GithubIcon /> Projects
 		</HeaderLink>

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import { Icon } from 'astro-icon/components'
+import Icon from '@/components/icons/Icon'
 import FormattedDate from '@/components/FormattedDate'
 
 const {
@@ -24,7 +24,7 @@ const {
 
 		<div class='flex justify-between items-end'>
 			<div class='flex items-center'>
-				<Icon name='fe:calendar' class='text-current h-[1em]' /><FormattedDate date={pubDate} />
+				<Icon name='ri:calendar-line' /><FormattedDate date={pubDate} />
 			</div>
 
 			<div class='text-sm'>{readTime}</div>
