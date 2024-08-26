@@ -35,7 +35,9 @@
 	},
 	"dependencies": {
 		"@astrojs/rss": "4.0.7",
-		"@iconify-json/ri": "1.1.22",
+		"@iconify-json/logos": "latest",
+		"@iconify-json/skill-icons": "latest",
+		"@iconify-json/ri": "latest",
 		"@tinacms/cli": "^1.6.0",
 		"astro": "4.14.5",
 		"astro-icon": "^1.1.1",
