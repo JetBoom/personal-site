@@ -1,17 +1,23 @@
 /** Get an icon name for a skill, ignoring case and dots.
  * @param name - Name to search for.
+ * @param fallback - Icon to fall back on, defaults to an empty circle.
  * @returns The corresponding icon, if it exists.
 */
-export function GetSkillIcon(name: string): string | undefined {
+export function GetSkillIcon(name: string, fallback?: string): string | undefined {
     name = name.toLowerCase().replaceAll(/\./g, '')
     name = Aliases[name] ?? name
-	return SKILL_ICONS[name] ?? 'ri:checkbox-blank-circle-line'
+	return SKILL_ICONS[name] ?? fallback ?? 'ri:checkbox-blank-circle-line'
 }
 
 const Aliases: Record<string, string> = {
     'c++': 'cpp',
     'c#': 'cs',
     'express': 'expressjs',
+    'material ui': 'materialui',
+    'net': 'dotnet',
+    'node': 'nodejs',
+    'tailwind': 'tailwindcss',
+    'unreal': 'unrealengine',
 }
 
 export const SKILL_ICONS: Record<string, string> = {

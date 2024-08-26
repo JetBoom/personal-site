@@ -6,7 +6,7 @@ type SkillListType = {
 export const SKILLS: SkillListType[] = [
 	{
 		category: 'Languages',
-		skills: ['TypeScript', 'JavaScript', 'Python', 'C++', 'Lua', 'Java', 'PHP', 'C# and .NET'],
+		skills: ['TypeScript', 'JavaScript', 'Python', 'C++', 'Lua', 'Java', 'PHP', 'C#', '.NET'],
 	},
 	{
 		category: 'Back-end',
@@ -14,11 +14,11 @@ export const SKILLS: SkillListType[] = [
 	},
 	{
 		category: 'Front-end',
-		skills: ['React', 'Ember', 'Vue', 'Svelte', 'Angular', 'HTML and CSS', 'ES6', 'NextJS', 'Preact', 'Vite', 'Storybook', 'Static-site generators'],
+		skills: ['React', 'Ember', 'Vue', 'Svelte', 'Angular', 'HTML', 'CSS', 'ES6', 'NextJS', 'Preact', 'Vite', 'Storybook', 'Static-site generators'],
 	},
 	{
 		category: 'Web',
-		skills: ['Tailwind', 'Bootstrap', 'Material UI', 'Ant Design', 'Unstyled Components', 'Web Sockets', 'REST/CRUD', 'Accessibility', 'jquery', 'Webpack', 'babel'],
+		skills: ['Tailwind', 'Bootstrap', 'Material UI', 'Ant Design', 'Unstyled Components', 'Web Sockets', 'REST/CRUD', 'Accessibility', 'jquery', 'Webpack', 'Babel'],
 	},
 	{
 		category: 'Databases',
