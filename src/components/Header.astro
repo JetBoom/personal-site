@@ -1,6 +1,5 @@
 ---
 import HeaderLink from '@/components/HeaderLink'
-import MenuIcon from '@/components/icons/MenuIcon'
 import Search from '@/components/Search'
 import Icon from '@/components/icons/Icon'
 import PostIcon from '@/components/icons/PostIcon'
@@ -8,67 +7,33 @@ import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
 ---
 
 <header class='relative flex items-center justify-between font-semibold text-md'>
-	<nav class='flex items-center justify-start grow gap-8'>
-		<HeaderLink href='/' class='flex items-center gap-1'>
-			<Icon name="ri:user-heart-fill" /> About Me
+	<nav class='flex w-full items-center gap-6'>
+		<HeaderLink href='/'>
+			<Icon name="ri:user-heart-fill" />
+			<span class="max-md:hidden">About Me</span>
 		</HeaderLink>
-		<HeaderLink href='/posts' class='flex items-center gap-1'>
-			<PostIcon /> Articles
+		<HeaderLink href='/posts'>
+			<PostIcon />
+			<span class="max-md:hidden">Articles</span>
 		</HeaderLink>
-		<HeaderLink href='https://github.com/JetBoom' class='flex items-center gap-1'>
-			<Icon name="ri:github-fill" /> Projects
+		<HeaderLink href='https://github.com/JetBoom'>
+			<Icon name="ri:github-fill" />
+			<span class="max-md:hidden">Projects</span>
 		</HeaderLink>
-	</nav>
+	
+		<div class="grow"></div>
 
-	<div
-		id='astro-header-drawer'
-		class='shadow rounded-l-lg md:bg-transparent bg-[#0a0910] md:shadow-none md:rounded-none md:border-none md:h-auto md:static absolute transition-transform duration-300 ease-in translate-x-96 md:translate-x-0 top-12 -right-5 pl-4 pt-6 pb-4 md:p-0 h-[200px] w-[200px] z-50'
-	>
-		<nav
-			class='flex h-full flex-col justify-between gap-12 text-left md:flex-row md:w-full md:gap-5'
-		>
-			<!-- <div
-				class='flex flex-col gap-4 md:flex-row md:border-r-2 pr-4 border-white'
+		{SOCIAL_NETWORKS.map(network => (
+			<HeaderLink
+				href={network.url}
+				target='_blank'
+				title={network.name}
+				aria-label={network.name}
 			>
-				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base'>
-					<TagIcon /> Tags
-				</HeaderLink>
-			</div> -->
+				<Icon name={network.icon} />
+			</HeaderLink>
+		))}
 
-			<div class='flex justify-center items-center md:justify-end gap-3 md:p-0'>
-				{
-					SOCIAL_NETWORKS.map(network => (
-						<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
-							<span><Icon name={network.icon} /></span>
-						</HeaderLink>
-					))
-				}
-			</div>
-		</nav>
-	</div>
-
-	<div class='flex items-center gap-3 md:pl-3'>
-		<div>
-			<Search />
-		</div>
-		<button id='astro-header-drawer-button' type='button' class='md:ml-6 md:hidden'>
-			<MenuIcon />
-			<span class='sr-only'>Show Menu</span>
-		</button>
+		<Search />
 	</div>
 </header>
-<script>
-	document.addEventListener('click', (event) => {
-		const menu = document.getElementById('astro-header-drawer')
-		const menuButton = document.getElementById('astro-header-drawer-button')
-		const isClickInside =
-			menu?.contains(event.target as HTMLDivElement) ||
-			menuButton?.contains(event.target as HTMLButtonElement)
-
-		if (isClickInside) {
-			menu?.classList.toggle('translate-x-96')
-		} else {
-			menu?.classList.add('translate-x-96')
-		}
-	})
-</script>
