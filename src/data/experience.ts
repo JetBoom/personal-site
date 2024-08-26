@@ -4,6 +4,8 @@ type ExperienceType = {
     startDate: string
     endDate: string
 	description: string
+    url?: string
+    linkedin?: string
     image?: string
     skills?: string
 	bullets?: string[]

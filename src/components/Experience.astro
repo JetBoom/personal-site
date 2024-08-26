@@ -1,9 +1,13 @@
 ---
+import LinkedinIcon from "@/components/icons/linkedinIcon"
+
 const {
 	title,
 	subtitle,
 	dates,
 	image,
+	url,
+	linkedin,
 } = Astro.props
 ---
 
@@ -12,8 +16,17 @@ const {
 		<div class="w-[2px] self-stretch bg-gradient-to-b from-primary to-transparent before:content-['']"></div>
 		<div class="pl-2 grow">
 			<div class="flex items-center">
-				<h4 class="text-lg font-bold">{title}</h4>
-				{image && <img src={image} alt="" class="text-lg h-[1em] pl-4" />}
+				<a href={url} target="_blank" class="flex items-center">
+					<h4 class="text-lg font-bold flex">
+						{title}
+					</h4>
+					{image && <img src={image} alt="" class="text-lg h-[1em] ml-2" />}
+				</a>
+				{linkedin && (
+					<a href={linkedin} target="_blank" class="ml-4">
+						<LinkedinIcon />
+					</a>
+				)}
 			</div>
 			<div>{subtitle}</div>
 		</div>
