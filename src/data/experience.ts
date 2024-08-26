@@ -1,5 +1,5 @@
 type ExperienceType = {
-    company: string
+    name: string
     title: string
     startDate: string
     endDate: string
@@ -13,7 +13,9 @@ type ExperienceType = {
 
 export const EXPERIENCE: ExperienceType[] = [
     {
-        company: 'SustainaBase',
+        name: 'SustainaBase',
+        url: 'https://sustainabase.com',
+        linkedin: 'https://www.linkedin.com/company/sustainabase',
         image: 'logos/sustainabase.png',
         title: 'Senior Software Engineer',
         startDate: '05/2023',
@@ -30,7 +32,9 @@ export const EXPERIENCE: ExperienceType[] = [
     },
 
     {
-        company: 'Apricity Health',
+        name: 'Apricity Health',
+        url: 'https://apricity-health.com',
+        linkedin: 'https://www.linkedin.com/company/apricity-health',
         image: 'logos/apricityhealth.svg',
         title: 'Senior Software Engineer',
         startDate: '12/2022',
@@ -47,7 +51,9 @@ export const EXPERIENCE: ExperienceType[] = [
     },
 
 	{
-        company: 'Mosaic Learning',
+        name: 'Mosaic Learning',
+        url: 'https://www.mosaiclearning.com',
+        linkedin: 'https://www.linkedin.com/company/mosaiclearning',
         image: 'logos/mosaiclearning.png',
         title: 'Software Engineer',
         startDate: '01/2020',
@@ -59,7 +65,7 @@ export const EXPERIENCE: ExperienceType[] = [
     },
 
     {
-		company: 'NoxFire Group',
+		name: 'NoxFire Group',
         image: 'logos/noxfire.png',
         title: 'Software Engineer',
         startDate: '12/2018',
@@ -69,7 +75,7 @@ export const EXPERIENCE: ExperienceType[] = [
     },
 
 	{
-        company: 'Altik',
+        name: 'Altik',
         title: 'Software Engineer',
         startDate: '04/2017',
         endDate: '12/2018',

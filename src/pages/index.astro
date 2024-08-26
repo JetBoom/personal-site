@@ -34,7 +34,7 @@ const title = 'About'
 	<NamedList name="Experience" description="Where I've been professionally...">
 		{EXPERIENCE.map(experience => (
 			<Experience
-				title={experience.company}
+				title={experience.name}
 				subtitle={experience.title}
 				dates={`${experience.startDate} - ${experience.endDate}`}
 				image={experience.image}
@@ -70,6 +70,7 @@ const title = 'About'
 		<Experience
 			title="Stony Brook University"
 			subtitle="B.S. Technological Systems Management, Specialization in Computer Science"
+			url="https://www.cs.stonybrook.edu/"
 			image="logos/stonybrookuniversity.jpg"
 		>
 			Areas of interests were in game development, computer graphics, and project management.
@@ -79,6 +80,7 @@ const title = 'About'
 		<Experience
 			title="Suffolk Community College"
 			subtitle="A.S. Computer Science"
+			url="https://www.sunysuffolk.edu/explore-academics/majors-and-programs/computer-science/index.jsp"
 			image="logos/sccc.png"
 		/>
 	</NamedList>
@@ -87,6 +89,7 @@ const title = 'About'
 		<Experience
 			title="SBU Game Programming Competition"
 			subtitle="1st place in 2015"
+			url="https://www3.cs.stonybrook.edu/~games/history.html"
 			image="logos/stonybrookuniversity.jpg"
 		>
 			Won 1st place in the university's annual game programming competition out of 100+ entries and 16 finalists for <i>"Valhalla Run"</i>.
