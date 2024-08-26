@@ -11,6 +11,12 @@ export const SOCIAL_NETWORKS: SocialNetworkType[] = [
 		icon: 'skill-icons:github-dark',
 	},
 
+    {
+		name: 'LinkedIn',
+		url: 'https://www.linkedin.com/in/wmoo',
+		icon: 'skill-icons:linkedin',
+	},
+
 	{
 		name: 'Instagram',
 		url: 'https://instagram.com/regalartenjoyer',
