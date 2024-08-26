@@ -1,7 +1,5 @@
 ---
 import HeaderLink from '@/components/HeaderLink'
-import GithubIcon from '@/components/icons/GithubIcon'
-import InstagramIcon from '@/components/icons/InstagramIcon'
 import MenuIcon from '@/components/icons/MenuIcon'
 import Search from '@/components/Search'
 import Icon from '@/components/icons/Icon'
@@ -53,9 +51,9 @@ const SOCIALNETWORKS = [
 
 			<div class='flex justify-center items-center md:justify-end gap-3 md:p-0'>
 				{
-					SOCIALNETWORKS.map((network) => (
+					SOCIAL_NETWORKS.map(network => (
 						<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
-							<span><network.icon /> </span>
+							<span><Icon name={network.icon} /></span>
 						</HeaderLink>
 					))
 				}
