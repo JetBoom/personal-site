@@ -4,8 +4,10 @@ import NamedList from '@/components/NamedList'
 import BaseLayout from '@/layouts/BaseLayout'
 import UnorderedList from '@/components/UnorderedList'
 import ListItem from '@/components/ListItem'
-import { SKILLS } from '@/data/skills'
+import Icon from '@/components/icons/Icon'
+import { SKILLS, MAIN_SKILLS } from '@/data/skills'
 import { EXPERIENCE } from '@/data/experience'
+import { GetSkillIcon } from '@/data/SkillIcons'
 
 const title = 'About'
 ---
@@ -13,9 +15,9 @@ const title = 'About'
 <BaseLayout title={title}>
 	<!-- <TitlePage title={title} /> -->
 
-	<div class="flex gap-8 justify-center items-center">
+	<div class="flex gap-8 justify-center items-center max-sm:flex-col">
 		<div>
-			<div class="size-32 md:size-64 bg-[url(/myself.jpg)] bg-cover rounded-[25%] shadow-glow" />
+			<div class="size-32 md:size-64 shadow-glow bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-[25%] transition-[background-size] hover:bg-[length:100%_100%]" />
 		</div>
 		<div class="flex flex-col">
 			<p class="text-2xl text-white font-bold">
@@ -24,14 +26,18 @@ const title = 'About'
 			<p class="text-lg font-bold">
 				Hi, I'm a <span class="text-primary">senior software engineer</span>!
 			</p>
+			<div class="flex gap-1 text-md">
+				{MAIN_SKILLS.map(skill => (
+					<Icon name={GetSkillIcon(skill) || ''} title={skill} />
+				))}
+			</div>
 			<p class="text-sm whitespace-pre-line">
-				The site is still a bit under construction as I write pages for my personal projects
-				and migrate blog posts from my old personal site.
+				A bit under construction as I migrate from my old personal site.
 			</p>
 		</div>
 	</div>
 
-	<NamedList name="Experience" description="Where I've been professionally...">
+	<NamedList name="Experience">
 		{EXPERIENCE.map(experience => (
 			<Experience
 				title={experience.name}
@@ -60,7 +66,7 @@ const title = 'About'
 				</div>
 				<div>-</div>
 				<div>
-					{grp.skills}
+					{grp.skills.join(', ')}
 				</div>
 			))}
 		</div>
