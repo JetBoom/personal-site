@@ -4,21 +4,7 @@ import MenuIcon from '@/components/icons/MenuIcon'
 import Search from '@/components/Search'
 import Icon from '@/components/icons/Icon'
 import PostIcon from '@/components/icons/PostIcon'
-
-// ADD YOUR SOCIAL NETWORKS HERE
-const SOCIALNETWORKS = [
-	{
-		name: 'Github',
-		url: 'https://github.com/JetBoom',
-		icon: GithubIcon,
-	},
-
-	{
-		name: 'Instagram',
-		url: 'https://instagram.com/regalartenjoyer',
-		icon: InstagramIcon,
-	},
-]
+import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
 ---
 
 <header class='relative flex items-center justify-between font-semibold text-md'>
@@ -27,10 +13,10 @@ const SOCIALNETWORKS = [
 			<Icon name="ri:user-heart-fill" /> About Me
 		</HeaderLink>
 		<HeaderLink href='/posts' class='flex items-center gap-1'>
-			<PostIcon /> Posts
+			<PostIcon /> Articles
 		</HeaderLink>
 		<HeaderLink href='https://github.com/JetBoom' class='flex items-center gap-1'>
-			<GithubIcon /> Projects
+			<Icon name="ri:github-fill" /> Projects
 		</HeaderLink>
 	</nav>
 
