@@ -1,11 +1,10 @@
 ---
+import { cn } from '@/utils'
 import { Icon as AstroIcon } from 'astro-icon/components'
-
-type Props = {
-    name: string
-}
-
-const { name } = Astro.props
 ---
 
-<AstroIcon name={name} class="text-current text-[1.5em]" />
+<AstroIcon
+    {...Astro.props}
+    name={Astro.props.name}
+    class={cn('text-current text-[1.5em]', Astro.props.class)}
+/>
