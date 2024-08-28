@@ -5,6 +5,7 @@ import BaseLayout from '@/layouts/BaseLayout'
 import Tag from '@/components/Tag'
 import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
+import Icon from '@/components/icons/Icon'
 
 type Props = {
 	data: CollectionEntry<'blog'>['data'] | CollectionEntry<'project'>['data']
@@ -24,47 +25,44 @@ const articleDate = pubDate.toISOString()
 	image={image?.src}
 	articleDate={articleDate}
 >
-	<article class='min-w-full md:py-4 sm:max-w-none md:max-w-none'>
-		<header class='mb-3 flex flex-col justify-center items-center gap-6'>
-			<div class='flex flex-col gap-2'>
-				<div class='flex items-center justify-center gap-x-1'>
-					<p class='text-center text-sm text-opacity-50'>
-						Published <FormattedDate date={pubDate} />
-					</p>
-					<p class='text-center text-sm text-opacity-50 font-bold'>
-						- {readTime}
-					</p>
+	<article class="min-w-full md:py-4 sm:max-w-none md:max-w-none">
+		<header class="flex flex-col justify-center items-center gap-6">
+			<div class="flex items-center justify-center gap-8 md:gap-32 flex-wrap text-sm text-white/70">
+				<div class="flex items-center gap-1">
+					<Icon name="ri:calendar-line" />
+					<span>Published <FormattedDate date={pubDate} /></span>
 				</div>
-				<h1 class='title text-center text-4xl md:text-6xl md:pb-2.5 font-semibold opacity-0'>
-					{title}
-				</h1>
+				<div class="flex items-center gap-1">
+					<Icon name="ri:time-line" />
+					<span>{readTime}</span>
+				</div>
 			</div>
 
-			<div class='flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5'>
+			<h1 class="title text-center text-4xl md:text-6xl font-semibold opacity-0">
+				{title}
+			</h1>
+
+			<p class="description text-center text-md opacity-0 font-bold">
+				{description}
+			</p>
+
+			<div class="flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5 md:mt-2.5">
 				{tags.map((tag) => <Tag>{tag}</Tag>)}
 			</div>
 		</header>
 
-		<div class='relative'>
-			{
-				image && (
-					<Image
-						src={image}
-						width={1000}
-						height={500}
-						quality={100}
-						format='jpg'
-						loading='eager'
-						class='rounded-md w-full max-h-[300px] md:max-h-[500px] my-8 object-cover opacity-0 transition-opacity duration-700 ease-in'
-						alt={`img of ${title}`}
-					/>
-				)
-			}
-			<div
-				style='backdrop-filter: blur(25px) saturate(180%);'
-				class='placeholder absolute inset-0 blur rounded-md transition-opacity duration-700 ease-out border-2 border-neutral-900 bg-zinc-900 bg-opacity-90'
-			>
-			</div>
+		<div class="mt-3 relative">
+			{image && (
+				<Image
+					src={image}
+					width={1000}
+					height={500}
+					quality={100}
+					loading='eager'
+					class='rounded-md w-full max-h-[300px] md:max-h-[500px] my-8 object-cover transition-opacity duration-700 ease-in'
+					alt={`img of ${title}`}
+				/>
+			)}
 		</div>
 
 		<hr class="border-primary" />
@@ -75,26 +73,24 @@ const articleDate = pubDate.toISOString()
 	</article>
 </BaseLayout>
 
-<script is:inline>
-	const img = document.querySelector('img')
-	const placeholder = document.querySelector('.placeholder')
-
-	img?.addEventListener('load', () => {
-		img.classList.add('opacity-100')
-		placeholder.classList.add('opacity-0')
-	})
-</script>
-
 <script>
 	import { animate } from 'motion'
 
+	const keyFrames = {
+		opacity: [0, 1],
+		clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)'],
+	}
+
 	animate(
 		'.title',
-		{
-			opacity: [0, 1],
-			clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 100%)', 'polygon(100% 0, 0 0, 0 100%, 100% 100%)']
-		},
-		{ duration: 1, easing: 'ease-in-out' }
+		keyFrames,
+		{ duration: 1.5, easing: 'ease-in-out' }
+	)
+
+	animate(
+		'.description',
+		keyFrames,
+		{ duration: 1.5, easing: 'ease-in-out', delay: 1 }
 	)
 </script>
 

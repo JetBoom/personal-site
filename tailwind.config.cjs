@@ -3,7 +3,6 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 const colors = {
 	white: '#f9f8f6',
-	faded: '#f9f8f6aa',
 	primary: '#c6563a',
 	accent: '#e58569',
 	//secondary: '#a4939a',

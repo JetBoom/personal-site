@@ -6,11 +6,11 @@ type SkillListType = {
 export const SKILLS: SkillListType[] = [
 	{
 		category: 'Languages',
-		skills: ['TypeScript', 'JavaScript', 'Python', 'C++', 'Lua', 'Java', 'PHP', 'C#', '.NET'],
+		skills: ['TypeScript', 'JavaScript', 'Python', 'C++', 'Lua', 'Java', 'PHP', 'C#'],
 	},
 	{
 		category: 'Back-end',
-		skills: ['Node', 'Express', 'Django', 'Laravel', 'NestJS'],
+		skills: ['Node', 'Express', 'NestJS', 'Django', 'Laravel', '.NET'],
 	},
 	{
 		category: 'Front-end',
@@ -29,16 +29,24 @@ export const SKILLS: SkillListType[] = [
 		skills: ['Redux', 'Mobx', 'React Query', 'GraphQL', 'tRPC'],
 	},
 	{
-		category: 'Cloud',
-		skills: ['AWS', 'GCP', 'Azure', 'S3', 'Serverless', 'Lambda', 'EC2', 'ECS', 'SQS', 'IVS', 'Route 53'],
+		category: 'Cloud services',
+		skills: ['AWS', 'GCP', 'Azure', 'Serverless', 'Lambda', 'S3', 'EC2', 'ECS', 'SQS'],
 	},
 	{
-		category: 'Authentication',
-		skills: ['Auth0', 'Cognito'],
+		category: 'DevOps',
+		skills: ['CI/CD', 'Docker', 'Kubernetes', 'GitHub Actions', 'NGINX', 'Linux'],
 	},
 	{
 		category: 'Testing',
 		skills: ['Jest', 'Cypress', 'React Testing Library'],
+	},
+	{
+		category: 'ORM',
+		skills: ['Hibernate', 'Prisma', 'TypeORM', 'MikroORM'],
+	},
+	{
+		category: 'Authentication',
+		skills: ['Auth0', 'Cognito'],
 	},
 	{
 		category: 'Source management',
@@ -49,8 +57,8 @@ export const SKILLS: SkillListType[] = [
 		skills: ['npm', 'pnpm', 'yarn', 'pip', 'bun'],
 	},
 	{
-		category: 'CI/CD',
-		skills: ['Docker', 'Kubernetes'],
+		category: 'Linting',
+		skills: ['ESLint', 'Prettier'],
 	},
 	{
 		category: 'Collaboration',
@@ -65,12 +73,8 @@ export const SKILLS: SkillListType[] = [
 		skills: ['Unreal', 'Unity', 'Source'],
 	},
 	{
-		category: 'Other',
-		skills: ['NGINX', 'CI/CD', 'Linux'],
-	},
-	{
-		category: 'Industry-specific',
-		skills: ['HIPAA', 'SOC 2', 'FHIR'],
+		category: 'Industries',
+		skills: ['Healthcare (HIPAA, SOC 2, FHIR)', 'Education', 'Sustainability'],
 	},
 ] as const
 

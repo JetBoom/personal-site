@@ -1,28 +1,24 @@
 ---
-import { siteConfig } from '@/data/site.config'
-import TwitterColorIcon from './icons/TwitterColorIcon.astro'
-import LinkedinIcon from './icons/linkedinIcon.astro'
-const message = siteConfig.shareMessage
+import { SHARE_SITES } from '@/data/ShareSites'
+
+type Props = {
+	message: string
+}
+
+const { message } = Astro.props
 
 const URL = Astro.url.href
 ---
 
-<div class='flex flex-col gap-2'>
-	<!-- <span class='mb-1 font-bold text-2xl'>Share</span> -->
-	<ul class='flex gap-3 text-white'>
-		<li>
-			<a
-				href={`https://twitter.com/intent/tweet?text=${message + ' ' + URL}`}
-				aria-label='Share on Twitter'><TwitterColorIcon /></a
-			>
-		</li>
-		<li>
-			<a
-				href={`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`}
-				aria-label='Share on LinkedIn'
-			>
-				<LinkedinIcon /></a
-			>
-		</li>
-	</ul>
+<div class="flex justify-center items-center gap-4 text-md">
+	{SHARE_SITES.map(site => (
+		<a
+			href={site.href(URL, message)}
+			title={`Share on ${site.name}`}
+			target="_blank"
+			aria-label={`Share on ${site.name}`}
+		>
+			{<site.icon />}
+		</a>
+	))}
 </div>
