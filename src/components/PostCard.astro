@@ -58,16 +58,9 @@ const {
 		@apply transition;
 	}
 
-	.card:hover,
-	.card:focus-within {
+	.card:hover {
 		@apply shadow-glow;
 		@apply border-primary shadow-primary;
-	}
-
-	.card:focus-within a:focus {
-		text-decoration: none;
-		box-shadow: none;
-		outline: none;
 	}
 
 	.card_tags {
@@ -79,14 +72,6 @@ const {
 
 	.card_tags > *:nth-child(even) {
 		justify-content: flex-end;
-	}
-
-	.card__link {
-		text-decoration: none;
-	}
-
-	.card__link:focus {
-		text-decoration: underline;
 	}
 
 	.card__link::after {
