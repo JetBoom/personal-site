@@ -28,9 +28,11 @@ const {
 					</a>
 				)}
 			</div>
-			<div class="text-md">{subtitle}</div>
+			<div class="flex justify-between items-center text-md">
+				<div>{subtitle}</div>
+				<div class="text-white text-sm text-opacity-75">{dates}</div>
+			</div>
 		</div>
-		<div class="text-md text-white text-opacity-75">{dates}</div>
 	</div>
 	<p class="mt-4 text-md"><slot /></p>
 </article>
