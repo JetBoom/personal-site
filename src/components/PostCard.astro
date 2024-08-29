@@ -45,6 +45,7 @@ const {
 
 <style>
 	.card {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		border: 1px solid #222;
@@ -54,11 +55,13 @@ const {
 		position: relative;
 		overflow: hidden;
 		min-height: 25rem;
+		@apply top-0;
 		@apply bg-black/20;
-		@apply transition;
+		@apply transition-all;
 	}
 
 	.card:hover {
+		@apply -top-4;
 		@apply shadow-glow;
 		@apply border-primary shadow-primary;
 	}
