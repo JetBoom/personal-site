@@ -22,15 +22,7 @@ module.exports = {
 				list: 'repeat(auto-fill, minmax(400px, max-content))'
 			},
 			fontSize: {
-				xs: '14px',
-				sm: '16px',
-				base: '24px',
-				md: '24px',
-				lg: '32px',
-				xl: '48px',
-				'2xl': '60px',
-				'3xl': '100px',
-				'4xl': '150px',
+				
 			},
 			boxShadow: {
 				glow: `0 0 1rem ${colors.primary}88`,

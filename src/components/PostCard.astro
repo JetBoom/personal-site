@@ -14,20 +14,20 @@ const {
 	<div class="relative">
 		<div class="absolute bg-gradient-to-b from-black/50 to-transparent h-16 w-full"></div>
 
-		<Image src={image} class="h-64 w-full object-cover" alt="" />
+		<Image src={image} class="h-[16rem] w-full object-cover" alt="" />
 
-		<div class="flex justify-between items-center gap-1 text-xs text-white/70 absolute bottom-2 left-2 right-2 px-4 py-2 bg-black/60 rounded shadow-md">
+		<div class="card_tags text-shadow-md">
 			<div class="flex items-center gap-1">
 				<Icon name="ri:calendar-line" />
 				<FormattedDate date={pubDate} />
 			</div>
 
-			{readTime && (
+			<!-- {readTime && (
 				<div class="flex items-center gap-1">
 					<Icon name="ri:time-line" />
 					<span>{readTime}</span>
 				</div>
-			)}
+			)} -->
 
 			<div class="flex items-center gap-1">
 				<Icon name="ri:folder-2-line" />
@@ -36,10 +36,10 @@ const {
 		</div>
 	</div>
 
-	<div class="flex flex-col grow p-4 gap-2 text-center">
-		<a class="card__link text-md text-primary font-bold" href={`/post/${slug}/`}>{title}</a>
+	<div class="flex flex-col grow p-6 gap-2">
+		<a class="card__link text-2xl text-primary font-bold" href={`/post/${slug}/`}>{title}</a>
 
-		<p class="text-sm">{description}</p>
+		<p class="text-md text-white text-opacity-75">{description}</p>
 	</div>
 </div>
 
@@ -48,16 +48,19 @@ const {
 		display: flex;
 		flex-direction: column;
 		border: 1px solid #222;
+		border-top-width: 0;
+		border-bottom-width: 4px;
 		border-radius: 1rem;
 		position: relative;
 		overflow: hidden;
-		min-height: 24rem;
+		min-height: 25rem;
 		@apply bg-black/20;
 		@apply transition;
 	}
 
 	.card:hover,
 	.card:focus-within {
+		@apply shadow-glow;
 		@apply border-primary shadow-primary;
 	}
 
@@ -65,6 +68,17 @@ const {
 		text-decoration: none;
 		box-shadow: none;
 		outline: none;
+	}
+
+	.card_tags {
+		@apply grid grid-cols-2 gap-x-4 gap-y-1;
+		@apply absolute bottom-4 left-6 right-6 px-4 py-2;
+		@apply text-sm text-white text-opacity-75 bg-black/75 shadow-md;
+		@apply border border-white border-opacity-25 rounded-lg;
+	}
+
+	.card_tags > *:nth-child(even) {
+		justify-content: flex-end;
 	}
 
 	.card__link {

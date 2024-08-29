@@ -16,21 +16,21 @@ const {
 		<div class="w-[2px] self-stretch bg-gradient-to-b from-primary to-transparent before:content-['']"></div>
 		<div class="pl-2 grow">
 			<div class="flex items-center">
-				<a href={url} target="_blank" class="flex items-center">
-					<h4 class="text-lg font-bold flex">
+				<a href={url} target="_blank" class="flex items-center text-2xl">
+					<h4 class="font-bold">
 						{title}
 					</h4>
-					{image && <img src={image} alt="" class="text-lg h-[1em] ml-2" />}
+					{image && <img src={image} alt="" class="h-[1em] ml-2" />}
 				</a>
 				{linkedin && (
-					<a href={linkedin} target="_blank" class="ml-4">
+					<a href={linkedin} target="_blank" class="text-xl ml-4">
 						<LinkedinIcon />
 					</a>
 				)}
 			</div>
-			<div>{subtitle}</div>
+			<div class="text-md">{subtitle}</div>
 		</div>
-		<div class="text-sm opacity-80">{dates}</div>
+		<div class="text-md text-white text-opacity-75">{dates}</div>
 	</div>
-	<p class="mt-4 text-sm"><slot /></p>
+	<p class="mt-4 text-md"><slot /></p>
 </article>
