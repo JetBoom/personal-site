@@ -49,6 +49,11 @@
 	.prose p {
 		text-align: justify;
 	}
+
+	.prose .remark-oembed-inline iframe {
+		width: 100%;
+		height: 31rem;
+	}
 }
 
 @layer utilities {
