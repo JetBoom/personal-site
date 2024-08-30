@@ -12,8 +12,8 @@
 		letter-spacing: 0.05em;
 		width: 100vw;
 		height: 100vh;
-		@apply bg-dark;
-		@apply text-white;
+		@apply bg-bg;
+		@apply text-fg;
 	}
 
 	@supports (letter-spacing: 1cap) {

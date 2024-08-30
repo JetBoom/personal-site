@@ -27,7 +27,7 @@ const articleDate = pubDate.toISOString()
 >
 	<article class="min-w-full md:py-4 sm:max-w-none md:max-w-none">
 		<header class="flex flex-col justify-center items-center gap-6">
-			<div class="flex items-center justify-center gap-8 md:gap-32 flex-wrap text-sm text-white/70">
+			<div class="flex items-center justify-center gap-8 md:gap-32 flex-wrap text-sm text-fg/70">
 				<div class="flex items-center gap-1">
 					<Icon name="ri:calendar-line" />
 					<span>Published <FormattedDate date={pubDate} /></span>
@@ -103,19 +103,19 @@ const articleDate = pubDate.toISOString()
 			const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
 
 			if (entry.isIntersecting) {
-				index?.classList.remove('bg-dark') // remove bg
+				index?.classList.remove('bg-bg') // remove bg
 				index?.classList.add(
 					'bg-primary',
-					//'text-white',
+					//'text-fg',
 					'font-bold',
 					'transition-colors',
 					'duration-200'
 				)
 			} else {
-				index?.classList.add('bg-dark') // add bg
+				index?.classList.add('bg-bg') // add bg
 				index?.classList.remove(
 					'bg-primary',
-					//'text-white',
+					//'text-fg',
 					'font-bold',
 					'transition-colors',
 					'duration-200'

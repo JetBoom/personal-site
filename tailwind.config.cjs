@@ -1,12 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const white = '#f9f8f6'
+const bg = '#110f10'
+
 const colors = {
-	white: '#f9f8f6',
+	white,
+	fg: white,
+	bg,
 	primary: '#c6563a',
 	accent: '#e58569',
 	//secondary: '#a4939a',
-	dark: '#110f10',
+	dark: bg,
 }
 
 module.exports = {

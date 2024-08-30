@@ -39,7 +39,7 @@ const {
 	<div class="flex flex-col grow p-6 gap-2">
 		<a class="card__link text-2xl text-primary font-bold" href={`/post/${slug}/`}>{title}</a>
 
-		<p class="text-md text-white text-opacity-75">{description}</p>
+		<p class="text-md text-fg text-opacity-75">{description}</p>
 	</div>
 </div>
 
@@ -69,8 +69,8 @@ const {
 	.card_tags {
 		@apply grid grid-cols-2 gap-x-4 gap-y-1;
 		@apply absolute bottom-4 left-6 right-6 px-4 py-2;
-		@apply text-sm text-white text-opacity-75 bg-black/75 shadow-md;
-		@apply border border-white border-opacity-25 rounded-lg;
+		@apply text-sm text-fg text-opacity-75 bg-black/75 shadow-md;
+		@apply border border-fg border-opacity-25 rounded-lg;
 	}
 
 	.card_tags > *:nth-child(even) {
