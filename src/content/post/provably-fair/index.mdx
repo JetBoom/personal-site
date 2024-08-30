@@ -1,7 +1,8 @@
 ---
+title: Provably Fair is not Provably Honest
+category: Case Studies
+description: A look in to why CS:GO skin gamblers are getting scammed even more than regular gamblers.
 image: /src/assets/images/bg.jpg
-category: Case Study
-description: 'A look in to why CS:GO skin gamblers are getting scammed'
 pubDate: 2016-07-08T04:00:00.000Z
 tags:
   - programming
@@ -9,7 +10,6 @@ tags:
   - cryptography
   - games
   - gambling
-title: Provably Fair is not Provably Honest
 ---
 
 **Disclaimer:** I do not endorse gambling and the site I developed has been shut down for a while.
@@ -80,8 +80,8 @@ Able to give results before hand.
 
 #### Their provably fair
 
-![](/src/assets/images/provably-fair/csgodouble1.jpg)
-![](/src/assets/images/provably-fair/csgodouble2.jpg)
+![](./csgodouble1.jpg)
+![](./csgodouble2.jpg)
 
 This site uses a pretty simple algorithm. One thing I like about it is that it does show how it determines the winning percent: by taking a part of the resulting hash and converting it to a number. SHA256 is pretty much uniformly random to the casual observer and only tiny bumps in the distribution would occur. Additionally, the use of a daily seed makes it computationally impossible to rig anything beyond the first handful of matches for a day. This makes it leagues above the other sites simply for the fact that it determines the winner in a way you can verify. They do that rather than simply determining the winner, then making it so you can verify they didn’t change the winner. Of course, this system is not perfect. Not perfect at all.
 
@@ -105,7 +105,7 @@ This one is interesting because it has already admitted to rigging with the guy 
 
 #### Their provably fair
 
-![](/src/assets/images/provably-fair/diamonds2.jpg)
+![](./diamonds2.jpg)
 
 ```php
 // seed: Server Seed from above
@@ -136,7 +136,7 @@ These are the ones I decided to use. I am not saying they are perfect but I am c
 
 First, we use a list of daily secrets, extremely similar to what double and a few other sites use. Even bitcoin sites use this system.
 
-![](/src/assets/images/provably-fair/skindragon1.jpg)
+![](./skindragon1.jpg)
 
 The roulette algorithm is also similar to double except for what we use in place of the “lotto”. Instead of using the static lotto numbers, we use the total amount of coins wagered in the round. The reason for this is simple: it’s chaotic. There is no way to tell people to bet on a certain color because at any time, many people are betting, changing their bet amounts, etc all up until the time the wheel starts to spin. The winning percent is determined right as the timer hits 00.00. The detailed results of every round are available for all to see so it would be impossible to change them. csgobig uses a similar system for their roulette and they claim it's 100% fool-proof.
 

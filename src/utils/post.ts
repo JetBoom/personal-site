@@ -1,25 +1,25 @@
 import { getCollection } from 'astro:content'
 
-async function getBlogsFromCollection() {
-	const posts = await getCollection('blog')
+async function getPostsFromCollection() {
+	const posts = await getCollection('post')
 	return posts ?? []
 }
 
 export const getCategories = async () => {
-	const posts = await getBlogsFromCollection()
+	const posts = await getPostsFromCollection()
 	const categories = new Set(posts.map((post) => post.data.category))
 	return Array.from(categories)
 }
 
 export const getPosts = async (max?: number) => {
-	return (await getBlogsFromCollection())
+	return (await getPostsFromCollection())
 		.filter((post) => !post.data.draft)
-		.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 		.slice(0, max)
 }
 
 export const getTags = async () => {
-	const posts = await getBlogsFromCollection()
+	const posts = await getPostsFromCollection()
 	const tags = new Set(posts.map((post) => post.data.tags).flat())
 	return Array.from(tags)
 }

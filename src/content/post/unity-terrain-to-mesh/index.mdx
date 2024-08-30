@@ -1,0 +1,32 @@
+---
+title: TerrainCollider to MeshCollider
+category: Projects
+description: Easily convert terrain to a performant MeshCollider in the Unity engine.
+image: ./banner.jpg
+pubDate: 2015-02-13T04:00:00.000Z
+tags:
+  - game dev
+  - unity
+  - c#
+  - programming
+---
+
+# About
+
+Terrain collision is generally awful in Unity. It has inaccurate collision detection with custom character controllers resulting in characters going through the map. It also performs significantly worse than a mesh.
+Unity themselves have said that you should use meshes instead of terrain where possible.
+
+Terrain is much easier to iterate on than meshes though.
+I made a script that automatically takes terrain data, creates a mesh, and then replaces the TerrainCollider with a MeshCollider using the generated mesh.
+I didn’t feel like giving up the fancy features of terrain drawing and exporting the mesh to a modeling program is a bit time consuming.
+
+Since it’s run when the scene starts, it increases load times by a decent amount but shadows and baked stuff like that shouldn’t be changed.
+An option is available that puts the mesh in to the assets folder, which can then be attached manually in the editor.
+When you’re done testing your game you can export the generated meshes to actual assets to save load times.
+
+Attach it to any terrain object and it will do its magic when the scene loads. I’m using low resolution height maps. You should be prepared for long load times if you’re using higher resolution maps.
+
+A lot of the script was taken from [TerrainObjExporter](http://wiki.unity3d.com/index.php?title=TerrainObjExporter).
+I had to make some changes for the generated mesh to exactly match up to the drawn terrain (flipping, reversing, rearranging indices, rotating).
+
+[Download](/unityassets/terraintomeshcollider.zip)

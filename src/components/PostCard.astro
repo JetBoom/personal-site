@@ -14,7 +14,7 @@ const {
 	<div class="relative">
 		<div class="absolute bg-gradient-to-b from-black/50 to-transparent h-16 w-full"></div>
 
-		<Image src={image} class="h-[16rem] w-full object-cover" alt="" />
+		{image && <Image src={image} class="h-[16rem] w-full object-cover" alt="" />}
 
 		<div class="card_tags text-shadow-md">
 			<div class="flex items-center gap-1">
