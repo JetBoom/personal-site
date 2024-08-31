@@ -61,10 +61,10 @@ const title = 'About'
 	<NamedList name="Skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
 		<div class="grid grid-cols-1 sm:grid-cols-[auto_auto] gap-y-1">
 			{SKILLS.map(grp => (
-				<div class="text-fg/70 mr-[4ch] max-sm:border-b border-current">
+				<div class="text-fg text-opacity-65 mr-[4ch] max-sm:border-b border-current">
 					{grp.category}<span class="max-sm:hidden">:</span>
 				</div>
-				<div class="[&:not(:last-child)]:max-sm:mb-2">
+				<div class="text-fg text-opacity-85 [&:not(:last-child)]:max-sm:mb-2">
 					{grp.skills.join(', ')}
 				</div>
 			))}

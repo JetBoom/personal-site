@@ -6,6 +6,7 @@ import Tag from '@/components/Tag'
 import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
 import Icon from '@/components/icons/Icon'
+import HorizontalRule from '@/components/HorizontalRule'
 
 type Props = {
 	data: CollectionEntry<'post'>['data']
@@ -65,7 +66,7 @@ const articleDate = pubDate.toISOString()
 			)}
 		</div>
 
-		<hr class="border-primary" />
+		<HorizontalRule />
 
 		<div>
 			<slot />

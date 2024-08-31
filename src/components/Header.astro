@@ -4,10 +4,11 @@ import Search from '@/components/Search'
 import Icon from '@/components/icons/Icon'
 import PostIcon from '@/components/icons/PostIcon'
 import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
+import HorizontalRule from './HorizontalRule.astro'
 ---
 
-<header class='relative flex items-center justify-between font-semibold text-lg'>
-	<nav class='flex w-full items-center gap-2 md:gap-6'>
+<header class="fixed top-0 left-0 right-0 w-full z-50">
+	<nav class="backdrop-blur bg-bg/60 flex items-center gap-2 py-4 md:gap-6 font-semibold text-lg mx-auto px-4 sm:max-w-2xl md:px-8 md:max-w-6xl">
 		<HeaderLink href='/'>
 			<Icon name="ri:user-heart-fill" />
 			<span class="max-md:hidden">About Me</span>
@@ -35,5 +36,6 @@ import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
 		))}
 
 		<Search />
-	</div>
+	</nav>
+	<HorizontalRule class="absolute bottom-0 w-full" />
 </header>

@@ -5,23 +5,31 @@ import Footer from '@/components/Footer'
 import ProviderAnimations from '@/components/ProviderAnimations'
 import TwSizeIndicator from '@/components/TwSizeIndicator'
 import EditBlog from '@/components/editBlog'
-const { title, description, image, articleDate } = Astro.props
+import { cn } from '@/utils'
+
+const {
+	title,
+	description,
+	image,
+	articleDate,
+	class: className,
+} = Astro.props
 ---
 
-<html lang='en' class='scroll-smooth'>
+<html lang="en" class="scroll-smooth">
 	<head>
 		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
 		<ProviderAnimations />
 	</head>
 
-	<body>
+	<body class="antialiased">
+		<Header />
 		<main
-			class='px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-6xl grid gap-12 mt-4 overflow-hidden md:overflow-visible'
+			class={cn("flex flex-col gap-12 mx-auto mt-24 px-4 sm:max-w-2xl md:px-8 md:max-w-6xl", className)}
 		>
-			<Header />
 			<slot />
-			<Footer />
 		</main>
+		<Footer />
 		<TwSizeIndicator />
 		<EditBlog />
 	</body>
