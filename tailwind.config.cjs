@@ -26,9 +26,6 @@ module.exports = {
 			gridTemplateColumns: {
 				list: 'repeat(auto-fill, minmax(400px, max-content))'
 			},
-			fontSize: {
-				
-			},
 			boxShadow: {
 				glow: `0 0 1rem ${colors.primary}88`,
 				'glow-lg': `0 0 2rem ${colors.primary}88`,
