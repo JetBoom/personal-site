@@ -64,6 +64,10 @@
 	.text-glow-md {
 		text-shadow: 0px 0px 1em currentColor;
 	}
+
+	.horizontal-rule {
+		@apply bg-gradient-to-r from-transparent from-15% via-primary to-transparent to-85%;
+	}
 }
 
 .moon-logo {

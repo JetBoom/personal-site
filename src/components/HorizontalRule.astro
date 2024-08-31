@@ -1,0 +1,7 @@
+---
+import { cn } from "@/utils"
+
+const { class: className, ...props } = Astro.props
+---
+
+<hr class={cn("text-primary border-none h-[1px] horizontal-rule", className)} {...props} />
