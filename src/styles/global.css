@@ -72,6 +72,17 @@
 	.horizontal-rule {
 		@apply bg-gradient-to-r from-transparent from-15% via-primary to-transparent to-85%;
 	}
+
+	/** Apply to links to expand their clickable region. */
+	.ez-click {
+		position: relative;
+	}
+
+	.ez-click::after {
+		position: absolute;
+		content: '';
+		inset: -0.5em;
+	}
 }
 
 .moon-logo {
