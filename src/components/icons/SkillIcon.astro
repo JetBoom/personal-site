@@ -1,0 +1,19 @@
+---
+import Icon from '@/components/icons/Icon'
+import { GetSkillIcon } from '@/data/SkillIcons'
+
+let {
+    for: iconFor,
+    fallback,
+    hideNotFound,
+    ...props
+} = Astro.props
+
+if (hideNotFound) fallback = ''
+
+const icon = GetSkillIcon(iconFor, fallback)
+
+const hide = hideNotFound && !icon
+---
+
+{!hide && <Icon name={icon} title={iconFor} {...props} />}
