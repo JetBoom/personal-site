@@ -1,0 +1,40 @@
+---
+import TitlePage from '@/components/TitlePage'
+import ListProjects from '@/components/ListProjects'
+import { siteConfig } from '@/data/site.config'
+import BaseLayout from '@/layouts/BaseLayout'
+import { getGitHubRepos } from '@/utils'
+
+const { github } = siteConfig
+
+const projects = await getGitHubRepos(github)
+
+const title = 'Projects'
+---
+
+<BaseLayout title={title}>
+	<TitlePage title={title} />
+	<p class="text-fg text-lg">A list of my public, open-source projects.</p>
+
+	<div>
+		<ListProjects projects={projects} />
+	</div>
+</BaseLayout>
+
+<script>
+	import { animate } from 'motion'
+	const showAnimations = localStorage.getItem('animations') === 'true'
+
+	if (showAnimations) {
+		animate(
+			'.title',
+			{ y: [80, 0], opacity: [0, 1] },
+			{
+				duration: 2.5,
+				opacity: { duration: 3 },
+
+				offset: [0, 0.55, 0.75]
+			}
+		)
+	}
+</script>

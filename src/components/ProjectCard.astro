@@ -1,0 +1,74 @@
+---
+import Icon from '@/components/icons/Icon'
+import SkillIcon from '@/components/icons/SkillIcon'
+import FormattedDate from '@/components/FormattedDate'
+import type { GitHubRepo } from '@/utils'
+import { GetSkillIcon } from '@/data/SkillIcons'
+
+type Props = {
+	project: GitHubRepo
+}
+
+const {
+	project: {
+		user,
+		name,
+		description,
+		language,
+		created,
+		updated,
+		stars,
+		forks,
+	}
+} = Astro.props
+---
+
+<div class="project-card">
+	<div class="flex gap-2">
+		<a class="project-card-link text-2xl text-primary font-bold" href={`https://github.com/${user}/${name}`}>{name}</a>
+	</div>
+	
+	<p class="text-md text-fg text-opacity-75 grow">{description}</p>
+
+	<div class="flex gap-6 text-lg">
+		<div class="flex items-center gap-1">
+			<Icon name="ri:star-fill" />
+			{stars}
+		</div>
+
+		<div class="flex items-center gap-1">
+			<Icon name="ri:git-fork-fill" />
+			{forks}
+		</div>
+
+		<SkillIcon for={language} />
+	</div>
+</div>
+
+<style>
+	.project-card {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		height: 12rem;
+		border: 1px solid #222;
+		border-top-width: 0;
+		border-bottom-width: 4px;
+		border-radius: 1rem;
+		overflow: hidden;
+		@apply p-4;
+		@apply bg-fg/5;
+		@apply transition-all;
+	}
+
+	.project-card:hover {
+		@apply shadow-glow;
+		@apply border-primary shadow-primary;
+	}
+
+	.project-card-link::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+	}
+</style>
