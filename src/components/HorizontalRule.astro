@@ -1,5 +1,8 @@
 ---
 import { cn } from "@/utils"
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<'hr'>
 
 const { class: className, ...props } = Astro.props
 ---
