@@ -2,16 +2,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 const white = '#f9f8f6'
-const bg = '#110f10'
+	, black = '#110f10'
 
 const colors = {
-	white,
 	fg: white,
-	bg,
+	bg: black,
 	primary: '#c6563a',
 	accent: '#e58569',
-	//secondary: '#a4939a',
-	dark: bg,
+	white,
+	black,
 }
 
 module.exports = {
