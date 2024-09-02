@@ -7,8 +7,10 @@ import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
 import HorizontalRule from './HorizontalRule.astro'
 ---
 
-<header class="fixed top-0 left-0 right-0 w-full z-50">
-	<nav class="backdrop-blur bg-bg/60 flex items-center gap-2 py-4 md:gap-6 font-semibold text-lg mx-auto px-4 sm:max-w-2xl md:px-8 md:max-w-6xl">
+<div id="top" />
+
+<header id="header" class="fixed top-0 left-0 right-0 w-full z-50">
+	<nav>
 		<HeaderLink href='/'>
 			<Icon name="ri:user-heart-fill" class="text-[1.25em]" />
 			<span class="max-md:hidden">About Me</span>
@@ -39,3 +41,40 @@ import HorizontalRule from './HorizontalRule.astro'
 	</nav>
 	<HorizontalRule class="absolute bottom-0 w-full" />
 </header>
+
+<style>
+	#header > nav {
+		@apply backdrop-blur bg-bg/60 flex items-center gap-2 py-4 md:gap-6 font-semibold text-lg mx-auto px-4 sm:max-w-2xl md:px-8 md:max-w-6xl;
+	}
+
+	#header.floating > hr {
+		display: none;
+	}
+</style>
+
+<script>
+	function handleIntersection(
+		entries: IntersectionObserverEntry[],
+		observer: IntersectionObserver
+	) {
+		for (const entry of entries) {
+			const header = document.querySelector('#header')
+
+			if (entry.isIntersecting) {
+				header?.classList.remove('floating')
+			} else {
+				header?.classList.add('floating')
+			}
+		}
+	}
+
+	const top = document.querySelector('#top')
+	if (top) {
+		const observer = new IntersectionObserver(handleIntersection, {
+			root: null,
+			//rootMargin: ' 15% 0px 0% 0px ',
+			threshold: 1
+		})
+		observer.observe(top)
+	}
+</script>
