@@ -20,7 +20,7 @@ const title = 'About'
 
 	<div class="flex gap-8 justify-center items-center max-sm:flex-col">
 		<div>
-			<div class="size-32 md:size-64 shadow-glow bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-[25%] transition-[background-size] hover:bg-[length:100%_100%]" />
+			<div class="size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-[25%] transition-[background-size] hover:bg-[length:100%_100%]" />
 		</div>
 		<div class="flex flex-col items-center text-center">
 			<p class="text-4xl md:text-6xl text-fg font-bold">
@@ -50,10 +50,10 @@ const title = 'About'
 				url={experience.url}
 				linkedin={experience.linkedin}
 			>
-				{experience.description}
+				<p>{experience.description}
 				{experience.skills && <>
 					<br />Key skills: {experience.skills}
-				</>}
+				</>}</p>
 				{experience.bullets?.length && <UnorderedList>
 					{experience.bullets.map(item => <ListItem>{item}</ListItem>)}
 				</UnorderedList>}
