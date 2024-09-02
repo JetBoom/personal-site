@@ -1,7 +1,10 @@
 ---
+import { siteConfig } from "@/data/site.config"
+
+const { author } = siteConfig
 const year = new Date().getFullYear()
 ---
 
 <footer class='text-center p-4 text-sm text-fg text-opacity-50'>
-	&copy; {year} William Moodhe.
+	&copy; {year} {author}
 </footer>
