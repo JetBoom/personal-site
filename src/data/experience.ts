@@ -2,7 +2,7 @@ type ExperienceType = {
     name: string
     title: string
     startDate: string
-    endDate: string
+    endDate?: string
 	description: string
     url?: string
     linkedin?: string
@@ -19,8 +19,7 @@ export const EXPERIENCE: ExperienceType[] = [
         image: 'logos/sustainabase.png',
         title: 'Senior Software Engineer',
         startDate: '05/2023',
-        endDate: '04/2024',
-		description: `Main engineer for both the React front-end and Node back-end.
+ 		description: `Main engineer for both the React front-end and Node back-end.
 			Used modern TypeScript, React, and cloud services (AWS).
             Mentored and did code reviews.
 			We provided a B2B SaaS product for carbon tax and emissions tracking.`,

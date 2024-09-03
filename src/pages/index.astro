@@ -45,7 +45,7 @@ const title = 'About'
 			<Experience
 				title={experience.name}
 				subtitle={experience.title}
-				dates={`${experience.startDate} - ${experience.endDate}`}
+				dates={`${experience.startDate} - ${experience.endDate ?? 'Present'}`}
 				image={experience.image}
 				url={experience.url}
 				linkedin={experience.linkedin}
