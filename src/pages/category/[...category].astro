@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout'
-import ListPosts from '@/components/ListPosts'
-import ListCategories from '@/components/ListCategories'
-import TitlePage from '@/components/TitlePage'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ListPosts from '@/components/ListPosts.astro'
+import ListCategories from '@/components/ListCategories.astro'
+import TitlePage from '@/components/TitlePage.astro'
 import { sluglify, unsluglify, getCategories, filterPostsByCategory } from '@/utils'
 
 const { category } = Astro.params

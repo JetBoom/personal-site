@@ -1,5 +1,5 @@
-import TwitterIcon from '@/components/icons/TwitterIcon'
-import LinkedinIcon from '@/components/icons/linkedinIcon'
+import TwitterIcon from '@/components/icons/TwitterIcon.astro'
+import LinkedinIcon from '@/components/icons/linkedinIcon.astro'
 
 type ShareSiteType = {
 	name: string
