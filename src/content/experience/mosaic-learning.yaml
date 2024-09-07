@@ -1,0 +1,41 @@
+url: https://www.mosaiclearning.com
+linkedin: https://www.linkedin.com/company/mosaiclearning
+image: logos/mosaiclearning.png
+title: Software Engineer
+startMonth: 1
+startYear: 2020
+endMonth: 11
+endYear: 2022
+description: >
+  Hired during a critical time in the company, I hit the ground running and quickly self-learned tech that was new to me, submitting new features within the first two weeks.
+  Reviewed code for 12 engineers and was a mentor for many of them.
+  Utilized a variety of stacks for 5 separate projects that included Ember, React, Node, Java, Laravel, and React Native.
+  We provided learning management systems, an online event/conference SaaS, and VR training software.
+skills:
+  - JavaScript
+  - Java
+  - PHP
+  - React
+  - React Native
+  - Node
+  - Ember
+  - Express
+  - Jest
+  - Storybook
+  - MongoDB
+  - GraphQL
+  - AWS
+  - DynamoDB
+  - S3
+  - Lambda
+  - Serverless
+  - EC2
+  - Docker
+  - Cognito
+  - IVS
+  - MySQL
+  - Web Sockets
+  - Material UI
+bullets:
+  - Took front-end ownership of the online conferencing and event management app, which saw great success during COVID, was built by our team of three in only 5 months, and resulted in a 50% increase in company revenue.
+  - Spearheaded the company migration from legacy PHP to modern React and Node, resulting in 40% faster feature development.

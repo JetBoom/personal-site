@@ -1,0 +1,27 @@
+url: https://sustainabase.com
+linkedin: https://www.linkedin.com/company/sustainabase
+image: logos/sustainabase.png
+title: Senior Software Engineer
+startMonth: 5
+startYear: 2023
+description: >
+  Brought on to a small team, I was able to self-start and quickly become the main contributor for our app built on the MERN stack.
+  I also took responsibility as an architect, simplified critical processes, and brought 2 years of legacy code and packages up to date.
+  We provided a B2B SaaS product for the emerging industry of ESG / carbon emissions accounting.
+skills:
+  - TypeScript
+  - React
+  - Node
+  - Redux
+  - Tailwind
+  - MySQL
+  - MongoDB
+  - Prisma
+  - Auth0
+  - Express
+  - AWS
+  - Serverless
+  - S3
+bullets:
+  - Automated critical ETL processes, reducing handwork required of our data engineers by 70%.
+  - Restructured client database models, reducing load times by 30% and storage costs by 50%.

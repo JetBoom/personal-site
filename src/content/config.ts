@@ -1,5 +1,5 @@
 import { defineCollection, z } from 'astro:content'
-import { CATEGORIES } from '@/data/categories'
+import { ExperienceCollection } from '@/data/experience'
 
 const post = defineCollection({
 	// Type-check frontmatter using a schema
@@ -13,7 +13,7 @@ const post = defineCollection({
 				.or(z.date())
 				.transform((val) => new Date(val)),
 			image: image(),
-			category: z.enum(CATEGORIES),
+			category: z.string(),
 			tags: z.array(z.string()),
 			draft: z.boolean().default(false)
 		})
@@ -21,4 +21,5 @@ const post = defineCollection({
 
 export const collections = {
 	post,
+	experience: ExperienceCollection,
 }

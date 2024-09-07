@@ -6,11 +6,18 @@ import UnorderedList from '@/components/UnorderedList.astro'
 import ListItem from '@/components/ListItem.astro'
 import Icon from '@/components/icons/Icon.astro'
 import { SKILLS, MAIN_SKILLS } from '@/data/skills'
-import { EXPERIENCE } from '@/data/experience'
+import { getExperience } from '@/data/experience'
 import { GetSkillIcon } from '@/utils/SkillIcons'
 import { siteConfig } from '@/site.config'
+import {
+    properCase,
+    unsluglify,
+    getDisplayDate,
+} from '@/utils/string'
 
 const { author } = siteConfig
+
+const experience = await getExperience()
 
 const title = 'About'
 ---
@@ -41,21 +48,23 @@ const title = 'About'
 	</div>
 
 	<NamedList name="Experience">
-		{EXPERIENCE.map(experience => (
+		{experience.map(({ id, data: { url, title, startYear, startMonth, endYear, endMonth, image, linkedin, skills, bullets, description } }) => (
 			<Experience
-				title={experience.name}
-				subtitle={experience.title}
-				dates={`${experience.startDate} - ${experience.endDate ?? 'Present'}`}
-				image={experience.image}
-				url={experience.url}
-				linkedin={experience.linkedin}
+				title={properCase(unsluglify(id))}
+				subtitle={title}
+				dates={`${getDisplayDate(startYear, startMonth)} - ${getDisplayDate(endYear, endMonth)}`}
+				image={image}
+				url={url}
+				linkedin={linkedin}
 			>
-				<p>{experience.description}
-				{experience.skills && <>
-					<br />Key skills: {experience.skills}
-				</>}</p>
-				{experience.bullets?.length && <UnorderedList>
-					{experience.bullets.map(item => <ListItem>{item}</ListItem>)}
+				<p>
+					{description}
+					{/* {skills?.length && (
+						<><br />Key skills: {skills.join(', ')}</>
+					)} */}
+				</p>
+				{bullets?.length && <UnorderedList>
+					{bullets.map(item => <ListItem>{item}</ListItem>)}
 				</UnorderedList>}
 			</Experience>
 		))}
