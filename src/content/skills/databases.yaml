@@ -1,0 +1,12 @@
+priority: 50
+skills:
+  - MySQL
+  - PostgresQL
+  - MongoDB
+  - DocumentDB
+  - DynamoDB
+  - Redis
+  - Hibernate
+  - Prisma
+  - TypeORM
+  - MikroORM

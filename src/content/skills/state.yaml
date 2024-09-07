@@ -1,0 +1,7 @@
+priority: 50
+skills:
+  - Redux
+  - Mobx
+  - React Query
+  - GraphQL
+  - tRPC

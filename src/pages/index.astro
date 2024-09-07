@@ -4,11 +4,9 @@ import NamedList from '@/components/NamedList.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import UnorderedList from '@/components/UnorderedList.astro'
 import ListItem from '@/components/ListItem.astro'
-import Icon from '@/components/icons/Icon.astro'
-import { SKILLS, MAIN_SKILLS } from '@/data/skills'
+import { getSkills } from '@/data/skills'
 import { getExperience } from '@/data/experience'
 import { getEducation } from '@/data/education'
-import { GetSkillIcon } from '@/utils/SkillIcons'
 import { siteConfig } from '@/site.config'
 import {
     properCase,
@@ -20,6 +18,7 @@ const { author, jobTitle } = siteConfig
 
 const experience = await getExperience()
 const education = await getEducation()
+const skillGroups = await getSkills()
 
 const title = 'About'
 ---
@@ -66,12 +65,12 @@ const title = 'About'
 
 	<NamedList name="Skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
 		<div class="grid grid-cols-1 sm:grid-cols-[auto_auto] gap-y-1">
-			{SKILLS.map(grp => (
+			{skillGroups.map(({ id, data: { skills } }) => (
 				<div class="text-fg text-opacity-65 mr-[4ch] max-sm:border-b border-current">
-					{grp.category}<span class="max-sm:hidden">:</span>
+					{properCase(unsluglify(id))}<span class="max-sm:hidden">:</span>
 				</div>
 				<div class="text-fg text-opacity-85 [&:not(:last-child)]:max-sm:mb-2">
-					{grp.skills.join(', ')}
+					{skills.join(', ')}
 				</div>
 			))}
 		</div>

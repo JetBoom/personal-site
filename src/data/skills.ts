@@ -1,96 +1,18 @@
-type SkillListType = {
-	category: string
-	skills: string[]
+import { defineCollection, getCollection, z } from 'astro:content'
+import { sortByPriority } from '@/utils'
+
+const schema = z.object({
+	skills: z.array(z.string()),
+	priority: z.number().optional(),
+})
+
+export const SkillCollection = defineCollection({ schema, type: 'data' })
+
+export type SkillType = z.infer<typeof schema>
+
+export async function getSkills() {
+	let items = await getCollection('skills') ?? []
+    items.sort(sortByPriority)
+	// items.forEach(item => item.data.skills.sort((a: string, b: string) => a.localeCompare(b)))
+	return items
 }
-
-export const SKILLS: SkillListType[] = [
-	{
-		category: 'Languages',
-		skills: ['TypeScript', 'JavaScript', 'Python', 'C++', 'Lua', 'Java', 'PHP', 'C#'],
-	},
-	{
-		category: 'Back-end',
-		skills: ['Node', 'Express', 'NestJS', 'Django', 'Laravel', '.NET'],
-	},
-	{
-		category: 'Front-end',
-		skills: ['React', 'Ember', 'Vue', 'Svelte', 'Angular', 'HTML', 'CSS', 'ES6', 'NextJS', 'Preact', 'Vite', 'Storybook', 'Static-site generators'],
-	},
-	{
-		category: 'Web',
-		skills: ['Tailwind', 'Bootstrap', 'Material UI', 'Ant Design', 'Unstyled Components', 'Web Sockets', 'REST/CRUD', 'Accessibility', 'jquery', 'Webpack', 'Babel'],
-	},
-	{
-		category: 'Databases',
-		skills: ['SQL', 'NoSQL', 'MySQL', 'PostgresQL', 'MongoDB', 'DocumentDB', 'DynamoDB', 'Redis'],
-	},
-	{
-		category: 'State management',
-		skills: ['Redux', 'Mobx', 'React Query', 'GraphQL', 'tRPC'],
-	},
-	{
-		category: 'Cloud services',
-		skills: ['AWS', 'GCP', 'Azure', 'Serverless', 'Lambda', 'S3', 'EC2', 'ECS', 'SQS'],
-	},
-	{
-		category: 'DevOps',
-		skills: ['CI/CD', 'Docker', 'Kubernetes', 'GitHub Actions', 'NGINX', 'Linux'],
-	},
-	{
-		category: 'Testing',
-		skills: ['Jest', 'Cypress', 'React Testing Library'],
-	},
-	{
-		category: 'ORM',
-		skills: ['Hibernate', 'Prisma', 'TypeORM', 'MikroORM'],
-	},
-	{
-		category: 'Authentication',
-		skills: ['Auth0', 'Cognito'],
-	},
-	{
-		category: 'Source management',
-		skills: ['Git', 'SVN'],
-	},
-	{
-		category: 'Package management',
-		skills: ['npm', 'pnpm', 'yarn', 'pip', 'bun'],
-	},
-	{
-		category: 'Linting',
-		skills: ['ESLint', 'Prettier'],
-	},
-	{
-		category: 'Collaboration',
-		skills: ['Slack', 'Teams', 'Bitbucket', 'GitHub', 'Confluence'],
-	},
-	{
-		category: 'Creative',
-		skills: ['Photoshop'],
-	},
-	{
-		category: 'Game engines',
-		skills: ['Unreal', 'Unity', 'Source'],
-	},
-	{
-		category: 'Industries',
-		skills: ['Healthcare (HIPAA, SOC 2, FHIR)', 'Education', 'Sustainability'],
-	},
-] as const
-
-export const MAIN_SKILLS: string[] = [
-	'TypeScript',
-	'JavaScript',
-	'Node.JS',
-	'React',
-	'AWS',
-	'Python',
-	'C++',
-	'Lua',
-	'C#',
-	'Java',
-	'Express',
-	'Ember',
-	'HTML',
-	'CSS',
-] as const
