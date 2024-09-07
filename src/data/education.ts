@@ -4,7 +4,7 @@ const schema = z.object({
     degree: z.string(),
     year: z.number(),
     description: z.string().optional(),
-    url: z.string().optional(),
+    url: z.string().url().optional(),
     image: z.string().optional(),
 
     hidden: z.boolean().optional(),
