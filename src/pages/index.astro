@@ -7,6 +7,7 @@ import ListItem from '@/components/ListItem.astro'
 import Icon from '@/components/icons/Icon.astro'
 import { SKILLS, MAIN_SKILLS } from '@/data/skills'
 import { getExperience } from '@/data/experience'
+import { getEducation } from '@/data/education'
 import { GetSkillIcon } from '@/utils/SkillIcons'
 import { siteConfig } from '@/site.config'
 import {
@@ -18,6 +19,7 @@ import {
 const { author } = siteConfig
 
 const experience = await getExperience()
+const education = await getEducation()
 
 const title = 'About'
 ---
@@ -83,24 +85,20 @@ const title = 'About'
 		</div>
 	</NamedList>
 
-	<NamedList name="Education">
-		<Experience
-			title="Stony Brook University"
-			subtitle="B.S. Technological Systems Management, Specialization in Computer Science"
-			url="https://www.cs.stonybrook.edu/"
-			image="logos/stonybrookuniversity.jpg"
-		>
-			Areas of interests were in game development, computer graphics, and project management.
-			<br />Did volunteer computer science tutoring.
-			<br />Entered in to and won 1st place in the university's annual Game Programming Competition.
-		</Experience>
-		<Experience
-			title="Suffolk Community College"
-			subtitle="A.S. Computer Science"
-			url="https://www.sunysuffolk.edu/explore-academics/majors-and-programs/computer-science/index.jsp"
-			image="logos/sccc.png"
-		/>
-	</NamedList>
+	{education.length > 0 && (
+		<NamedList name="Education">
+			{education.map(({ id, data: { degree, year, description, url, image } }) => (
+				<Experience
+					title="Stony Brook University"
+					subtitle={degree}
+					url={url}
+					image={image}
+				>
+					{description}
+				</Experience>
+			))}
+		</NamedList>
+	)}
 
 	<NamedList name="Awards">
 		<Experience
