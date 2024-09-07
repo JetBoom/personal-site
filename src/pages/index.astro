@@ -89,7 +89,7 @@ const title = 'About'
 		<NamedList name="Education">
 			{education.map(({ id, data: { degree, year, description, url, image } }) => (
 				<Experience
-					title="Stony Brook University"
+					title={properCase(unsluglify(id))}
 					subtitle={degree}
 					url={url}
 					image={image}
