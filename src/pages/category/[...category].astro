@@ -4,7 +4,7 @@ import ListPosts from '@/components/ListPosts.astro'
 import ListCategories from '@/components/ListCategories.astro'
 import TitlePage from '@/components/TitlePage.astro'
 import { getPostCategories, filterPostsByCategory } from '@/data/posts'
-import { sluglify, unsluglify } from '@/utils'
+import { sluglify, unsluglify } from '@/utils/string'
 
 const { category } = Astro.params
 
