@@ -14,4 +14,4 @@ export const siteConfig: SiteConfig = {
 	description: 'My personal blog and portfolio.',
 	lang: 'en-US',
 	ogLocale: 'en_US',
-}
+} as const
