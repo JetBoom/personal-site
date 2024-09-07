@@ -1,5 +1,6 @@
 interface SiteConfig {
 	author: string
+	jobTitle: string
 	title: string
 	github: string
 	description: string
@@ -9,6 +10,7 @@ interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
 	author: 'William Moodhe',
+	jobTitle: 'Full Stack Developer',
 	title: 'William\'s Average Website',
 	github: 'jetboom',
 	description: 'My personal blog and portfolio.',

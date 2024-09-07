@@ -16,7 +16,7 @@ import {
     getDisplayDate,
 } from '@/utils/string'
 
-const { author } = siteConfig
+const { author, jobTitle } = siteConfig
 
 const experience = await getExperience()
 const education = await getEducation()
@@ -36,15 +36,7 @@ const title = 'About'
 				{author}
 			</p>
 			<p class="text-4xl font-bold">
-				Hi, I'm a <span class="text-primary">full stack developer</span>!
-			</p>
-			<div class="flex gap-1 mt-4 text-md">
-				{MAIN_SKILLS.map(skill => (
-					<Icon name={GetSkillIcon(skill) || ''} title={skill} />
-				))}
-			</div>
-			<p class="text-lg whitespace-pre-line">
-				A bit under construction as I migrate from my old personal site.
+				Hi, I'm a <span class="text-primary">{jobTitle}</span>!
 			</p>
 		</div>
 	</div>
