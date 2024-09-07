@@ -1,7 +1,12 @@
 ---
-import { getCategories } from '@/utils'
+import { getPostCategories } from '@/data/posts'
 import Category from '@/components/Category.astro'
-const categories = await getCategories()
+
+type Props = {
+	activeCategory?: string
+}
+
+const categories = await getPostCategories()
 
 const { activeCategory } = Astro.props
 ---

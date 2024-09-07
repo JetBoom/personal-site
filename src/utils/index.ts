@@ -1,5 +1,4 @@
 export * from './string'
 export * from './cn'
-export { getCategories, getPosts, getTags, getPostByTag, filterPostsByCategory } from './post'
 export * from './readTime'
 export * from './github'

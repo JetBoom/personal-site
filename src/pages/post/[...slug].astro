@@ -5,10 +5,10 @@ import Code from '@/components/mdx/Code.astro'
 import ListRelatedPosts from '@/components/ListRelatedPosts.astro'
 import Share from '@/components/Share.astro'
 import TableOfContents from '@/components/TableOfContents.astro'
-import { getPosts } from '@/utils'
+import { getPosts } from '@/data/posts'
 import SButton from '@/components/mdx/SButton.astro'
 
-const posts = await getCollection('post')
+const posts = await getCollection('posts')
 export async function getStaticPaths() {
 	const posts = await getPosts()
 
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 		props: post
 	}))
 }
-type Props = CollectionEntry<'post'>
+type Props = CollectionEntry<'posts'>
 
 const post = Astro.props
 const MAX_POSTS = 3
