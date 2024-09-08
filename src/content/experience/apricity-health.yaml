@@ -23,7 +23,7 @@ skills:
   - Docker
   - Material UI
 bullets:
-  - Took front-end ownership for a team that was specifically asking for a React, HTML, and CSS expert.
   - Created a data cache system, reducing very long page load times by up to 90% and immensely increasing user satisfaction.
-  - Resolved 3 years of tech debt and shrunk the code base by 30%. Introduced modern frameworks such as unstyled components, Tailwind, and Redux to replace long deprecated solutions.
   - Led the team of 5 through much needed mentorship, increasing production speed of other engineers by 50%.
+  - Resolved 3 years of tech debt and shrunk the code base by 30%. Introduced modern frameworks such as unstyled components, Tailwind, and Redux to replace long deprecated solutions.
+  - Took front-end ownership for a team that was specifically asking for a React, HTML, and CSS expert.
