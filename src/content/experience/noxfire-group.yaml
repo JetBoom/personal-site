@@ -1,13 +1,15 @@
 image: logos/noxfire.png
 title: Software Engineer
+location: Rockville, MD
 startMonth: 12
 startYear: 2018
 endMonth: 12
 endYear: 2019
 description: >
-  I created static websites for events and handled the technical side of events. 
-  I architected and created our stream overlay software which gave the company a competitive market edge.
-  We organized and broadcasted eSports events.
+  eSports event organizer and broadcasting solution.
+bullets:
+  - Designed stylish websites for events and handled the technical side of broadcasts.
+  - Created stream overlay software which gave us a competitive market edge, resulting in 2x more clients and 50% higher contract price.
 skills:
   - JavaScript
   - Node

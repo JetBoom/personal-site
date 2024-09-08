@@ -2,16 +2,13 @@ url: https://apricity-health.com
 linkedin: https://www.linkedin.com/company/apricity-health
 image: logos/apricityhealth.svg
 title: Senior Software Engineer
+location: Remote
 startMonth: 12
 startYear: 2022
 endMonth: 1
 endYear: 2023
 description: >
-  Answered the call of a small team that was yearning for a React, HTML, and CSS expert to take front-end ownership.
-  Brought features to production in a fraction of the time and lines of code.
-  Eliminated years of technical debt, introduced modern frameworks, and accelerated the team through mentorship and code reviews.
-  Maintained HIPAA compliance and worked with FHIR records.
-  We created patient portals for immunotherapy cancer treatment.
+  Patient portals and triage care for immunotherapy cancer treatment.
 skills:
   - TypeScript
   - React
@@ -26,5 +23,7 @@ skills:
   - Docker
   - Material UI
 bullets:
-  - Created a data cache system, reducing very long page load times by up to 90% and had an immense impact on user satisfaction.
-  - Resolved 3 years of tech debt and shrunk the code base by 30%.
+  - Took front-end ownership for a team that was specifically asking for a React, HTML, and CSS expert.
+  - Created a data cache system, reducing very long page load times by up to 90% and immensely increasing user satisfaction.
+  - Resolved 3 years of tech debt and shrunk the code base by 30%. Introduced modern frameworks such as unstyled components, Tailwind, and Redux to replace long deprecated solutions.
+  - Led the team of 5 through much needed mentorship, increasing production speed of other engineers by 50%.
