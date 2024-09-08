@@ -1,7 +1,10 @@
 priority: 50
 skills:
+  - SQL
+  - NoSQL
   - MySQL
   - PostgresQL
+  - SQL Server
   - MongoDB
   - DocumentDB
   - DynamoDB
