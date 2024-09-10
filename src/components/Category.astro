@@ -1,5 +1,6 @@
 ---
-import { cn, sluglify } from '@/utils'
+import { sluglify } from '@/utils/string'
+import { cn } from '@/utils/cn'
 
 const { name = 'View All', activeCategory } = Astro.props
 const currentPath = Astro.url.pathname
