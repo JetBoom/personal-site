@@ -7,9 +7,9 @@ import HorizontalRule from '@/components/HorizontalRule.astro'
 
 <div id="top" />
 
-<header id="header" class="fixed top-0 left-0 right-0 w-full z-50">
+<header id="header">
 	<nav>
-		<HeaderLink href='/' icon="ri:user-heart-fill" class="text-[1.25em]" />
+		<HeaderLink href='/' icon="ri:user-heart-fill">
 			About Me
 		</HeaderLink>
 		<HeaderLink href='/posts' icon="ri:discuss-fill">
@@ -37,34 +37,71 @@ import HorizontalRule from '@/components/HorizontalRule.astro'
 </header>
 
 <style>
+	#header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: 50;
+
+		@apply transition-all;
+	}
+
+	#header.floating {
+		top: 1rem;
+		@apply bg-black/25;
+	}
+
 	#header > nav {
-		@apply backdrop-blur bg-bg/60 flex items-center gap-2 py-4 md:gap-6 font-semibold text-lg mx-auto px-4 sm:max-w-2xl md:px-8 md:max-w-6xl;
+		position: relative;
+		border: 0;
+		@apply flex items-center gap-2 md:gap-6;
+		@apply font-semibold text-lg;
+		@apply backdrop-blur bg-black/50 sm:max-w-2xl md:max-w-6xl;
+		@apply mx-auto px-4 py-4 md:px-8;
+		@apply shadow-none;
+		@apply transition-all;
+	}
+
+	#header.floating > nav {
+		/* border: 1px solid white; */
+		border-radius: 1rem;
+		padding: 1rem;
+		@apply shadow-xl;
+	}
+
+	#header > nav::after {
+		z-index: -10;
+		content: "";
+		position: absolute;
+		inset: -1rem;
+		border-radius: 1rem;
+		border: 1px solid transparent;
+		@apply transition-all duration-300;
+	}
+
+	#header.floating > nav::after {
+		inset: 0;
+		@apply border-primary/50;
+	}
+
+	#header > hr {
+		opacity: 1;
+		@apply transition duration-300;
 	}
 
 	#header.floating > hr {
-		display: none;
+		opacity: 0;
 	}
 </style>
 
 <script>
-	function handleIntersection(
-		entries: IntersectionObserverEntry[],
-		observer: IntersectionObserver
-	) {
-		for (const entry of entries) {
-			const header = document.querySelector('#header')
-
-			if (entry.isIntersecting) {
-				header?.classList.remove('floating')
-			} else {
-				header?.classList.add('floating')
-			}
-		}
-	}
-
 	const top = document.querySelector('#top')
 	if (top) {
-		const observer = new IntersectionObserver(handleIntersection, {
+		const observer = new IntersectionObserver((entries) => {
+			document.querySelector('#header')?.classList.toggle('floating', !entries[0]?.isIntersecting)
+		}, {
 			root: null,
 			//rootMargin: ' 15% 0px 0% 0px ',
 			threshold: 1
