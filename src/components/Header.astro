@@ -1,30 +1,25 @@
 ---
 import HeaderLink from '@/components/HeaderLink.astro'
 import Search from '@/components/Search.astro'
-import Icon from '@/components/icons/Icon.astro'
-import PostIcon from '@/components/icons/PostIcon.astro'
 import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
-import HorizontalRule from './HorizontalRule.astro'
+import HorizontalRule from '@/components/HorizontalRule.astro'
 ---
 
 <div id="top" />
 
 <header id="header" class="fixed top-0 left-0 right-0 w-full z-50">
 	<nav>
-		<HeaderLink href='/'>
-			<Icon name="ri:user-heart-fill" class="text-[1.25em]" />
-			<span class="max-md:hidden">About Me</span>
+		<HeaderLink href='/' icon="ri:user-heart-fill" class="text-[1.25em]" />
+			About Me
 		</HeaderLink>
-		<HeaderLink href='/posts'>
-			<PostIcon class="text-[1.25em]" />
-			<span class="max-md:hidden">Articles</span>
+		<HeaderLink href='/posts' icon="ri:discuss-fill">
+			Articles
 		</HeaderLink>
-		<HeaderLink href='/projects'>
-			<Icon name="ri:github-fill" class="text-[1.25em]" />
-			<span class="max-md:hidden">Projects</span>
+		<HeaderLink href='/projects' icon="ri:github-fill">
+			Projects
 		</HeaderLink>
 	
-		<div class="grow"></div>
+		<div class="grow" />
 
 		{SOCIAL_NETWORKS.map(network => (
 			<HeaderLink
@@ -32,9 +27,8 @@ import HorizontalRule from './HorizontalRule.astro'
 				target='_blank'
 				title={network.name}
 				aria-label={network.name}
-			>
-				<Icon name={network.icon} />
-			</HeaderLink>
+				icon={network.icon}
+			/>
 		))}
 
 		<Search />

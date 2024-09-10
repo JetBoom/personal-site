@@ -1,9 +1,18 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import Icon from '@/components/icons/Icon.astro'
 import { cn } from '@/utils/cn'
-type Props = HTMLAttributes<'a'>
 
-const { href, class: className, ...props } = Astro.props
+type Props = HTMLAttributes<'a'> & {
+	icon?: string
+}
+
+const {
+	href,
+	class: className,
+	icon,
+	...props
+} = Astro.props
 
 const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, '')
@@ -21,5 +30,8 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 	rel='noopener noreferrer'
 	{...props}
 >
-	<slot />
+	{icon && <Icon name={icon} class="text-[1.25em]" />}
+	<span class="max-md:hidden">
+		<slot />
+	</span>
 </a>
