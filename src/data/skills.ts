@@ -1,5 +1,5 @@
 import { defineCollection, getCollection, z } from 'astro:content'
-import { sortByPriority } from '@/utils'
+import { sortByPriority } from '@/utils/string'
 
 const schema = z.object({
 	skills: z.array(z.string()),
