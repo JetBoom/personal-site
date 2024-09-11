@@ -17,6 +17,7 @@ import {
     unsluglify,
     getDisplayDate,
 } from '@/utils/string'
+import PageSection from '@/components/PageSection.astro'
 
 const { author, jobTitle } = siteConfig
 
@@ -30,10 +31,11 @@ const title = 'About'
 <BaseLayout title={title} noTopMargin>
 	<!-- <TitlePage title={title} /> -->
 
-	<div class="absolute inset-0 bg-pan-left" />
-	<div class="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-bg via-bg/50 to-transparent" />
+	<div class="splash-bg" />
+	<!-- <div class="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-bg via-bg/50 to-transparent" /> -->
+	<div class="absolute left-0 right-0 bottom-0 h-3 bg-slate-900" />
 
-	<div class="h-screen flex flex-col justify-center items-center relative">
+	<PageSection class="relative">
 		<div class="flex gap-8 justify-center items-center flex-col py-16 md:py-32">
 			<div>
 				<div class="size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-[background-size] hover:bg-[length:100%_100%]" />
@@ -59,91 +61,94 @@ const title = 'About'
 				<Icon name="ri:arrow-down-circle-line" class="drop-shadow"/>
 			</HoverUpDown>
 		</div>
-	</div>
+	</PageSection>
 
-	<div id="resume" />
+	<PageSection>
+		<div id="resume" />
 
-	<p class="mt-10 text-center text-lg whitespace-pre-line">Personal information and references are not listed here.
-		Looking for consulting or have a job proposition? <a href={`mailto:${siteConfig.email}`} class="underline">Contact me</a> directly.</p>
+		<p class="mt-10 text-center text-lg whitespace-pre-line">Personal information and references are not listed here.
+			Looking for consulting or have a job proposition? <a href={`mailto:${siteConfig.email}`} class="underline">Contact me</a> directly.</p>
 
-	<NamedList name="Experience" id="experience">
-		{experience.map(({ id, data: { url, title, startYear, startMonth, endYear, endMonth, image, linkedin, skills, bullets, description } }) => (
-			<Experience
-				title={properCase(unsluglify(id))}
-				subtitle={title}
-				dates={`${getDisplayDate(startYear, startMonth)} - ${getDisplayDate(endYear, endMonth)}`}
-				image={image}
-				url={url}
-				linkedin={linkedin}
-			>
-				<p>
-					{description}
-					{/* {skills?.length && (
-						<><br />Key skills: {skills.join(', ')}</>
-					)} */}
-				</p>
-				{bullets?.length && <UnorderedList>
-					{bullets.map(item => <ListItem>{item}</ListItem>)}
-				</UnorderedList>}
-			</Experience>
-		))}
-	</NamedList>
-
-	<NamedList name="Skills" id="skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
-		<div class="grid grid-cols-1 sm:grid-cols-[auto_auto] gap-y-1">
-			{skillGroups.map(({ id, data: { skills } }) => (
-				<div class="text-fg text-opacity-65 mr-[4ch] max-sm:border-b border-current">
-					{properCase(unsluglify(id))}<span class="max-sm:hidden">:</span>
-				</div>
-				<div class="text-fg text-opacity-85 [&:not(:last-child)]:max-sm:mb-2">
-					{skills.join(', ')}
-				</div>
-			))}
-		</div>
-	</NamedList>
-
-	{education.length > 0 && (
-		<NamedList name="Education" id="education">
-			{education.map(({ id, data: { degree, year, description, url, image } }) => (
+		<NamedList name="Experience" id="experience">
+			{experience.map(({ id, data: { url, title, startYear, startMonth, endYear, endMonth, image, linkedin, skills, bullets, description } }) => (
 				<Experience
 					title={properCase(unsluglify(id))}
-					subtitle={degree}
-					url={url}
+					subtitle={title}
+					dates={`${getDisplayDate(startYear, startMonth)} - ${getDisplayDate(endYear, endMonth)}`}
 					image={image}
+					url={url}
+					linkedin={linkedin}
 				>
-					{description}
+					<p class="italic">
+						{description}
+						{/* {skills?.length && (
+							<><br />Key skills: {skills.join(', ')}</>
+						)} */}
+					</p>
+					{bullets?.length && <UnorderedList>
+						{bullets.map(item => <ListItem>{item}</ListItem>)}
+					</UnorderedList>}
 				</Experience>
 			))}
 		</NamedList>
-	)}
 
-	<NamedList name="Awards" id="awards">
-		<Experience
-			title="SBU Game Programming Competition"
-			subtitle="1st place in 2015"
-			url="https://www3.cs.stonybrook.edu/~games/history.html"
-			image="logos/stonybrookuniversity.jpg"
-		>
-			Won 1st place in the university's annual game programming competition out of 100+ entries and 16 finalists for <i>"Valhalla Run"</i>.
-			<br />Programmed in C# with the Unity engine and entered solo.
-			<br /><a href="https://www3.cs.stonybrook.edu/~games/history.html">www3.cs.stonybrook.edu/~games/history.html</a>
-		</Experience>
-	</NamedList>
+		<NamedList name="Skills" id="skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
+			<div class="grid grid-cols-1 sm:grid-cols-[auto_auto] gap-y-1">
+				{skillGroups.map(({ id, data: { skills } }) => (
+					<div class="text-fg text-opacity-65 mr-[4ch] max-sm:border-b border-current">
+						{properCase(unsluglify(id))}<span class="max-sm:hidden">:</span>
+					</div>
+					<div class="text-fg text-opacity-85 [&:not(:last-child)]:max-sm:mb-2">
+						{skills.join(', ')}
+					</div>
+				))}
+			</div>
+		</NamedList>
+	
+		{education.length > 0 && (
+			<NamedList name="Education" id="education">
+				{education.map(({ id, data: { degree, year, description, url, image } }) => (
+					<Experience
+						title={properCase(unsluglify(id))}
+						subtitle={degree}
+						url={url}
+						image={image}
+					>
+						{description}
+					</Experience>
+				))}
+			</NamedList>
+		)}
+	
+		<NamedList name="Awards" id="awards">
+			<Experience
+				title="SBU Game Programming Competition"
+				subtitle="1st place in 2015"
+				url="https://www3.cs.stonybrook.edu/~games/history.html"
+				image="logos/stonybrookuniversity.jpg"
+			>
+				Won 1st place in the university's annual game programming competition out of 100+ entries and 16 finalists for <i>"Valhalla Run"</i>.
+				<br />Programmed in C# with the Unity engine and entered solo.
+				<br /><a href="https://www3.cs.stonybrook.edu/~games/history.html">www3.cs.stonybrook.edu/~games/history.html</a>
+			</Experience>
+		</NamedList>
+	</PageSection>
 </BaseLayout>
 
 <style>
-	.bg-pan-left {
-		background: linear-gradient(315deg, rgb(143, 75, 116), rgb(50, 114, 160),rgb(41, 179, 146));
-		background-size: 300%;
-		animation: bg-pan-left 8s infinite alternate both;
-	}
+	.splash-bg {
+		--band-col-1: #0f0c29;
+		--band-col-2: #302b63;
+		--band-col-3: #24243e;
 
-	@keyframes bg-pan-left {
-		0% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
+		position: absolute;
+		inset: 0;
+
+		background: linear-gradient(to bottom,
+			var(--band-col-1),
+			var(--band-col-2),
+			var(--band-col-3)
+		);
+		background-size: cover;
 	}
 </style>
