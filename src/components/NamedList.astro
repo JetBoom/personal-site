@@ -1,11 +1,19 @@
 ---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'div'> & {
+	name: string,
+	description?: string
+}
+
 const {
 	name,
 	description,
+	...props
 } = Astro.props
 ---
 
-<div class="grid gap-6 max-md:flex-col">
+<div class="grid gap-6 max-md:flex-col" {...props}>
 	<div class="md:basis-[600px] overflow-visible">
 		<h2 class="font-bold text-4xl text-primary">{name}</h2>
 		{description && <p>{description}</p>}

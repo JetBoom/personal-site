@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { cn } from '@/utils/cn'
+
+type Props = HTMLAttributes<'a'>
+
+const { class: className, ...props } = Astro.props
+---
+
+<a
+    class={cn(
+        'ez-click',
+        className,
+    )}
+    {...props}
+>
+    <slot />
+</a>
+
+<style>
+    a {
+        filter: drop-shadow(0 0 0.5em #0008);
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

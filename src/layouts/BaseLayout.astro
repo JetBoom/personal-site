@@ -12,6 +12,7 @@ const {
 	description,
 	image,
 	articleDate,
+	noTopMargin,
 	class: className,
 } = Astro.props
 ---
@@ -25,7 +26,11 @@ const {
 	<body>
 		<Header />
 		<main
-			class={cn("flex flex-col grow gap-12 mx-auto mt-24 px-4 sm:max-w-2xl md:px-8 md:max-w-6xl", className)}
+			class={cn(
+				'flex flex-col grow gap-12 mx-auto px-4 sm:max-w-2xl md:px-8 md:max-w-6xl',
+				noTopMargin ? 'mt-0' : 'mt-24',
+				className,
+			)}
 		>
 			<slot />
 		</main>

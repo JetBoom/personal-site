@@ -21,17 +21,73 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 <a
 	href={href}
 	class={cn(
-		'flex items-center gap-1',
-		'text-fg ez-click',
-		'hover:text-primary transition',
-		isActive ? 'text-opacity-100' : 'text-opacity-75',
+		'ez-click',
+		isActive && 'active',
 		className,
 	)}
 	rel='noopener noreferrer'
 	{...props}
 >
 	{icon && <Icon name={icon} class="text-[1.25em]" />}
-	<span class="max-md:hidden">
-		<slot />
-	</span>
+	<slot />
 </a>
+
+<style>
+	a {
+		/* text-shadow: 1px 1px 0.5em black; */
+		@apply flex items-center gap-1;
+		@apply text-fg text-opacity-75;
+		/* @apply hover:text-primary transition; */
+		@apply transition;
+	}
+
+	a.active, a:hover {
+		@apply text-opacity-100;
+	}
+
+	a:hover {
+		transform: scale(1.2);
+	}
+
+	a {
+		/* text-shadow: 1px 1px 0.5em black; */
+		filter: drop-shadow(1px 1px 0.5em black);
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		position: relative;
+	}
+
+	a::before, a::after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		opacity: 0.5;
+
+		/* width: 0%; */
+		background: currentColor;
+
+		@apply transition-all duration-200;
+	}
+
+	a::before {
+		top: -25%;
+		height: 1px;
+	}
+
+	a::after {
+		top: 125%;
+		height: 2px;
+	}
+
+	a:hover::before, a:hover::after {
+		left: 0;
+		right: 0;
+		opacity: 1;
+	}
+</style>

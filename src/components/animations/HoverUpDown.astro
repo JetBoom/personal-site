@@ -1,0 +1,42 @@
+---
+import { cn } from "@/utils/cn"
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<'div'> & {
+    animDuration?: string
+}
+
+const {
+    class: className,
+    animDuration = '1s',
+    ...props
+} = Astro.props
+---
+
+<div
+    style={`--anim-duration: ${animDuration};`}
+    class={cn("anim-hover-up-down inline", className)}
+    {...props}>
+    <slot />
+</div>
+
+<style>
+    .anim-hover-up-down {
+        animation-name: hover-up-down;
+        animation-duration: var(--anim-duration);
+        animation-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        animation-direction: alternate;
+        animation-delay: 0s;
+    }
+
+    @keyframes hover-up-down {
+        0% {
+            transform: translateY(-1em);
+        }
+        100% {
+            transform: translateY(0em);
+        }
+    }
+</style>

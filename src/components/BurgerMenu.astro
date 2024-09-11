@@ -1,0 +1,117 @@
+---
+---
+
+<button class="burger-button" />
+<menu class="burger-menu">
+    <slot />
+</menu>
+
+<script>
+    document.querySelectorAll('.burger-button').forEach((button) => {
+        button.addEventListener('click', () => button.classList.toggle('open'))
+    })
+</script>
+
+<style>
+    menu {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    /** Styles for mobile. */
+	@media (max-width: theme(screens.md)) {
+		menu {
+			pointer-events: none;
+			flex-direction: column;
+			opacity: 0;
+			position: absolute;
+			top: -100%;
+			left: 0;
+			right: 0;
+			@apply bg-neutral-900 p-4 rounded-b-md;
+			@apply transition-all duration-300;
+		}
+
+		button.open + menu {
+			display: flex;
+			top: calc(100% - 2px);
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+
+	/** Styles for non-mobile. */
+	@media screen(md) {
+		button {
+			display: none!important;
+		}
+
+		menu {
+			display: flex;
+		}
+	}
+
+    button {
+        --width: 1.5rem;
+        --thickness: 4px;
+        
+        border: 0;
+        background: none;
+        outline: 0;
+        padding: 0;
+        cursor: pointer;
+
+        border-bottom: var(--thickness) solid currentColor;
+        width: var(--width);
+
+        transition: border-bottom 1s ease-in-out;
+        -webkit-transition: border-bottom 1s ease-in-out; 
+
+        /* Fix for extra space in Firefox */
+        &::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            border-bottom: var(--thickness) solid currentColor;
+            width: 100%;
+            margin-bottom: 5px;
+            transition: transform 0.5s ease-in-out;    
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;        
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            border-bottom: var(--thickness) solid currentColor;
+            width: 100%;
+            margin-bottom: 5px;
+            transition: transform 0.5s ease-in-out;
+            -webkit-transition: -webkit-transform 0.5s ease-in-out;
+        }
+
+        &.open {
+            border-bottom: var(--thickness) solid transparent;
+            transition: border-bottom 0.8s ease-in-out;
+            -webkit-transition: border-bottom 0.8s ease-in-out;
+
+            &::before {
+                transform: rotate(-405deg) translateY(1px) translateX(-3px);
+                -webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);      
+                transition: transform 0.5s ease-in-out;
+                -webkit-transition: -webkit-transform 0.5s ease-in-out;
+            }
+
+            &::after {
+                transform: rotate(405deg) translateY(-4px) translateX(-5px); 
+                -webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);       
+                transition: transform 0.5s ease-in-out;
+                -webkit-transition: -webkit-transform 0.5s ease-in-out;
+            }
+        }
+    }
+</style>

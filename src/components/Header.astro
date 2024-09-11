@@ -2,23 +2,27 @@
 import HeaderLink from '@/components/HeaderLink.astro'
 import Search from '@/components/Search.astro'
 import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
-import HorizontalRule from '@/components/HorizontalRule.astro'
+// import HorizontalRule from '@/components/HorizontalRule.astro'
+import BurgerMenu from '@/components/BurgerMenu.astro'
 ---
 
 <div id="top" />
 
 <header id="header">
 	<nav>
-		<HeaderLink href='/' icon="ri:user-heart-fill">
-			About Me
-		</HeaderLink>
-		<HeaderLink href='/posts' icon="ri:discuss-fill">
-			Articles
-		</HeaderLink>
-		<HeaderLink href='/projects' icon="ri:github-fill">
-			Projects
-		</HeaderLink>
-	
+		<BurgerMenu>
+			<HeaderLink href='/'>
+				<div class="size-8 bg-[url(/myself.jpg)] bg-cover bg-center rounded-full" />
+				About Me
+			</HeaderLink>
+			<HeaderLink href='/posts' icon="ri:discuss-fill">
+				Articles
+			</HeaderLink>
+			<HeaderLink href='/projects' icon="ri:github-fill">
+				Projects
+			</HeaderLink>
+		</BurgerMenu>
+		
 		<div class="grow" />
 
 		{SOCIAL_NETWORKS.map(network => (
@@ -33,7 +37,7 @@ import HorizontalRule from '@/components/HorizontalRule.astro'
 
 		<Search />
 	</nav>
-	<HorizontalRule class="absolute bottom-0 w-full" />
+	<!-- <HorizontalRule class="absolute bottom-0 w-full" /> -->
 </header>
 
 <style>
@@ -44,31 +48,34 @@ import HorizontalRule from '@/components/HorizontalRule.astro'
 		right: 0;
 		width: 100%;
 		z-index: 50;
+		@apply bg-gradient-to-b from-black/50 to-transparent;
 
-		@apply transition-all;
+		@apply transition-all duration-200;
 	}
 
 	#header.floating {
-		top: 1rem;
-		@apply bg-black/25;
+		@apply md:top-4;
+		@apply bg-gradient-to-b from-transparent to-transparent;
+	}
+
+	nav, menu {
+		@apply flex items-center gap-2 md:gap-6;
 	}
 
 	#header > nav {
 		position: relative;
 		border: 0;
-		@apply flex items-center gap-2 md:gap-6;
 		@apply font-semibold text-lg;
-		@apply backdrop-blur bg-black/50 sm:max-w-2xl md:max-w-6xl;
+		@apply sm:max-w-2xl md:max-w-6xl;
 		@apply mx-auto px-4 py-4 md:px-8;
 		@apply shadow-none;
 		@apply transition-all;
 	}
 
 	#header.floating > nav {
-		/* border: 1px solid white; */
-		border-radius: 1rem;
 		padding: 1rem;
-		@apply shadow-xl;
+		@apply shadow-xl rounded-xl max-md:rounded-t-none;
+		@apply backdrop-blur bg-black/50;
 	}
 
 	#header > nav::after {
@@ -76,8 +83,8 @@ import HorizontalRule from '@/components/HorizontalRule.astro'
 		content: "";
 		position: absolute;
 		inset: -1rem;
-		border-radius: 1rem;
-		border: 1px solid transparent;
+		@apply border-b md:border border-transparent;
+		@apply rounded-xl max-md:rounded-t-none;
 		@apply transition-all duration-300;
 	}
 
@@ -86,14 +93,14 @@ import HorizontalRule from '@/components/HorizontalRule.astro'
 		@apply border-primary/50;
 	}
 
-	#header > hr {
+	/* #header > hr {
 		opacity: 1;
 		@apply transition duration-300;
 	}
 
 	#header.floating > hr {
 		opacity: 0;
-	}
+	} */
 </style>
 
 <script>
