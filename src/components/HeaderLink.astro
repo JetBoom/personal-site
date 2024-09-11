@@ -34,10 +34,13 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 
 <style>
 	a {
-		/* text-shadow: 1px 1px 0.5em black; */
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		filter: drop-shadow(1px 1px 0.5em black);
 		@apply flex items-center gap-1;
 		@apply text-fg text-opacity-75;
-		/* @apply hover:text-primary transition; */
 		@apply transition;
 	}
 
@@ -47,18 +50,6 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 
 	a:hover {
 		transform: scale(1.2);
-	}
-
-	a {
-		/* text-shadow: 1px 1px 0.5em black; */
-		filter: drop-shadow(1px 1px 0.5em black);
-	}
-
-	a {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		position: relative;
 	}
 
 	a::before, a::after {

@@ -22,7 +22,27 @@ const { class: className, ...props } = Astro.props
         filter: drop-shadow(0 0 0.5em #0008);
     }
 
-    a:hover {
+    /* a:hover {
         text-decoration: underline;
-    }
+    } */
+
+    a::after {
+		content: "";
+		display: inline-block;
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		opacity: 0.5;
+        top: 110%;
+		height: 3px;
+		background: currentColor;
+
+		@apply transition-all duration-200;
+	}
+
+	a:hover::after {
+		left: 0;
+		right: 0;
+		opacity: 1;
+	}
 </style>

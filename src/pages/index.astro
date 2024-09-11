@@ -31,13 +31,14 @@ const title = 'About'
 	<!-- <TitlePage title={title} /> -->
 
 	<div class="absolute inset-0 bg-pan-left" />
+	<div class="absolute left-0 right-0 bottom-0 h-16 bg-gradient-to-t from-bg via-bg/50 to-transparent" />
 
 	<div class="h-screen flex flex-col justify-center items-center relative">
 		<div class="flex gap-8 justify-center items-center flex-col py-16 md:py-32">
 			<div>
 				<div class="size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-[background-size] hover:bg-[length:100%_100%]" />
 			</div>
-			<div class="flex flex-col items-center text-center" style="text-shadow: 1px 1px 0.5em #0008;">
+			<div class="flex flex-col items-center text-center pointer-events-none" style="text-shadow: 1px 1px 0.5em #0008;">
 				<p class="text-4xl md:text-6xl text-fg font-bold">
 					{author}
 				</p>
@@ -53,7 +54,7 @@ const title = 'About'
 			<SplashLink href={`mailto:${siteConfig.email}`} target="_blank">Contact</SplashLink>
 		</SplashMenu>
 
-		<div class="absolute bottom-6 flex justify-center w-full text-xl drop-shadow text-primary">
+		<div class="absolute bottom-14 flex justify-center w-full text-xl drop-shadow text-primary">
 			<HoverUpDown>
 				<Icon name="ri:arrow-down-circle-line" class="drop-shadow"/>
 			</HoverUpDown>
@@ -132,7 +133,7 @@ const title = 'About'
 
 <style>
 	.bg-pan-left {
-		background: linear-gradient(315deg, rgb(105, 55, 85), rgb(37, 86, 121), rgb(26, 116, 95));
+		background: linear-gradient(315deg, rgb(143, 75, 116), rgb(50, 114, 160),rgb(41, 179, 146));
 		background-size: 300%;
 		animation: bg-pan-left 8s infinite alternate both;
 	}
