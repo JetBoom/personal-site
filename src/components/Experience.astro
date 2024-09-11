@@ -1,5 +1,6 @@
 ---
 import LinkedinIcon from "@/components/icons/linkedinIcon.astro"
+import Icon from "@/components/icons/Icon.astro"
 
 const {
 	title,
@@ -30,7 +31,12 @@ const {
 			</div>
 			<div class="flex justify-between items-center text-md">
 				<div>{subtitle}</div>
-				<div class="text-fg text-sm text-opacity-85">{dates}</div>
+				{dates && (
+					<div class="flex items-center gap-2 text-fg text-sm text-opacity-85">
+						<Icon name="ri:calendar-line" />
+						<span>{dates}</span>
+					</div>
+				)}
 			</div>
 		</div>
 	</div>
