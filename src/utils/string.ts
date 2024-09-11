@@ -56,16 +56,16 @@ export function getDisplayDate(year?: number, month?: number) : string {
 }
 
 interface ISortableAstroContent {
-    data: { priority?: number }
+    data: { priority?: number, name?: string }
     id: string
 }
 
 /**
  * Sort function for Astro content items that have a "priority" key.
- * Items with the same priority are sorted alphebatically by their id.
+ * Items with the same priority are sorted alphebatically by their name or id.
 */
 export function sortByPriority(a: ISortableAstroContent, b: ISortableAstroContent) : number {
     if (a.data.priority !== b.data.priority) return (b.data.priority || 0) - (a.data.priority || 0)
 
-    return a.id.localeCompare(b.id)
+    return (a.data.name || a.id).localeCompare((b.data.name || b.id))
 }
