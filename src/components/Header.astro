@@ -2,8 +2,7 @@
 import HeaderLink from '@/components/HeaderLink.astro'
 import Search from '@/components/Search.astro'
 import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
-// import HorizontalRule from '@/components/HorizontalRule.astro'
-import BurgerMenu from '@/components/BurgerMenu.astro'
+import { BurgerMenu } from '@/components/BurgerMenu'
 ---
 
 <div id="top" />
@@ -37,7 +36,6 @@ import BurgerMenu from '@/components/BurgerMenu.astro'
 
 		<Search />
 	</nav>
-	<!-- <HorizontalRule class="absolute bottom-0 w-full" /> -->
 </header>
 
 <style>
@@ -92,15 +90,6 @@ import BurgerMenu from '@/components/BurgerMenu.astro'
 		inset: 0;
 		@apply border-white/80;
 	}
-
-	/* #header > hr {
-		opacity: 1;
-		@apply transition duration-300;
-	}
-
-	#header.floating > hr {
-		opacity: 0;
-	} */
 </style>
 
 <script>
