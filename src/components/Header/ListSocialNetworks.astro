@@ -1,0 +1,16 @@
+---
+import HeaderLink from './HeaderLink.astro'
+import { getSocials } from '@/data/socials'
+
+const socials = await getSocials()
+---
+
+{socials.map(( { data: { name, url, icon } } ) => (
+    <HeaderLink
+        href={url}
+        target='_blank'
+        title={name}
+        aria-label={name}
+        icon={icon}
+    />
+))}

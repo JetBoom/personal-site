@@ -1,8 +1,8 @@
 ---
-import HeaderLink from '@/components/HeaderLink.astro'
 import Search from '@/components/Search.astro'
-import { SOCIAL_NETWORKS } from '@/data/SocialNetworks'
 import { BurgerMenu } from '@/components/BurgerMenu'
+import HeaderLink from './HeaderLink.astro'
+import SocialNetworks from './ListSocialNetworks.astro'
 ---
 
 <div id="top" />
@@ -17,22 +17,14 @@ import { BurgerMenu } from '@/components/BurgerMenu'
 			<HeaderLink href='/posts' icon="ri:discuss-fill">
 				Articles
 			</HeaderLink>
-			<HeaderLink href='/projects' icon="ri:github-fill">
+			<HeaderLink href='/projects' icon="ri:code-s-slash-fill">
 				Projects
 			</HeaderLink>
 		</BurgerMenu>
 		
 		<div class="grow" />
 
-		{SOCIAL_NETWORKS.map(network => (
-			<HeaderLink
-				href={network.url}
-				target='_blank'
-				title={network.name}
-				aria-label={network.name}
-				icon={network.icon}
-			/>
-		))}
+		<SocialNetworks />
 
 		<Search />
 	</nav>
