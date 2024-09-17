@@ -5,8 +5,6 @@ import HeaderLink from './HeaderLink.astro'
 import SocialNetworks from './ListSocialNetworks.astro'
 ---
 
-<div id="top" />
-
 <header id="header">
 	<nav>
 		<BurgerMenu>
@@ -84,16 +82,8 @@ import SocialNetworks from './ListSocialNetworks.astro'
 	}
 </style>
 
-<script>
-	const top = document.querySelector('#top')
-	if (top) {
-		const observer = new IntersectionObserver((entries) => {
-			document.querySelector('#header')?.classList.toggle('floating', !entries[0]?.isIntersecting)
-		}, {
-			root: null,
-			//rootMargin: ' 15% 0px 0% 0px ',
-			threshold: 1
-		})
-		observer.observe(top)
-	}
+<script is:inline>
+	document.addEventListener('scroll', () => {
+		document.querySelector('#header')?.classList.toggle('floating', document.documentElement.scrollTop > 0)
+	})
 </script>
