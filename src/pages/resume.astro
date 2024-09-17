@@ -1,0 +1,72 @@
+---
+import Experience from '@/components/Experience.astro'
+import NamedList from '@/components/NamedList.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import TitlePage from '@/components/TitlePage.astro'
+import { getExperience } from '@/data/experience'
+import { getEducation } from '@/data/education'
+import { getAwards } from '@/data/awards'
+import RenderMarkdown from '@/components/RenderMarkdown.astro'
+import { siteConfig } from '@/site.config'
+import { getDisplayDate } from '@/utils/string'
+import PageSection from '@/components/PageSection.astro'
+
+const experience = await getExperience()
+const education = await getEducation()
+const awards = await getAwards()
+
+const title = 'Resume'
+---
+
+<BaseLayout title={title}>
+	<TitlePage title={title} />
+
+	<PageSection>
+		<p class="mt-10 text-center text-lg whitespace-pre-line">Personal information and references are not listed here.
+			Looking for consulting or have a job proposition? <a href={`mailto:${siteConfig.email}`} class="underline">Contact me</a> directly.</p>
+
+		<NamedList name="Experience" id="experience">
+			{experience.map(({ slug, data: { name, url, title, startYear, startMonth, endYear, endMonth, image, linkedin } }) => (
+				<Experience
+					title={name}
+					subtitle={title}
+					dates={`${getDisplayDate(startYear, startMonth)} - ${getDisplayDate(endYear, endMonth)}`}
+					image={image}
+					url={url}
+					linkedin={linkedin}
+				>
+					<RenderMarkdown type="experience" slug={slug} />
+				</Experience>
+			))}
+		</NamedList>
+
+		<NamedList name="Skills" id="skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
+			<div class="prose prose-invert max-w-full">
+				<RenderMarkdown type="generic" slug="skills" />
+			</div>
+		</NamedList>
+	
+		{education.length > 0 && (
+			<NamedList name="Education" id="education">
+				{education.map(({ slug, data: { name, degree, subject, year, url, image } }) => (
+					<Experience
+						title={name}
+						subtitle={`${degree} - ${subject}`}
+						url={url}
+						image={image}
+					>
+						<RenderMarkdown type="education" slug={slug} />
+					</Experience>
+				))}
+			</NamedList>
+		)}
+	
+		<NamedList name="Awards" id="awards">
+			{awards.map(({ slug, data: { name } }) => (
+				<Experience title={name}>
+					<RenderMarkdown type="awards" slug={slug} />
+				</Experience>
+			))}
+		</NamedList>
+	</PageSection>
+</BaseLayout>
