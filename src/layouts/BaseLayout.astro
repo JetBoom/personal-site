@@ -1,8 +1,8 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 import BaseHead from '@/components/Header/BaseHead.astro'
 import Header from '@/components/Header/Header.astro'
 import Footer from '@/components/Footer.astro'
-import ProviderAnimations from '@/components/ProviderAnimations.astro'
 import TwSizeIndicator from '@/components/TwSizeIndicator.astro'
 import EditBlog from '@/components/editBlog.astro'
 import { cn } from '@/utils/cn'
@@ -17,10 +17,10 @@ const {
 } = Astro.props
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
 	<head>
 		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
-		<ProviderAnimations />
+		<ViewTransitions />
 	</head>
 
 	<body>
@@ -31,6 +31,7 @@ const {
 				noTopMargin ? 'mt-0' : 'mt-24',
 				className,
 			)}
+			transition:animate="fade"
 		>
 			<slot />
 		</main>
