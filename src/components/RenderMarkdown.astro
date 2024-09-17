@@ -1,0 +1,16 @@
+---
+import { getEntry } from 'astro:content'
+
+interface Props {
+    slug: string
+    type: string
+}
+
+const { slug, type } = Astro.props
+// @ts-ignore
+const entry = await getEntry(type, slug)
+// @ts-ignore
+const Content = entry ? (await entry.render()).Content : null
+---
+
+{Content && <Content />}

@@ -1,7 +1,7 @@
 {
 	"name": "personal-site",
 	"type": "module",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "My personal blog and portfolio",
 	"author": {
 		"name": "William Moodhe",
@@ -42,7 +42,8 @@
 		"astro": "4.15.4",
 		"astro-icon": "^1.1.1",
 		"sass": "^1.77.8",
-		"tinacms": "^2.2.0"
+		"tinacms": "^2.2.0",
+		"tippy.js": "^6.3.7"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "3.1.5",

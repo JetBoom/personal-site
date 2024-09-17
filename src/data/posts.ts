@@ -22,7 +22,7 @@ export const PostsCollection = defineCollection({
 })
 
 async function getPostsFromCollection() {
-	return await getCollection('posts') ?? []
+	return await getCollection('posts')
 }
 
 export async function getPostCategories() {

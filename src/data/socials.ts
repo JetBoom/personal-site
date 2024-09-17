@@ -13,7 +13,7 @@ export const SocialsCollection = defineCollection({ schema, type: 'data' })
 export type SocialType = z.infer<typeof schema>
 
 export async function getSocials() {
-	let items = await getCollection('socials') ?? []
+	let items = await getCollection('socials')
     items.sort(sortByPriority)
 	return items
 }

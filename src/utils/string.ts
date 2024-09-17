@@ -25,7 +25,7 @@ export function sluglify(text: string) : string {
  * @example unsluglify('this-is-an-id') // -> 'this is an id'
  */
 export function unsluglify(id: string) : string {
-	return id.replace(/-/g, ' ')
+	return id.replace(/-/g, ' ').split('.')[0]
 }
 
 /**
@@ -46,13 +46,13 @@ export function properCase(text: string) : string {
  * Converts a year and month to a readable date string.
  * @param year The year.
  * @param month The month from 1 to 12.
- * @returns A date string in the form MM/YYYY or Present if year or month aren't provided.
- * @example getDisplayDate(2024, 5) // -> '05/2024'
+ * @returns A date string in the form Month YYYY or 'Present' if year or month aren't provided.
+ * @example getDisplayDate(2024, 5) // -> 'May 2024'
  */
 export function getDisplayDate(year?: number, month?: number) : string {
     if (!year || !month) return 'Present'
 
-    return `${String(month).padStart(2, '0')}/${year}`
+    return new Intl.DateTimeFormat('en', { month: 'long', year: 'numeric' }).format(new Date(year, month - 1))
 }
 
 interface ISortableAstroContent {

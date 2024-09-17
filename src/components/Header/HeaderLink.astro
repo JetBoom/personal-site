@@ -11,6 +11,7 @@ const {
 	href,
 	class: className,
 	icon,
+	title,
 	...props
 } = Astro.props
 
@@ -26,6 +27,8 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 		className,
 	)}
 	rel='noopener noreferrer'
+	data-tippy-content={title}
+	data-tippy-placement="bottom"
 	{...props}
 >
 	{icon && <Icon name={icon} class="text-[1.25em]" />}

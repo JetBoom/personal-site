@@ -2,28 +2,23 @@
 import Experience from '@/components/Experience.astro'
 import NamedList from '@/components/NamedList.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import UnorderedList from '@/components/UnorderedList.astro'
-import ListItem from '@/components/ListItem.astro'
 import Icon from '@/components/icons/Icon.astro'
 import HoverUpDown from '@/components/animations/HoverUpDown.astro'
 import SplashLink from '@/components/SplashPage/SplashLink.astro'
 import SplashMenu from '@/components/SplashPage/SplashMenu.astro'
-import { getSkills } from '@/data/skills'
 import { getExperience } from '@/data/experience'
 import { getEducation } from '@/data/education'
+import { getAwards } from '@/data/awards'
+import RenderMarkdown from '@/components/RenderMarkdown.astro'
 import { siteConfig } from '@/site.config'
-import {
-    properCase,
-    unsluglify,
-    getDisplayDate,
-} from '@/utils/string'
+import { getDisplayDate } from '@/utils/string'
 import PageSection from '@/components/PageSection.astro'
 
 const { author, jobTitle } = siteConfig
 
 const experience = await getExperience()
 const education = await getEducation()
-const skillGroups = await getSkills()
+const awards = await getAwards()
 
 const title = 'About'
 ---
@@ -69,67 +64,45 @@ const title = 'About'
 			Looking for consulting or have a job proposition? <a href={`mailto:${siteConfig.email}`} class="underline">Contact me</a> directly.</p>
 
 		<NamedList name="Experience" id="experience">
-			{experience.map(({ id, data: { url, title, startYear, startMonth, endYear, endMonth, image, linkedin, skills, bullets, description } }) => (
+			{experience.map(({ slug, data: { name, url, title, startYear, startMonth, endYear, endMonth, image, linkedin } }) => (
 				<Experience
-					title={properCase(unsluglify(id))}
+					title={name}
 					subtitle={title}
 					dates={`${getDisplayDate(startYear, startMonth)} - ${getDisplayDate(endYear, endMonth)}`}
 					image={image}
 					url={url}
 					linkedin={linkedin}
 				>
-					<p class="italic">
-						{description}
-						{/* {skills?.length && (
-							<><br />Key skills: {skills.join(', ')}</>
-						)} */}
-					</p>
-					{bullets?.length && <UnorderedList>
-						{bullets.map(item => <ListItem>{item}</ListItem>)}
-					</UnorderedList>}
+					<RenderMarkdown type="experience" slug={slug} />
 				</Experience>
 			))}
 		</NamedList>
 
 		<NamedList name="Skills" id="skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
-			<div class="grid grid-cols-1 sm:grid-cols-[auto_auto] gap-y-1">
-				{skillGroups.map(({ id, data: { skills } }) => (
-					<div class="text-fg text-opacity-65 mr-[4ch] max-sm:border-b border-current">
-						{properCase(unsluglify(id))}<span class="max-sm:hidden">:</span>
-					</div>
-					<div class="text-fg text-opacity-85 [&:not(:last-child)]:max-sm:mb-2">
-						{skills.join(', ')}
-					</div>
-				))}
-			</div>
+			<RenderMarkdown type="skillsection" slug='skillsection1' />
 		</NamedList>
 	
 		{education.length > 0 && (
 			<NamedList name="Education" id="education">
-				{education.map(({ id, data: { degree, year, description, url, image } }) => (
+				{education.map(({ slug, data: { name, degree, subject, year, url, image } }) => (
 					<Experience
-						title={properCase(unsluglify(id))}
-						subtitle={degree}
+						title={name}
+						subtitle={`${degree} - ${subject}`}
 						url={url}
 						image={image}
 					>
-						{description}
+						<RenderMarkdown type="education" slug={slug} />
 					</Experience>
 				))}
 			</NamedList>
 		)}
 	
 		<NamedList name="Awards" id="awards">
-			<Experience
-				title="SBU Game Programming Competition"
-				subtitle="1st place in 2015"
-				url="https://www3.cs.stonybrook.edu/~games/history.html"
-				image="logos/stonybrookuniversity.jpg"
-			>
-				Won 1st place in the university's annual game programming competition out of 100+ entries and 16 finalists for <i>"Valhalla Run"</i>.
-				<br />Programmed in C# with the Unity engine and entered solo.
-				<br /><a href="https://www3.cs.stonybrook.edu/~games/history.html">www3.cs.stonybrook.edu/~games/history.html</a>
-			</Experience>
+			{awards.map(({ slug, data: { name } }) => (
+				<Experience title={name}>
+					<RenderMarkdown type="awards" slug={slug} />
+				</Experience>
+			))}
 		</NamedList>
 	</PageSection>
 </BaseLayout>

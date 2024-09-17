@@ -46,7 +46,5 @@ export async function getGitHubRepos(user: string): Promise<GitHubRepo[]> {
         return a.name.localeCompare(b.name)
     })
 
-    console.log(repos)
-
     return repos
 }
