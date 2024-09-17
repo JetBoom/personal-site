@@ -79,7 +79,9 @@ const title = 'About'
 		</NamedList>
 
 		<NamedList name="Skills" id="skills" description="List isn't exhaustive. There's way too much tech to mention and these are just the key ones people look for.">
-			<RenderMarkdown type="skillsection" slug='skillsection1' />
+			<div class="prose prose-invert max-w-full">
+				<RenderMarkdown type="generic" slug="skills" />
+			</div>
 		</NamedList>
 	
 		{education.length > 0 && (
