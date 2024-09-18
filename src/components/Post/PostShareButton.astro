@@ -13,15 +13,29 @@ const URL = Astro.url.href
 const shareSites = await getShareSites()
 ---
 
-<div class="flex justify-center items-center gap-4 text-md">
+<div class="flex flex-wrap items-center gap-2 text-md">
 	{shareSites.map(({ data: { name, href, icon } }) => (
 		<a
+			class="share-link"
 			href={getShareHref(href, URL, message)}
-			title={`Share on ${name}`}
 			target="_blank"
-			aria-label={`Share on ${name}`}
+			data-tippy-content={`Share on ${name}`}
 		>
 			<Icon name={icon} />
 		</a>
 	))}
 </div>
+
+<style>
+	a.share-link {
+		padding: 0.25rem;
+		border-radius: 0.5rem;
+		outline: 1px solid transparent;
+		@apply transition-all;
+
+		&:hover {
+			@apply outline-fg/50;
+			box-shadow: 0px 0px 0.5rem #fff8;
+		}
+	}
+</style>
