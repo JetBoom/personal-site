@@ -1,0 +1,3 @@
+name: Reddit
+href: https://www.reddit.com/submit?url={url}&text={message}
+icon: logos:reddit-icon

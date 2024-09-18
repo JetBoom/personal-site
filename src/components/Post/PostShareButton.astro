@@ -1,5 +1,6 @@
 ---
-import { SHARE_SITES } from '@/data/ShareSites'
+import { getShareHref, getShareSites } from '@/data/shareSites'
+import Icon from '@/components/icons/Icon.astro'
 
 type Props = {
 	message: string
@@ -8,17 +9,19 @@ type Props = {
 const { message } = Astro.props
 
 const URL = Astro.url.href
+
+const shareSites = await getShareSites()
 ---
 
 <div class="flex justify-center items-center gap-4 text-md">
-	{SHARE_SITES.map(site => (
+	{shareSites.map(({ data: { name, href, icon } }) => (
 		<a
-			href={site.href(URL, message)}
-			title={`Share on ${site.name}`}
+			href={getShareHref(href, URL, message)}
+			title={`Share on ${name}`}
 			target="_blank"
-			aria-label={`Share on ${site.name}`}
+			aria-label={`Share on ${name}`}
 		>
-			{<site.icon />}
+			<Icon name={icon} />
 		</a>
 	))}
 </div>

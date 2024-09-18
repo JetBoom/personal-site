@@ -1,21 +1,29 @@
-import TwitterIcon from '@/components/icons/TwitterIcon.astro'
-import LinkedinIcon from '@/components/icons/linkedinIcon.astro'
+import { defineCollection, getCollection, z } from 'astro:content'
 
-type ShareSiteType = {
-	name: string
-	href: (url: string, message: string) => string
-	icon: any
+const schema = z.object({
+	name: z.string(),
+	href: z.string(),
+	icon: z.string(),
+})
+
+export const ShareSitesCollection = defineCollection({ schema, type: 'data' })
+
+export type ShareSiteType = z.infer<typeof schema>
+
+export async function getShareSites() {
+	let items = await getCollection('shareSites')
+	return items
 }
 
-export const SHARE_SITES: ShareSiteType[] = [
-	{
-		name: 'Twitter',
-		href: (url, message) => `https://twitter.com/intent/tweet?text=${message + ' ' + url}`,
-		icon: TwitterIcon
-	},
-    {
-        name: 'LinkedIn',
-        href: (url, message) => `https://www.linkedin.com/shareArticle?mini=true&url=${url}`,
-        icon: LinkedinIcon,
-    },
-]
+/**
+ * Transforms template href on a share link button.
+ * @param templateURL Sharing URL template
+ * @param url URL of the currently viewed page.
+ * @param message Message, usually an article title.
+ * @returns Final transformed href
+ */
+export function getShareHref(templateURL: string, url: string, message: string) : string {
+	return templateURL
+		.replace('{url}', encodeURIComponent(url))
+		.replace('{message}', encodeURIComponent(message))
+}

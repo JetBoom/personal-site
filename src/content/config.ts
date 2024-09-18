@@ -4,6 +4,7 @@ import { GenericCollection } from '@/data/generic'
 import { ExperienceCollection } from '@/data/experience'
 import { EducationCollection } from '@/data/education'
 import { SocialsCollection } from '@/data/socials'
+import { ShareSitesCollection } from '@/data/shareSites'
 
 export const collections = {
     awards: AwardsCollection,
@@ -12,4 +13,5 @@ export const collections = {
 	experience: ExperienceCollection,
     education: EducationCollection,
     socials: SocialsCollection,
+    shareSites: ShareSitesCollection,
 }
