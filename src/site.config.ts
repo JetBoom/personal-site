@@ -7,6 +7,16 @@ interface SiteConfig {
 	description: string
 	lang: string
 	ogLocale: string
+
+	giscus: {
+		enabled: true
+		repo: string
+		repoId: string
+		category: string
+		categoryId: string
+		theme: string
+		lang: string
+	} | (Record<string, any> & { enabled: false })
 }
 
 export const siteConfig: SiteConfig = {
@@ -18,4 +28,14 @@ export const siteConfig: SiteConfig = {
 	description: 'My personal blog and portfolio.',
 	lang: 'en-US',
 	ogLocale: 'en_US',
+	giscus: {
+    	enabled: true,
+		// Get your own giscus setup at https://giscus.app
+		repo: 'jetboom/personal-site',
+    	repoId: 'R_kgDOKYtB9w',
+    	category: 'Site Comments',
+    	categoryId: 'DIC_kwDOKYtB984CimXP',
+    	theme: 'dark',
+    	lang: 'en',
+	},
 } as const

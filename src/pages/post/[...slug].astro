@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
 import BlogPost from '@/layouts/BlogPost.astro'
+import GiscusComments from '@/components/GiscusComments.astro'
 import Code from '@/components/mdx/Code.astro'
 import ListRelatedPosts from '@/components/Post/ListRelatedPosts.astro'
 import Share from '@/components/Post/PostShareButton.astro'
@@ -54,23 +55,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 				<h2 class='font-bold text-lg text-fg mb-6'>Related Posts</h2>
 				<ListRelatedPosts posts={relatedPosts} />
 
-				<h2>Comments</h2>
-				<div class="giscus" />
-				<script is:inline src="https://giscus.app/client.js"
-					data-repo="jetboom/personal-site"
-					data-repo-id="R_kgDOKYtB9w"
-					data-category="Site Comments"
-					data-category-id="DIC_kwDOKYtB984CimXP"
-					data-mapping="pathname"
-					data-strict="0"
-					data-reactions-enabled="1"
-					data-emit-metadata="0"
-					data-input-position="top"
-					data-theme="dark"
-					data-lang="en"
-					crossorigin="anonymous"
-					async>
-				</script>
+				<GiscusComments />
 			</footer>
 		</article>
 	</div>
