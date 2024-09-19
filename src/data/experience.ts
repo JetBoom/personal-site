@@ -1,4 +1,9 @@
-import { defineCollection, getCollection, z } from 'astro:content'
+import {
+    defineCollection,
+    getCollection,
+    z,
+    type CollectionEntry,
+} from 'astro:content'
 
 const schema = z.object({
     name: z.string(),
@@ -17,7 +22,7 @@ export const ExperienceCollection = defineCollection({ schema, type: 'content' }
 
 export type ExperienceType = z.infer<typeof schema>
 
-export async function getExperience() {
+export async function getExperience() : Promise<CollectionEntry<'experience'>[]> {
 	let items = await getCollection('experience')
 
     items.sort((a, b) => {

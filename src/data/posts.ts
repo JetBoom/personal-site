@@ -2,6 +2,7 @@ import {
 	defineCollection,
 	getCollection,
 	z,
+	type CollectionEntry,
 } from 'astro:content'
 
 export const PostsCollection = defineCollection({
@@ -21,7 +22,7 @@ export const PostsCollection = defineCollection({
 	type: 'content',
 })
 
-async function getPostsFromCollection() {
+async function getPostsFromCollection() : Promise<CollectionEntry<'posts'>[]> {
 	return await getCollection('posts')
 }
 
@@ -31,7 +32,7 @@ export async function getPostCategories() {
 	return Array.from(categories)
 }
 
-export async function getPosts(max?: number) {
+export async function getPosts(max?: number) : Promise<CollectionEntry<'posts'>[]> {
 	let posts = await getPostsFromCollection()
 	posts = posts
 		.filter(post => !post.data.draft)
@@ -40,18 +41,18 @@ export async function getPosts(max?: number) {
 	return posts
 }
 
-export async function getTags() {
+export async function getTags() : Promise<string[]> {
 	const posts = await getPostsFromCollection()
 	const tags = new Set(posts.map((post) => post.data.tags).flat())
 	return Array.from(tags)
 }
 
-export async function getPostByTag(tag: string) {
+export async function getPostByTag(tag: string) : Promise<CollectionEntry<'posts'>[]> {
 	const posts = await getPosts()
 	return posts.filter((post) => post.data.tags.includes(tag))
 }
 
-export async function filterPostsByCategory(category: string) {
+export async function filterPostsByCategory(category: string) : Promise<CollectionEntry<'posts'>[]> {
 	const posts = await getPosts()
 	return posts.filter((post) => post.data.category.toLowerCase() === category)
 }

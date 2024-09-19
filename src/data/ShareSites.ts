@@ -1,4 +1,9 @@
-import { defineCollection, getCollection, z } from 'astro:content'
+import {
+	defineCollection,
+	getCollection,
+	z,
+	type CollectionEntry,
+} from 'astro:content'
 
 const schema = z.object({
 	name: z.string(),
@@ -10,7 +15,7 @@ export const ShareSitesCollection = defineCollection({ schema, type: 'data' })
 
 export type ShareSiteType = z.infer<typeof schema>
 
-export async function getShareSites() {
+export async function getShareSites() : Promise<CollectionEntry<'shareSites'>[]> {
 	let items = await getCollection('shareSites')
 	return items
 }

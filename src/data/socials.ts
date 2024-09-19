@@ -1,4 +1,9 @@
-import { defineCollection, getCollection, z } from 'astro:content'
+import {
+	defineCollection,
+	getCollection,
+	z,
+	type CollectionEntry,
+} from 'astro:content'
 import { sortByPriority } from '@/utils/string'
 
 const schema = z.object({
@@ -12,7 +17,7 @@ export const SocialsCollection = defineCollection({ schema, type: 'data' })
 
 export type SocialType = z.infer<typeof schema>
 
-export async function getSocials() {
+export async function getSocials() : Promise<CollectionEntry<'socials'>[]>{
 	let items = await getCollection('socials')
     items.sort(sortByPriority)
 	return items
