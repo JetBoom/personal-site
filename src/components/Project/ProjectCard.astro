@@ -1,9 +1,7 @@
 ---
 import Icon from '@/components/icons/Icon.astro'
 import SkillIcon from '@/components/icons/SkillIcon.astro'
-import FormattedDate from '@/components/FormattedDate.astro'
 import type { GitHubRepo } from '@/utils/github'
-import { GetSkillIcon } from '@/utils/SkillIcons'
 
 type Props = {
 	project: GitHubRepo
@@ -15,8 +13,8 @@ const {
         name,
         description,
         language,
-        created,
-        updated,
+        // created,
+        // updated,
         stars,
         forks,
     }

@@ -19,7 +19,7 @@ export const EducationCollection = defineCollection({ schema, type: 'content' })
 export type EducationType = z.infer<typeof schema>
 
 export async function getEducation() : Promise<CollectionEntry<'education'>[]> {
-	let items = await getCollection('education')
+    const items = await getCollection('education')
     items.sort((a, b) => b.data.year - a.data.year)
-	return items
+    return items
 }

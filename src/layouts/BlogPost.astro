@@ -3,18 +3,16 @@ import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '@/components/FormattedDate.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import Tag from '@/components/Post/PostTag.astro'
-import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
 import Icon from '@/components/icons/Icon.astro'
 import HorizontalRule from '@/components/HorizontalRule.astro'
 
 type Props = {
 	data: CollectionEntry<'posts'>['data']
-	headings: MarkdownHeading[]
 	readTime: string
 }
 
-const { data, readTime, headings } = Astro.props
+const { data, readTime } = Astro.props
 const { title, description, pubDate, image, tags } = data
 
 const articleDate = pubDate.toISOString()
@@ -97,8 +95,7 @@ const articleDate = pubDate.toISOString()
 
 <script>
 	function handleIntersection(
-	    entries: IntersectionObserverEntry[],
-	    observer: IntersectionObserver
+	    entries: IntersectionObserverEntry[]
 	) {
 	    entries.forEach((entry) => {
 	        const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)

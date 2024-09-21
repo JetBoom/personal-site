@@ -1,14 +1,14 @@
 import {
-	defineCollection,
-	getCollection,
-	z,
-	type CollectionEntry,
+    defineCollection,
+    getCollection,
+    z,
+    type CollectionEntry,
 } from 'astro:content'
 
 const schema = z.object({
-	name: z.string(),
-	href: z.string(),
-	icon: z.string(),
+    name: z.string(),
+    href: z.string(),
+    icon: z.string(),
 })
 
 export const ShareSitesCollection = defineCollection({ schema, type: 'data' })
@@ -16,8 +16,8 @@ export const ShareSitesCollection = defineCollection({ schema, type: 'data' })
 export type ShareSiteType = z.infer<typeof schema>
 
 export async function getShareSites() : Promise<CollectionEntry<'shareSites'>[]> {
-	let items = await getCollection('shareSites')
-	return items
+    const items = await getCollection('shareSites')
+    return items
 }
 
 /**
@@ -28,7 +28,7 @@ export async function getShareSites() : Promise<CollectionEntry<'shareSites'>[]>
  * @returns Final transformed href
  */
 export function getShareHref(templateURL: string, url: string, message: string) : string {
-	return templateURL
-		.replace('{url}', encodeURIComponent(url))
-		.replace('{message}', encodeURIComponent(message))
+    return templateURL
+        .replace('{url}', encodeURIComponent(url))
+        .replace('{message}', encodeURIComponent(message))
 }

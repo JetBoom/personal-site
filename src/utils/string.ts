@@ -15,7 +15,7 @@ export function stripProtocol(href: string) : string {
  * @example sluglify('article title') -> 'article-title'
  */
 export function sluglify(text: string) : string {
-	return text.replace(/\s+/g, '-')
+    return text.replace(/\s+/g, '-')
 }
 
 /**
@@ -25,7 +25,7 @@ export function sluglify(text: string) : string {
  * @example unsluglify('this-is-an-id') // -> 'this is an id'
  */
 export function unsluglify(id: string) : string {
-	return id.replace(/-/g, ' ').split('.')[0]
+    return id.replace(/-/g, ' ').split('.')[0]
 }
 
 /**

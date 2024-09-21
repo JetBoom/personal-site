@@ -7,6 +7,6 @@ type Props = HTMLAttributes<'div'>
 const { class: className, ...props } = Astro.props
 ---
 
-<div class={cn('min-h-screen flex flex-col gap-12 justify-center', className)}>
+<div class={cn('min-h-screen flex flex-col gap-12 justify-center', className)} {...props}>
     <slot />
 </div>

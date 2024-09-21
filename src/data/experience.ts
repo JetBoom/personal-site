@@ -23,7 +23,7 @@ export const ExperienceCollection = defineCollection({ schema, type: 'content' }
 export type ExperienceType = z.infer<typeof schema>
 
 export async function getExperience() : Promise<CollectionEntry<'experience'>[]> {
-	let items = await getCollection('experience')
+    const items = await getCollection('experience')
 
     items.sort((a, b) => {
         const startA = new Date(a.data.startYear, a.data.startMonth + 1)
@@ -31,5 +31,5 @@ export async function getExperience() : Promise<CollectionEntry<'experience'>[]>
         return startB.valueOf() - startA.valueOf()
     })
 
-	return items
+    return items
 }

@@ -9,6 +9,17 @@ export type GitHubRepo = {
     updated: Date
 }
 
+interface GitHubRepoAPI {
+    name: string
+    description: string
+    language: string
+    stargazers_count: number
+    forks: number
+    created_at: string
+    updated_at: string
+    topics?: string[]
+}
+
 /**
  * Get all of a user's public GitHub repos via public GitHub API.
  * @param user - User name
@@ -19,9 +30,9 @@ export async function getGitHubRepos(user: string): Promise<GitHubRepo[]> {
 
     try {
         const response = await fetch(`https://api.github.com/users/${user}/repos`)
-        let json = await response.json()
+        let json = await response.json() as GitHubRepoAPI[]
 
-        json = json.filter((item: any) => !item.topics?.includes('nolist'))
+        json = json.filter(item => !item.topics?.includes('nolist'))
 
         for (const repo of json) {
             repos.push({
@@ -35,7 +46,7 @@ export async function getGitHubRepos(user: string): Promise<GitHubRepo[]> {
                 updated: new Date(repo.updated_at),
             })
         }
-    } catch (e: any) {
+    } catch (e) {
         console.error(e)
     }
 

@@ -8,9 +8,9 @@ import { ShareSitesCollection } from '@/data/shareSites'
 
 export const collections = {
     awards: AwardsCollection,
-	posts: PostsCollection,
+    posts: PostsCollection,
     generic: GenericCollection,
-	experience: ExperienceCollection,
+    experience: ExperienceCollection,
     education: EducationCollection,
     socials: SocialsCollection,
     shareSites: ShareSitesCollection,

@@ -48,7 +48,7 @@ const title = 'Resume'
 	
         {education.length > 0 && (
             <NamedList name="Education" id="education">
-                {education.map(({ slug, data: { name, degree, subject, year, url, image } }) => (
+                {education.map(({ slug, data: { name, degree, subject, url, image } }) => (
                     <Experience
                         title={name}
                         subtitle={`${degree} - ${subject}`}

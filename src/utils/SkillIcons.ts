@@ -6,7 +6,7 @@
 export function GetSkillIcon(name: string, fallback?: string): string | undefined {
     name = name.toLowerCase().replaceAll(/\./g, '')
     name = Aliases[name] ?? name
-	return SKILL_ICONS[name] ?? fallback ?? 'ri:checkbox-blank-circle-line'
+    return SKILL_ICONS[name] ?? fallback ?? 'ri:checkbox-blank-circle-line'
 }
 
 const Aliases: Record<string, string> = {
