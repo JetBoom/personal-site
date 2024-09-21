@@ -5,4 +5,4 @@
 # npx lint-staged
 
 # pnpm
-#pnpm exec lint-staged
+pnpm exec lint-staged
