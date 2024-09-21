@@ -11,25 +11,25 @@ const title = 'Articles'
 ---
 
 <BaseLayout title={title}>
-	<TitlePage title={title} />
-	<ListCategories />
+    <TitlePage title={title} />
+    <ListCategories />
 
-	<div>
-		<ListPosts posts={posts} />
-	</div>
+    <div>
+        <ListPosts posts={posts} />
+    </div>
 </BaseLayout>
 
 <script>
 	import { animate } from 'motion'
 
 	animate(
-		'.title',
-		{ y: [80, 0], opacity: [0, 1] },
-		{
-			duration: 2.5,
-			opacity: { duration: 3 },
+	    '.title',
+	    { y: [80, 0], opacity: [0, 1] },
+	    {
+	        duration: 2.5,
+	        opacity: { duration: 3 },
 
-			offset: [0, 0.55, 0.75]
-		},
+	        offset: [0, 0.55, 0.75]
+	    },
 	)
 </script>

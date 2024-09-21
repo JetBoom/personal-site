@@ -6,26 +6,26 @@ import SocialNetworks from './ListSocialNetworks.astro'
 ---
 
 <header id="header">
-	<nav>
-		<BurgerMenu>
-			<HeaderLink href='/'>
-				<div class="size-8 bg-[url(/myself.jpg)] bg-cover bg-center rounded-full" />
+    <nav>
+        <BurgerMenu>
+            <HeaderLink href='/'>
+                <div class="size-8 bg-[url(/myself.jpg)] bg-cover bg-center rounded-full" />
 				About Me
-			</HeaderLink>
-			<HeaderLink href='/posts' icon="ri:discuss-fill">
+            </HeaderLink>
+            <HeaderLink href='/posts' icon="ri:discuss-fill">
 				Articles
-			</HeaderLink>
-			<HeaderLink href='/projects' icon="ri:code-s-slash-fill">
+            </HeaderLink>
+            <HeaderLink href='/projects' icon="ri:code-s-slash-fill">
 				Projects
-			</HeaderLink>
-		</BurgerMenu>
+            </HeaderLink>
+        </BurgerMenu>
 		
-		<div class="grow" />
+        <div class="grow" />
 
-		<SocialNetworks />
+        <SocialNetworks />
 
-		<Search />
-	</nav>
+        <Search />
+    </nav>
 </header>
 
 <style>
@@ -84,6 +84,6 @@ import SocialNetworks from './ListSocialNetworks.astro'
 
 <script is:inline>
 	document.addEventListener('scroll', () => {
-		document.querySelector('#header')?.classList.toggle('floating', document.documentElement.scrollTop > 0)
+	    document.querySelector('#header')?.classList.toggle('floating', document.documentElement.scrollTop > 0)
 	})
 </script>

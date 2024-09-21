@@ -7,19 +7,19 @@ type Props = HTMLAttributes<'div'> & {
 }
 
 const {
-	name,
-	description,
-	...props
+    name,
+    description,
+    ...props
 } = Astro.props
 ---
 
 <div class="grid gap-6 max-md:flex-col" {...props}>
-	<div class="md:basis-[600px] overflow-visible">
-		<h2 class="font-bold text-4xl text-primary">{name}</h2>
-		{description && <p>{description}</p>}
-	</div>
+    <div class="md:basis-[600px] overflow-visible">
+        <h2 class="font-bold text-4xl text-primary">{name}</h2>
+        {description && <p>{description}</p>}
+    </div>
 
-	<div class="grid grid-cols-1 gap-6 md:gap-8 grow md:pl-8 max-md:mt-3">
-		<slot />
-	</div>
+    <div class="grid grid-cols-1 gap-6 md:gap-8 grow md:pl-8 max-md:mt-3">
+        <slot />
+    </div>
 </div>

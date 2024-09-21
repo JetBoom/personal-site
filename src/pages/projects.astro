@@ -13,25 +13,25 @@ const title = 'Projects'
 ---
 
 <BaseLayout title={title}>
-	<TitlePage title={title} />
-	<p class="title text-fg text-lg">A list of my public, open-source projects.</p>
+    <TitlePage title={title} />
+    <p class="title text-fg text-lg">A list of my public, open-source projects.</p>
 
-	<div>
-		<ListProjects projects={projects} />
-	</div>
+    <div>
+        <ListProjects projects={projects} />
+    </div>
 </BaseLayout>
 
 <script>
 	import { animate } from 'motion'
 
 	animate(
-		'.title',
-		{ y: [80, 0], opacity: [0, 1] },
-		{
-			duration: 2.5,
-			opacity: { duration: 3 },
+	    '.title',
+	    { y: [80, 0], opacity: [0, 1] },
+	    {
+	        duration: 2.5,
+	        opacity: { duration: 3 },
 
-			offset: [0, 0.55, 0.75]
-		},
+	        offset: [0, 0.55, 0.75]
+	    },
 	)
 </script>

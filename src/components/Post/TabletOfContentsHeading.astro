@@ -15,21 +15,21 @@ export interface Props {
 ---
 
 <li class='flex flex-col'>
-	<a
-		href={'#' + heading.slug}
-		class={cn(
-			`bg-bg hover:bg-accent py-1 px-4 text-fg rounded-full mb-2 first-letter:uppercase w-fit line-clamp-2`
-		)}
-	>
-		{heading.text}
-	</a>
-	{
-		heading.subheadings.length > 0 && (
-			<ul class='ml-3'>
-				{heading.subheadings.map((subheading) => (
-					<Astro.self heading={subheading} />
-				))}
-			</ul>
-		)
-	}
+    <a
+        href={'#' + heading.slug}
+        class={cn(
+            'bg-bg hover:bg-accent py-1 px-4 text-fg rounded-full mb-2 first-letter:uppercase w-fit line-clamp-2'
+        )}
+    >
+        {heading.text}
+    </a>
+    {
+        heading.subheadings.length > 0 && (
+            <ul class='ml-3'>
+                {heading.subheadings.map((subheading) => (
+                    <Astro.self heading={subheading} />
+                ))}
+            </ul>
+        )
+    }
 </li>

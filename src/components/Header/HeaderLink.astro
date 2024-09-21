@@ -8,11 +8,11 @@ type Props = HTMLAttributes<'a'> & {
 }
 
 const {
-	href,
-	class: className,
-	icon,
-	title,
-	...props
+    href,
+    class: className,
+    icon,
+    title,
+    ...props
 } = Astro.props
 
 const { pathname } = Astro.url
@@ -20,19 +20,19 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
 <a
-	href={href}
-	class={cn(
-		'ez-click',
-		isActive && 'active',
-		className,
-	)}
-	rel='noopener noreferrer'
-	data-tippy-content={title}
-	data-tippy-placement="bottom"
-	{...props}
+    href={href}
+    class={cn(
+        'ez-click',
+        isActive && 'active',
+        className,
+    )}
+    rel='noopener noreferrer'
+    data-tippy-content={title}
+    data-tippy-placement="bottom"
+    {...props}
 >
-	{icon && <Icon name={icon} class="text-[1.25em]" />}
-	<slot />
+    {icon && <Icon name={icon} class="text-[1.25em]" />}
+    <slot />
 </a>
 
 <style>

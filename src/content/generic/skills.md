@@ -7,7 +7,7 @@
 
 - GraphQL - Redux - Mobx - MongoDB - DynamoDB - PostgresQL - MySQL - Redis - Prisma - React Query - Migrations - zod
 
-- Tailwind - Bootstrap - Material UI - styled - Ant Design - Storybook - Data Visualization - Highcharts - D3.js - Chart.js
+- Tailwind - Bootstrap - Material UI - styled - Ant Design - Storybook - Data Visualization - Highcharts - D3.js - Chart.js - Radix UI
 
 - Microservices - Amazon Web Services (AWS) - Google Cloud Platform (GCP) - Azure - Serverless - Lambda - S3 - EC2 - ECS
 
@@ -17,7 +17,7 @@
 
 <!--
 SolidJS | Preact
-Tanstack | Radix UI | Unstyled Components | Figma
+Tanstack | Unstyled Components | Figma
 SQL Server | DocumentDB
 MikroORM | tRPC | Hibernate | TypeORM
 Selenium
@@ -28,3 +28,4 @@ Copilot
 
 Unreal | Unity | Source engine
 -->
+

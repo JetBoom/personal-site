@@ -1,6 +1,6 @@
 ---
-import { cn } from "@/utils/cn"
-import type { HTMLAttributes } from "astro/types"
+import { cn } from '@/utils/cn'
+import type { HTMLAttributes } from 'astro/types'
 
 type Props = HTMLAttributes<'div'> & {
     animDuration?: string
@@ -15,7 +15,7 @@ const {
 
 <div
     style={`--anim-duration: ${animDuration};`}
-    class={cn("anim-hover-up-down inline", className)}
+    class={cn('anim-hover-up-down inline', className)}
     {...props}>
     <slot />
 </div>

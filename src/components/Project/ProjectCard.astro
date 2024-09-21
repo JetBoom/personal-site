@@ -10,39 +10,39 @@ type Props = {
 }
 
 const {
-	project: {
-		user,
-		name,
-		description,
-		language,
-		created,
-		updated,
-		stars,
-		forks,
-	}
+    project: {
+        user,
+        name,
+        description,
+        language,
+        created,
+        updated,
+        stars,
+        forks,
+    }
 } = Astro.props
 ---
 
 <div class="project-card">
-	<div class="flex gap-2">
-		<a class="project-card-link text-2xl text-primary font-bold" href={`https://github.com/${user}/${name}`}>{name}</a>
-	</div>
+    <div class="flex gap-2">
+        <a class="project-card-link text-2xl text-primary font-bold" href={`https://github.com/${user}/${name}`}>{name}</a>
+    </div>
 	
-	<p class="text-md text-fg text-opacity-75 grow">{description}</p>
+    <p class="text-md text-fg text-opacity-75 grow">{description}</p>
 
-	<div class="flex gap-6 text-lg">
-		<div class="flex items-center gap-1">
-			<Icon name="ri:star-fill" />
-			{stars}
-		</div>
+    <div class="flex gap-6 text-lg">
+        <div class="flex items-center gap-1">
+            <Icon name="ri:star-fill" />
+            {stars}
+        </div>
 
-		<div class="flex items-center gap-1">
-			<Icon name="ri:git-fork-fill" />
-			{forks}
-		</div>
+        <div class="flex items-center gap-1">
+            <Icon name="ri:git-fork-fill" />
+            {forks}
+        </div>
 
-		<SkillIcon for={language} />
-	</div>
+        <SkillIcon for={language} />
+    </div>
 </div>
 
 <style>

@@ -1,46 +1,46 @@
 ---
-import LinkedinIcon from "@/components/icons/linkedinIcon.astro"
-import Icon from "@/components/icons/Icon.astro"
+import LinkedinIcon from '@/components/icons/linkedinIcon.astro'
+import Icon from '@/components/icons/Icon.astro'
 
 const {
-	title,
-	subtitle,
-	dates,
-	image,
-	url,
-	linkedin,
+    title,
+    subtitle,
+    dates,
+    image,
+    url,
+    linkedin,
 } = Astro.props
 ---
 
 <article>
-	<div class="flex justify-between items-center">
-		<div class="w-[2px] self-stretch bg-gradient-to-b from-primary to-transparent before:content-['']"></div>
-		<div class="pl-2 grow">
-			<div class="flex items-center">
-				<a href={url} target="_blank" class="flex items-center text-2xl">
-					<h4 class="font-bold">
-						{title}
-					</h4>
-					{image && <img src={image} alt="" class="h-[1em] ml-2" />}
-				</a>
-				{linkedin && (
-					<a href={linkedin} target="_blank" class="text-xl ml-4">
-						<LinkedinIcon />
-					</a>
-				)}
-			</div>
-			<div class="flex justify-between items-center text-md">
-				<div>{subtitle}</div>
-				{dates && (
-					<div class="flex items-center gap-2 text-fg text-sm text-opacity-85">
-						<Icon name="ri:calendar-line" />
-						<span>{dates}</span>
-					</div>
-				)}
-			</div>
-		</div>
-	</div>
-	<div class="prose prose-invert max-w-full mt-4 text-md text-fg text-opacity-85">
-		<slot />
-	</div>
+    <div class="flex justify-between items-center">
+        <div class="w-[2px] self-stretch bg-gradient-to-b from-primary to-transparent before:content-['']"></div>
+        <div class="pl-2 grow">
+            <div class="flex items-center">
+                <a href={url} target="_blank" class="flex items-center text-2xl">
+                    <h4 class="font-bold">
+                        {title}
+                    </h4>
+                    {image && <img src={image} alt="" class="h-[1em] ml-2" />}
+                </a>
+                {linkedin && (
+                    <a href={linkedin} target="_blank" class="text-xl ml-4">
+                        <LinkedinIcon />
+                    </a>
+                )}
+            </div>
+            <div class="flex justify-between items-center text-md">
+                <div>{subtitle}</div>
+                {dates && (
+                    <div class="flex items-center gap-2 text-fg text-sm text-opacity-85">
+                        <Icon name="ri:calendar-line" />
+                        <span>{dates}</span>
+                    </div>
+                )}
+            </div>
+        </div>
+    </div>
+    <div class="prose prose-invert max-w-full mt-4 text-md text-fg text-opacity-85">
+        <slot />
+    </div>
 </article>

@@ -21,123 +21,123 @@ const articleDate = pubDate.toISOString()
 ---
 
 <BaseLayout
-	title={title}
-	description={description}
-	image={image?.src}
-	articleDate={articleDate}
+    title={title}
+    description={description}
+    image={image?.src}
+    articleDate={articleDate}
 >
-	<article class="min-w-full md:py-4 sm:max-w-none md:max-w-none">
-		<header class="flex flex-col justify-center items-center gap-6">
-			<div class="flex items-center justify-center gap-8 md:gap-32 flex-wrap text-sm text-fg/70">
-				<div class="flex items-center gap-1">
-					<Icon name="ri:calendar-line" />
-					<span>Published <FormattedDate date={pubDate} /></span>
-				</div>
-				<div class="flex items-center gap-1">
-					<Icon name="ri:time-line" />
-					<span>{readTime}</span>
-				</div>
-			</div>
+    <article class="min-w-full md:py-4 sm:max-w-none md:max-w-none">
+        <header class="flex flex-col justify-center items-center gap-6">
+            <div class="flex items-center justify-center gap-8 md:gap-32 flex-wrap text-sm text-fg/70">
+                <div class="flex items-center gap-1">
+                    <Icon name="ri:calendar-line" />
+                    <span>Published <FormattedDate date={pubDate} /></span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <Icon name="ri:time-line" />
+                    <span>{readTime}</span>
+                </div>
+            </div>
 
-			<h1 class="title text-center text-4xl md:text-6xl font-semibold opacity-0">
-				{title}
-			</h1>
+            <h1 class="title text-center text-4xl md:text-6xl font-semibold opacity-0">
+                {title}
+            </h1>
 
-			<p class="description text-center text-md opacity-0 font-bold">
-				{description}
-			</p>
+            <p class="description text-center text-md opacity-0 font-bold">
+                {description}
+            </p>
 
-			<div class="flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5 md:mt-2.5">
-				{tags.map((tag) => <Tag>{tag}</Tag>)}
-			</div>
-		</header>
+            <div class="flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5 md:mt-2.5">
+                {tags.map((tag) => <Tag>{tag}</Tag>)}
+            </div>
+        </header>
 
-		<div class="mt-3 relative">
-			{image && (
-				<Image
-					src={image}
-					width={1000}
-					height={500}
-					quality={100}
-					loading='eager'
-					class='rounded-md w-full max-h-[300px] md:max-h-[500px] my-8 object-cover transition-opacity duration-700 ease-in'
-					alt={`img of ${title}`}
-				/>
-			)}
-		</div>
+        <div class="mt-3 relative">
+            {image && (
+                <Image
+                    src={image}
+                    width={1000}
+                    height={500}
+                    quality={100}
+                    loading='eager'
+                    class='rounded-md w-full max-h-[300px] md:max-h-[500px] my-8 object-cover transition-opacity duration-700 ease-in'
+                    alt={`img of ${title}`}
+                />
+            )}
+        </div>
 
-		<HorizontalRule />
+        <HorizontalRule />
 
-		<div>
-			<slot />
-		</div>
-	</article>
+        <div>
+            <slot />
+        </div>
+    </article>
 </BaseLayout>
 
 <script>
 	import { animate } from 'motion'
 
 	const keyFrames = {
-		opacity: [0, 1],
-		clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 120%)', 'polygon(100% 0, 0 0, 0 100%, 100% 120%)'],
+	    opacity: [0, 1],
+	    clipPath: ['polygon(0 0, 0 0, 0 100%, 0% 120%)', 'polygon(100% 0, 0 0, 0 100%, 100% 120%)'],
 	}
 
 	animate(
-		'.title',
-		keyFrames,
-		{ duration: 1.5, easing: 'ease-in-out' }
+	    '.title',
+	    keyFrames,
+	    { duration: 1.5, easing: 'ease-in-out' }
 	)
 
 	animate(
-		'.description',
-		keyFrames,
-		{ duration: 1.5, easing: 'ease-in-out', delay: 1 }
+	    '.description',
+	    keyFrames,
+	    { duration: 1.5, easing: 'ease-in-out', delay: 1 }
 	)
 </script>
 
 <script>
 	function handleIntersection(
-		entries: IntersectionObserverEntry[],
-		observer: IntersectionObserver
+	    entries: IntersectionObserverEntry[],
+	    observer: IntersectionObserver
 	) {
-		entries.forEach((entry) => {
-			const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
+	    entries.forEach((entry) => {
+	        const index = document.querySelector(`aside a[href="#${entry.target.id}"]`)
 
-			if (entry.isIntersecting) {
-				index?.classList.remove('bg-bg') // remove bg
-				index?.classList.add(
-					'bg-primary',
-					//'text-fg',
-					'font-bold',
-					'transition-colors',
-					'duration-200'
-				)
-			} else {
-				index?.classList.add('bg-bg') // add bg
-				index?.classList.remove(
-					'bg-primary',
-					//'text-fg',
-					'font-bold',
-					'transition-colors',
-					'duration-200'
-				)
-			}
-		})
+	        if (entry.isIntersecting) {
+	            index?.classList.remove('bg-bg') // remove bg
+	            index?.classList.add(
+	                'bg-primary',
+	                //'text-fg',
+	                'font-bold',
+	                'transition-colors',
+	                'duration-200'
+	            )
+	        } else {
+	            index?.classList.add('bg-bg') // add bg
+	            index?.classList.remove(
+	                'bg-primary',
+	                //'text-fg',
+	                'font-bold',
+	                'transition-colors',
+	                'duration-200'
+	            )
+	        }
+	    })
 	}
 
 	const headings = document.querySelectorAll(
-		'div.prose h1, div.prose h2, div.prose h3, div.prose h4, div.prose h5, div.prose h6'
+	    'div.prose h1, div.prose h2, div.prose h3, div.prose h4, div.prose h5, div.prose h6'
 	)
 
 	const options = {
-		root: null,
-		rootMargin: ' 15% 0px 0% 0px ',
-		threshold: 1
+	    root: null,
+	    rootMargin: ' 15% 0px 0% 0px ',
+	    threshold: 1
 	}
 
 	const observer = new IntersectionObserver(handleIntersection, options)
 
 	headings.forEach((heading) => {
-		observer.observe(heading)
+	    observer.observe(heading)
 	})
 </script>

@@ -8,35 +8,35 @@ import EditBlog from '@/components/editBlog.astro'
 import { cn } from '@/utils/cn'
 
 const {
-	title,
-	description,
-	image,
-	articleDate,
-	noTopMargin,
-	class: className,
+    title,
+    description,
+    image,
+    articleDate,
+    noTopMargin,
+    class: className,
 } = Astro.props
 ---
 
 <html lang="en" transition:animate="none">
-	<head>
-		<BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
-		<ViewTransitions />
-	</head>
+    <head>
+        <BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
+        <ViewTransitions />
+    </head>
 
-	<body>
-		<Header />
-		<main
-			class={cn(
-				'flex flex-col grow gap-12 mx-auto px-4 sm:max-w-2xl md:px-8 md:max-w-6xl',
-				noTopMargin ? 'mt-0' : 'mt-24',
-				className,
-			)}
-			transition:animate="fade"
-		>
-			<slot />
-		</main>
-		<Footer />
-		<TwSizeIndicator />
-		<EditBlog />
-	</body>
+    <body>
+        <Header />
+        <main
+            class={cn(
+                'flex flex-col grow gap-12 mx-auto px-4 sm:max-w-2xl md:px-8 md:max-w-6xl',
+                noTopMargin ? 'mt-0' : 'mt-24',
+                className,
+            )}
+            transition:animate="fade"
+        >
+            <slot />
+        </main>
+        <Footer />
+        <TwSizeIndicator />
+        <EditBlog />
+    </body>
 </html>

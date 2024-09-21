@@ -14,16 +14,16 @@ const shareSites = await getShareSites()
 ---
 
 <div class="flex flex-wrap items-center gap-2 text-md">
-	{shareSites.map(({ data: { name, href, icon } }) => (
-		<a
-			class="share-link"
-			href={getShareHref(href, URL, message)}
-			target="_blank"
-			data-tippy-content={`Share on ${name}`}
-		>
-			<Icon name={icon} />
-		</a>
-	))}
+    {shareSites.map(({ data: { name, href, icon } }) => (
+        <a
+            class="share-link"
+            href={getShareHref(href, URL, message)}
+            target="_blank"
+            data-tippy-content={`Share on ${name}`}
+        >
+            <Icon name={icon} />
+        </a>
+    ))}
 </div>
 
 <style>

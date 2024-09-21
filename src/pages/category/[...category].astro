@@ -9,12 +9,12 @@ import { sluglify, unsluglify } from '@/utils/string'
 const { category } = Astro.params
 
 export async function getStaticPaths() {
-	const categories = await getPostCategories()
+    const categories = await getPostCategories()
 
-	return categories.map((category) => ({
-		params: { category: sluglify(category.toLowerCase()) },
-		props: category
-	}))
+    return categories.map((category) => ({
+        params: { category: sluglify(category.toLowerCase()) },
+        props: category
+    }))
 }
 
 const unsluglifyNameCategory = unsluglify(category!.toLowerCase())
@@ -22,7 +22,7 @@ const filterPosts = await filterPostsByCategory(unsluglifyNameCategory)
 ---
 
 <BaseLayout title={category}>
-	<TitlePage title={unsluglifyNameCategory} />
-	<ListCategories activeCategory={category} />
-	<ListPosts posts={filterPosts} />
+    <TitlePage title={unsluglifyNameCategory} />
+    <ListCategories activeCategory={category} />
+    <ListPosts posts={filterPosts} />
 </BaseLayout>

@@ -12,14 +12,14 @@ const isActive =
 ---
 
 <a
-	href={name === 'View All' ? '/posts' : sluglify(`/category/${unsluglifyNameCategory}`)}
-	class={cn(
-		`text-fg text-opacity-80 pb-2.5 first-letter:uppercase font-medium border-b-2 border-opacity-0 border-fg`,
-		`hover:border-opacity-100 hover:text-primary`,
-		`transition-colors duration-150 ease-linear`,
-		isActive &&
-			`border-b-2 border-fg text-fg border-opacity-100`
-	)}
+    href={name === 'View All' ? '/posts' : sluglify(`/category/${unsluglifyNameCategory}`)}
+    class={cn(
+        'text-fg text-opacity-80 pb-2.5 first-letter:uppercase font-medium border-b-2 border-opacity-0 border-fg',
+        'hover:border-opacity-100 hover:text-primary',
+        'transition-colors duration-150 ease-linear',
+        isActive &&
+			'border-b-2 border-fg text-fg border-opacity-100'
+    )}
 >
-	{name}
+    {name}
 </a>

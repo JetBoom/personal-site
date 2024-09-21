@@ -1,10 +1,10 @@
 ---
-import { cn } from "@/utils/cn"
-import type { HTMLAttributes } from "astro/types"
+import { cn } from '@/utils/cn'
+import type { HTMLAttributes } from 'astro/types'
 
 type Props = HTMLAttributes<'hr'>
 
 const { class: className, ...props } = Astro.props
 ---
 
-<hr class={cn("text-primary border-none h-[1px] horizontal-rule", className)} {...props} />
+<hr class={cn('text-primary border-none h-[1px] horizontal-rule', className)} {...props} />
