@@ -39,13 +39,7 @@ export default defineConfig({
 						required: true,
 						name: 'category',
 						label: 'Category',
-						description: 'Select an category for this post',
-						options: [
-							'Blog',
-							'Personal Posts',
-							'Case Studies',
-							'Projects',
-						]
+						description: 'Enter an category for this post',
 					},
 					{
 						type: 'string',
