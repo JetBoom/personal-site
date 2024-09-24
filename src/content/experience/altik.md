@@ -8,4 +8,4 @@ endMonth: 12
 endYear: 2018
 ---
 
-- Developed sportsbook software using **Node.js**, **PHP**, **MySQL**, **JavaScript**, **HTML**, **CSS**, and **jQuery**.
+- Developed sportsbook software using **JavaScript**, **Node.js**, **React**, **Python**, **Django**, **Postgres**, **HTML**, and **CSS**.
