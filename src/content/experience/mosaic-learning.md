@@ -3,7 +3,7 @@ name: Mosaic Learning
 url: https://www.mosaiclearning.com
 linkedin: https://www.linkedin.com/company/mosaiclearning
 image: logos/mosaiclearning.png
-title: Full Stack Developer
+title: Software Engineer
 location: Columbia, MD
 startMonth: 1
 startYear: 2020

@@ -3,7 +3,7 @@ name: Apricity Health
 url: https://apricity-health.com
 linkedin: https://www.linkedin.com/company/apricity-health
 image: logos/apricityhealth.svg
-title: Senior Full Stack Developer
+title: Senior Software Engineer
 location: Remote
 startMonth: 12
 startYear: 2021

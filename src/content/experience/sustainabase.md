@@ -3,7 +3,7 @@ name: SustainaBase
 url: https://sustainabase.com
 linkedin: https://www.linkedin.com/company/sustainabase
 image: logos/sustainabase.png
-title: Senior Full Stack Developer
+title: Senior Software Engineer
 location: Remote
 startMonth: 5
 startYear: 2023
