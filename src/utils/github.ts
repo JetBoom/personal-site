@@ -1,3 +1,5 @@
+import { Octokit } from 'octokit'
+
 export type GitHubRepo = {
     user: string
     name: string
@@ -22,6 +24,7 @@ interface GitHubRepoAPI {
 
 /**
  * Get all of a user's public GitHub repos via public GitHub API.
+ * Sorts by stars > forks > name
  * @param user - User name
  * @returns a list of repositories
  */
@@ -29,12 +32,12 @@ export async function getGitHubRepos(user: string): Promise<GitHubRepo[]> {
     const repos: GitHubRepo[] = []
 
     try {
-        const response = await fetch(`https://api.github.com/users/${user}/repos`)
-        let json = await response.json() as GitHubRepoAPI[]
+        let response = await new Octokit().paginate(`GET /users/${user}/repos`) as GitHubRepoAPI[]
 
-        json = json.filter(item => !item.topics?.includes('nolist'))
+        // Add "nolist" to the topics in the github settings modal for this repo to not appear.
+        response = response.filter(item => !item.topics?.includes('nolist'))
 
-        for (const repo of json) {
+        for (const repo of response) {
             repos.push({
                 user,
                 name: repo.name,
