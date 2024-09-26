@@ -3,6 +3,8 @@ import ListCategories from '@/components/Post/ListCategories.astro'
 import ListPosts from '@/components/Post/ListPosts.astro'
 import TitlePage from '@/components/TitlePage.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import SectionWrapper from '@/components/SectionWrapper.astro'
+import PageSection from '@/components/PageSection.astro'
 import { getPosts } from '@/data/posts'
 
 const posts = await getPosts()
@@ -11,12 +13,14 @@ const title = 'Articles'
 ---
 
 <BaseLayout title={title}>
-    <TitlePage title={title} />
-    <ListCategories />
+    <SectionWrapper>
+        <PageSection class="gap-8">
+            <TitlePage title={title} />
+            <ListCategories />
 
-    <div>
-        <ListPosts posts={posts} />
-    </div>
+            <ListPosts posts={posts} />
+        </PageSection>
+    </SectionWrapper>
 </BaseLayout>
 
 <script>
@@ -26,7 +30,7 @@ const title = 'Articles'
 	    '.title',
 	    { y: [80, 0], opacity: [0, 1] },
 	    {
-	        duration: 2.5,
+	        duration: 1.5,
 	        opacity: { duration: 3 },
 
 	        offset: [0, 0.55, 0.75]

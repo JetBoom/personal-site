@@ -6,41 +6,45 @@ import SplashLink from '@/components/SplashPage/SplashLink.astro'
 import SplashMenu from '@/components/SplashPage/SplashMenu.astro'
 import { siteConfig } from '@/site.config'
 import PageSection from '@/components/PageSection.astro'
+import SectionWrapper from '@/components/SectionWrapper.astro'
 
 const { author, jobTitle } = siteConfig
 ---
 
 <BaseLayout noTopMargin>
-    <div class="splash-bg" />
 	<!-- <div class="absolute left-0 right-0 bottom-0 h-3 bg-slate-900" /> -->
 
-	<PageSection class="relative">
-	    <div class="flex gap-8 justify-center items-center flex-col py-16 md:py-32">
-	        <div>
-	            <div class="size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-[background-size] hover:bg-[length:100%_100%]" />
-	        </div>
-	        <div class="flex flex-col items-center text-center pointer-events-none" style="text-shadow: 1px 1px 0.5em #0008;">
-	            <p class="text-4xl md:text-6xl text-fg font-bold">
-	                {author}
-	            </p>
-	            <p class="text-4xl font-bold text-primary">
-	                {jobTitle}
-	            </p>
-	        </div>
-	    </div>
+	<SectionWrapper class="relative">
+	    <div class="splash-bg" />
 
-	    <SplashMenu>
-	        <SplashLink href="/resume">Resume</SplashLink>
-	        <SplashLink href={`https://github.com/${siteConfig.github}`} target="_blank">GitHub</SplashLink>
-	        <SplashLink href={`mailto:${siteConfig.email}`} target="_blank">Contact</SplashLink>
-	    </SplashMenu>
+	    <PageSection class="justify-center">
+	        <div class="flex gap-8 justify-center items-center flex-col py-16 md:py-32">
+	            <div>
+	                <div class="size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-[background-size] hover:bg-[length:100%_100%]" />
+	            </div>
+	            <div class="flex flex-col items-center text-center pointer-events-none" style="text-shadow: 1px 1px 0.5em #0008;">
+	                <p class="text-4xl md:text-6xl text-fg font-bold">
+	                    {author}
+	                </p>
+	                <p class="text-4xl font-bold text-primary">
+	                    {jobTitle}
+	                </p>
+	            </div>
+	        </div>
 
-		<!-- <div class="absolute bottom-14 flex justify-center w-full text-xl drop-shadow text-primary">
-			<HoverUpDown>
-				<Icon name="ri:arrow-down-circle-line" class="drop-shadow"/>
-			</HoverUpDown>
-		</div> -->
-	</PageSection>
+	        <SplashMenu>
+	            <SplashLink href="/resume">Resume</SplashLink>
+	            <SplashLink href={`https://github.com/${siteConfig.github}`} target="_blank">GitHub</SplashLink>
+	            <SplashLink href={`mailto:${siteConfig.email}`} target="_blank">Contact</SplashLink>
+	        </SplashMenu>
+
+			<!-- <div class="absolute bottom-14 flex justify-center w-full text-xl drop-shadow text-primary">
+				<HoverUpDown>
+					<Icon name="ri:arrow-down-circle-line" class="drop-shadow"/>
+				</HoverUpDown>
+			</div> -->
+	    </PageSection>
+	</SectionWrapper>
 </BaseLayout>
 
 <style>
@@ -51,6 +55,7 @@ const { author, jobTitle } = siteConfig
 
 		position: absolute;
 		inset: 0;
+		z-index: -100;
 
 		background: linear-gradient(to bottom,
 			var(--band-col-1),

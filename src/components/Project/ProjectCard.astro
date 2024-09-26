@@ -30,12 +30,12 @@ const {
 
     <div class="flex gap-6 text-lg">
         <div class="flex items-center gap-1">
-            <Icon name="ri:star-fill" />
+            <Icon name="ri:star-fill" class="text-yellow-200" />
             {stars}
         </div>
 
         <div class="flex items-center gap-1">
-            <Icon name="ri:git-fork-fill" />
+            <Icon name="ri:git-fork-line" />
             {forks}
         </div>
 
@@ -49,19 +49,18 @@ const {
 		display: flex;
 		flex-direction: column;
 		height: 12rem;
-		border: 1px solid #222;
-		border-top-width: 0;
+		border: 1px solid #333;
 		border-bottom-width: 4px;
 		border-radius: 1rem;
 		overflow: hidden;
 		@apply p-4;
-		@apply bg-fg/5;
+		@apply bg-bg;
 		@apply transition-all;
 	}
 
 	.project-card:hover {
 		@apply shadow-glow;
-		@apply border-primary shadow-primary;
+		@apply border-primary shadow-primary/50;
 	}
 
 	.project-card-link::after {

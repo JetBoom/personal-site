@@ -3,6 +3,8 @@ import TitlePage from '@/components/TitlePage.astro'
 import ListProjects from '@/components/Project/ListProjects.astro'
 import { siteConfig } from '@/site.config'
 import BaseLayout from '@/layouts/BaseLayout.astro'
+import SectionWrapper from '@/components/SectionWrapper.astro'
+import PageSection from '@/components/PageSection.astro'
 import { getGitHubRepos } from '@/utils/github'
 
 const { github } = siteConfig
@@ -13,10 +15,15 @@ const title = 'Projects'
 ---
 
 <BaseLayout title={title}>
-    <TitlePage title={title} />
-    <p class="title text-fg text-lg mb-3">A list of my public, open-source projects.</p>
+    <SectionWrapper>
+        <PageSection class="gap-4">
+    		<TitlePage title={title} />
 
-    <ListProjects projects={projects} />
+    		<p class="title text-fg text-lg mb-3">A list of my public, open-source projects.</p>
+
+		    <ListProjects projects={projects} />
+        </PageSection>
+    </SectionWrapper>
 </BaseLayout>
 
 <script>
@@ -26,7 +33,7 @@ const title = 'Projects'
 	    '.title',
 	    { y: [80, 0], opacity: [0, 1] },
 	    {
-	        duration: 2.5,
+	        duration: 1.5,
 	        opacity: { duration: 3 },
 
 	        offset: [0, 0.55, 0.75]

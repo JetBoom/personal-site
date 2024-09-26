@@ -1,4 +1,21 @@
-<span
-    class='font-semibold text-fg bg-primary shadow text-sm w-fit px-2 py-1 md:px-5 md:py-2 rounded-full'>
-    <slot />
-</span>
+---
+import { cn } from '@/utils/cn'
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'a'> & {
+    tag: string
+}
+
+const { class: className, tag, ...props } = Astro.props
+---
+
+<a
+    href={`/tags/${tag}`}
+    class={cn(
+        'font-semibold text-fg bg-primary shadow text-sm w-fit px-2 py-1 md:px-5 md:py-2 rounded-full',
+        className,
+    )}
+    {...props}
+>
+    {tag}
+</a>

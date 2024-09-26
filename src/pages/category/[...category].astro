@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro'
 import ListPosts from '@/components/Post/ListPosts.astro'
 import ListCategories from '@/components/Post/ListCategories.astro'
 import TitlePage from '@/components/TitlePage.astro'
+import PageSection from '@/components/PageSection.astro'
 import { getPostCategories, filterPostsByCategory } from '@/data/posts'
 import { sluglify, unsluglify } from '@/utils/string'
 
@@ -22,7 +23,9 @@ const filterPosts = await filterPostsByCategory(unsluglifyNameCategory)
 ---
 
 <BaseLayout title={category}>
-    <TitlePage title={unsluglifyNameCategory} />
-    <ListCategories activeCategory={category} />
-    <ListPosts posts={filterPosts} />
+    <PageSection class="gap-8">
+        <TitlePage title={unsluglifyNameCategory} />
+        <ListCategories activeCategory={category} />
+        <ListPosts posts={filterPosts} />
+    </PageSection>
 </BaseLayout>

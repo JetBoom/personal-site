@@ -2,11 +2,24 @@
 import { cn } from '@/utils/cn'
 import type { HTMLAttributes } from 'astro/types'
 
-type Props = HTMLAttributes<'div'>
+type Props = HTMLAttributes<'div'> & {
+    mini?: boolean
+}
 
-const { class: className, ...props } = Astro.props
+const {
+    class: className,
+    mini = false,
+    ...props
+} = Astro.props
 ---
 
-<div class={cn('min-h-screen flex flex-col gap-12 justify-center', className)} {...props}>
+<div {...props}
+    class={cn(
+        !mini && 'min-h-screen',
+        'flex flex-col',
+        'px-4 sm:max-w-2xl md:px-8 md:max-w-6xl',
+        className
+    )}
+>
     <slot />
 </div>
