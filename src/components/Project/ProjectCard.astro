@@ -23,7 +23,13 @@ const {
 
 <div class="project-card">
     <div class="flex gap-2">
-        <a class="project-card-link text-2xl text-primary font-bold" href={`https://github.com/${user}/${name}`}>{name}</a>
+        <a
+            class="project-card-link text-2xl text-primary font-bold"
+            href={`https://github.com/${user}/${name}`}
+            target="_blank"
+        >
+            {name}
+        </a>
     </div>
 	
     <p class="text-md text-fg text-opacity-75 grow">{description}</p>
