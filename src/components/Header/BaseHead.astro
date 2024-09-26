@@ -66,7 +66,12 @@ const siteTitle = title ? `${title} • ${siteConfig.title}` : siteConfig.title
 <link rel='alternate' type='application/rss+xml' title={siteConfig.title} href='/rss.xml' />
 
 <script>
-    import tippy from 'tippy.js'
+	import tippy from 'tippy.js'
 
-    tippy('[data-tippy-content]', { theme: 'translucent' })
+	function initTooltips() {
+	    tippy('[data-tippy-content]', { theme: 'translucent' })
+	}
+
+	initTooltips()
+	document.addEventListener('astro:after-swap', initTooltips)
 </script>
