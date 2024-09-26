@@ -22,7 +22,7 @@ interface SiteConfig {
 export const siteConfig: SiteConfig = {
     author: 'William Moodhe',
     email: 'williammoodhe@gmail.com',
-    jobTitle: 'Full Stack Developer',
+    jobTitle: 'Software Engineer',
     title: 'William\'s Average Website',
     github: 'jetboom',
     description: 'My personal blog and portfolio.',
