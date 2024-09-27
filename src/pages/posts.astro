@@ -1,7 +1,7 @@
 ---
 import ListCategories from '@/components/Post/ListCategories.astro'
 import ListPosts from '@/components/Post/ListPosts.astro'
-import TitlePage from '@/components/TitlePage.astro'
+import PageTitle from '@/components/PageTitle.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import SectionWrapper from '@/components/SectionWrapper.astro'
 import PageSection from '@/components/PageSection.astro'
@@ -15,7 +15,7 @@ const title = 'Articles'
 <BaseLayout title={title}>
     <SectionWrapper>
         <PageSection class="gap-8">
-            <TitlePage title={title} />
+            <PageTitle>{title}</PageTitle>
             <ListCategories />
 
             <ListPosts posts={posts} />

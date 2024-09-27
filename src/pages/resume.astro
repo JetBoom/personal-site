@@ -2,7 +2,7 @@
 import Experience from '@/components/Experience.astro'
 import NamedList from '@/components/NamedList.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import TitlePage from '@/components/TitlePage.astro'
+import PageTitle from '@/components/PageTitle.astro'
 import { getExperience } from '@/data/experience'
 import { getEducation } from '@/data/education'
 import { getAwards } from '@/data/awards'
@@ -22,7 +22,7 @@ const title = 'Resume'
 <BaseLayout title={title}>
     <SectionWrapper>
         <PageSection class="gap-4">
-            <TitlePage title={title} />
+            <PageTitle>{title}</PageTitle>
 
             <p class="text-center text-lg whitespace-pre-line">Personal information and references are not listed here.
 			Looking for consulting or have a job proposition? <a href={`mailto:${siteConfig.email}`} class="underline">Contact me</a> directly.</p>

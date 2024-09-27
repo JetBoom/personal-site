@@ -1,5 +1,6 @@
 ---
-import TitlePage from '@/components/TitlePage.astro'
+import PageTitle from '@/components/PageTitle.astro'
+import PageSubTitle from '@/components/PageSubTitle.astro'
 import ListProjects from '@/components/Project/ListProjects.astro'
 import { siteConfig } from '@/site.config'
 import BaseLayout from '@/layouts/BaseLayout.astro'
@@ -17,9 +18,8 @@ const title = 'Projects'
 <BaseLayout title={title}>
     <SectionWrapper>
         <PageSection class="gap-4">
-    		<TitlePage title={title} />
-
-    		<p class="title text-fg text-lg mb-3">A list of my public, open-source projects.</p>
+    		<PageTitle>{title}</PageTitle>
+    		<PageSubTitle>All of my open source</PageSubTitle>
 
 		    <ListProjects projects={projects} />
         </PageSection>

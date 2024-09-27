@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import ListPosts from '@/components/Post/ListPosts.astro'
-import TitlePage from '@/components/TitlePage.astro'
+import PageTitle from '@/components/PageTitle.astro'
 import PageSection from '@/components/PageSection.astro'
 import { getTags, getPostByTag } from '@/data/posts'
 
@@ -21,7 +21,8 @@ const posts = await getPostByTag(tag)
 
 <BaseLayout title={tag}>
     <PageSection class="gap-8">
-        <TitlePage title={tag} />
+        <PageTitle>{tag}</PageTitle>
+
         <ListPosts posts={posts} />
     </PageSection>
 </BaseLayout>

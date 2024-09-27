@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
     author: 'William Moodhe',
     email: 'williammoodhe@gmail.com',
     jobTitle: 'Software Engineer',
-    title: 'William\'s Average Website',
+    title: 'William Moodhe — Software Engineer',
     github: 'jetboom',
     description: 'My personal blog and portfolio.',
     lang: 'en-US',

@@ -1,7 +1,4 @@
 ---
-import { cn } from '@/utils/cn'
-const { heading } = Astro.props
-
 type Heading = {
 	depth: number
 	text: string
@@ -9,27 +6,53 @@ type Heading = {
 	subheadings: Heading[]
 }
 
-export interface Props {
+interface Props {
 	heading: Heading
 }
+
+const { heading } = Astro.props
 ---
 
 <li class='flex flex-col'>
-    <a
-        href={'#' + heading.slug}
-        class={cn(
-            'bg-bg hover:bg-accent py-1 px-4 text-fg rounded-full mb-2 first-letter:uppercase w-fit line-clamp-2'
-        )}
-    >
+    <a href={'#' + heading.slug} style={`--depth:${heading.depth};`}>
         {heading.text}
     </a>
-    {
-        heading.subheadings.length > 0 && (
-            <ul class='ml-3'>
-                {heading.subheadings.map((subheading) => (
-                    <Astro.self heading={subheading} />
-                ))}
-            </ul>
-        )
-    }
+    {heading.subheadings.length > 0 && (
+        <ul class='ml-3'>
+            {heading.subheadings.map((subheading) => (
+                <Astro.self heading={subheading} />
+            ))}
+        </ul>
+    )}
 </li>
+
+<style>
+    a {
+        display: flex;
+        align-items: center;
+        gap: calc((var(--depth)) * 0.5rem);
+        @apply first-letter:uppercase w-fit;
+        @apply transition-colors duration-200;
+    }
+
+    a::before {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 1.25rem;
+        border-radius: 2px;
+        @apply bg-primary bg-opacity-50;
+    }
+
+    a:hover::before {
+        @apply bg-accent bg-opacity-90;
+    }
+
+    a.in-view {
+        @apply text-accent;
+    }
+
+    a.in-view::before {
+        width: 4px;
+    }
+</style>

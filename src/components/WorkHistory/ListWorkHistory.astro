@@ -1,0 +1,76 @@
+---
+import { getExperience } from '@/data/experience'
+import { getDisplayDate } from '@/utils/string'
+
+const experience = await getExperience()
+---
+
+<div class="work-history-container">
+    <div class="timeline"></div>
+    <ul>
+        {experience.map(({ data: { name, title, startYear, startMonth, endYear, endMonth, image } }) => (
+            <li>
+                <h4 class="name">{title}</h4>
+                <desc class="title">{name}{image && <img src={image} alt="" />}</desc>
+                <date>{getDisplayDate(startYear, startMonth)} - {getDisplayDate(endYear, endMonth)}</date>
+            </li>
+        ))}
+    </ul>
+</div>
+
+<style>
+    .work-history-container {
+        --gap: 2rem;
+
+        display: flex;
+        gap: var(--gap);
+
+        @apply font-loto;
+    }
+
+    .timeline {
+        display: inline;
+        width: 2px;
+        border-radius: 2px;
+        background: #888;
+        box-shadow: 0px 0px 4px #8884;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    li {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    li::before {
+        content: '';
+        position: absolute;
+        left: calc(var(--gap) * -1);
+        top: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        display: inline-block;
+        background: black;
+        outline: 2px solid #888;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    desc {
+        display: flex;
+    }
+
+    img {
+        max-width: 2rem;
+    }
+</style>
