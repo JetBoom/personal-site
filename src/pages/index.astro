@@ -16,16 +16,16 @@ const { author, jobTitle } = siteConfig
     <SectionWrapper class="relative">
 	    <div class="splash-bg" />
 
-	    <PageSection class="justify-center">
+	    <PageSection fullScreen class="justify-center">
 	        <div class="flex gap-8 justify-center items-center flex-col py-16 md:py-32">
 	            <div>
-	                <div class="size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-[background-size] hover:bg-[length:100%_100%]" />
+	                <div class="pfp" />
 	            </div>
 	            <div class="flex flex-col items-center text-center font-loto font-light pointer-events-none">
-	                <div class="text-4xl md:text-6xl text-fg letter-deco">
+	                <div class="text-4xl md:text-6xl text-color-gradient letter-deco">
 	                    {Array.from(author).map((c, index) => <div style={`--slot:${index};`}>{c}</div>)}
 	                </div>
-	                <p class="text-4xl font-normal text-primary tracking-widest" style="text-shadow: 1px 1px 0.5em #0008;">
+	                <p class="text-4xl text-color-gradient font-normal tracking-widest">
 	                    {jobTitle}
 	                </p>
 	            </div>
@@ -54,54 +54,80 @@ const { author, jobTitle } = siteConfig
 
 <style>
 	.splash-bg {
-		/* --band-col-1: #0f0c29;
-		--band-col-2: #302b63;
-		--band-col-3: #24243e; */
-
 		position: absolute;
 		inset: 0;
 		z-index: -100;
-
-		/* background: linear-gradient(to bottom,
-			var(--band-col-1),
-			var(--band-col-2),
-			var(--band-col-3)
-		);
-		background-size: cover; */
 		background: radial-gradient(ellipse at top, #1B2735 0%, #090A0F 100%);
+	}
+
+	.text-color-gradient {
+		background: linear-gradient(var(--col-fg), var(--col-primary));
+		background-clip: text;
+		color: transparent;
+		overflow: visible;
+		line-height: 1.5em;
+		text-shadow: 1px 1px 0.5em #0008;
 	}
 
 	.letter-deco {
 		display: flex;
 		gap: 0.25em;
 		text-transform: uppercase;
-		color: transparent;
-		background-clip: text;
-		padding: 2rem;
-		margin: -1rem;
-		@apply bg-gradient-to-b from-fg to-primary;
-		overflow: visible;
-
-		/* font-family: 'lato', sans-serif; */
-		/* font-weight: 300; */
 
 		& > * {
-			animation-name: wave;
+			animation-name: text-wave;
 			animation-timing-function: ease-in-out;
 			animation-duration: 3s;
-			animation-delay: calc(var(--slot) * -200ms);
+			animation-delay: calc(var(--slot) * -400ms);
 			animation-iteration-count: infinite;
 			animation-direction: alternate;
 		}
 	}
 
-	@keyframes wave {
+	@keyframes text-wave {
 		0% {
 			transform: translateY(-0.15em);
 		}
 
 		100% {
 			transform: translateY(0.15em);
+		}
+	}
+
+	.pfp {
+		position: relative;
+		outline: 2px solid var(--col-bg);
+		z-index: 1;
+		@apply size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-[background-size] hover:bg-[length:100%_100%];
+	}
+
+	.pfp::before {
+		content: '';
+		z-index: -1;
+		position: absolute;
+		inset: 0;
+		border: 2px solid var(--col-fg);
+		border-radius: 50%;
+		box-shadow: 0px 0px 4px white, 0px 0px 4px inset white;
+		animation: pfp-ring ease 10s infinite;
+	}
+
+	@keyframes pfp-ring {
+		0% {
+			opacity: 0;
+			border-color: transparent;
+		}
+
+		10% {
+			inset: 0;
+			border-color: var(--col-fg);
+			opacity: 1;
+		}
+		
+		50%, 100% {
+			inset: -75%;
+			border-color: var(--col-primary);
+			opacity: 0;
 		}
 	}
 </style>

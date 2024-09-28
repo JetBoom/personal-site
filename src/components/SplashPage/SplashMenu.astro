@@ -3,11 +3,10 @@ import type { HTMLAttributes } from 'astro/types'
 
 type Props = HTMLAttributes<'nav'>
 
-const { class: className, ...props } = Astro.props
-
+const { ...props } = Astro.props
 ---
 
-<nav class={className} {...props}>
+<nav {...props}>
     <slot />
 </nav>
 

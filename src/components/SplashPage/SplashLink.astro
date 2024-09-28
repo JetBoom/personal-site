@@ -1,48 +1,55 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import { cn } from '@/utils/cn'
 
 type Props = HTMLAttributes<'a'>
 
-const { class: className, ...props } = Astro.props
+const { ...props } = Astro.props
 ---
 
-<a
-    class={cn(
-        'ez-click',
-        className,
-    )}
-    {...props}
->
+<a {...props}>
     <slot />
 </a>
 
 <style>
     a {
         filter: drop-shadow(0 0 0.5em #0008);
+		text-shadow: 0px 0px 1.5em transparent;
+		@apply transition-all duration-200;
     }
 
-    /* a:hover {
-        text-decoration: underline;
-    } */
+    a:hover {
+        text-shadow: 0px 0px 0.25em currentColor;
+    }
 
-    a::after {
+    a::after, a::before {
 		content: "";
 		display: inline-block;
 		position: absolute;
-		left: 50%;
-		right: 50%;
-		opacity: 0.5;
         top: 110%;
-		height: 3px;
+		height: 2px;
 		background: currentColor;
-
+		pointer-events: none;
 		@apply transition-all duration-200;
+	}
+
+	a::before {
+		left: 0;
+		right: 0;
+		opacity: 0.25;
+	}
+
+	a::after {
+		opacity: 0;
+		left: -10em;
+		right: -10em;
+		border-radius: 50%;
 	}
 
 	a:hover::after {
 		left: 0;
 		right: 0;
 		opacity: 1;
+		box-shadow: 0px 0px 4px currentColor;
+		border-radius: 0%;
 	}
 </style>

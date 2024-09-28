@@ -3,19 +3,19 @@ import { cn } from '@/utils/cn'
 import type { HTMLAttributes } from 'astro/types'
 
 type Props = HTMLAttributes<'div'> & {
-    mini?: boolean
+    fullScreen?: boolean
 }
 
 const {
     class: className,
-    mini = false,
+    fullScreen = false,
     ...props
 } = Astro.props
 ---
 
 <div {...props}
     class={cn(
-        !mini && 'min-h-screen',
+        fullScreen && 'min-h-screen',
         'flex flex-col',
         'px-4 sm:max-w-2xl md:px-8 md:max-w-6xl',
         className
