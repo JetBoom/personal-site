@@ -7,8 +7,8 @@ const white = '#f9f8f6'
 const colors = {
     fg: white,
     bg: black,
-    primary: '#c6563a',
-    accent: '#e58569',
+    primary: '#5887bd', //'#c6563a',
+    accent: '#83b4ec', //'#e58569',
     white,
     black,
 }

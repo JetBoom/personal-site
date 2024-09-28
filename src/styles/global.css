@@ -5,6 +5,13 @@
 @tailwind utilities;
 
 @layer base {
+	:root {
+		--col-fg: #f9f8f6;
+    	--col-bg: #110f10;
+		--col-primary: #5887bd;
+		--col-primary-accent: #83b4ec;
+	}
+
 	html {
 		font-family: 'Inter Tight Variable';
 		@apply scroll-smooth;
