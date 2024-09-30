@@ -1,14 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-const white = '#f9f8f6'
+const white = '#ddd'
     , black = '#110f10'
 
 const colors = {
     fg: white,
-    bg: black,
-    primary: '#5887bd', //'#c6563a',
+    bg: '#171a19',
+    primary: '#53a2be', //'#c6563a',
     accent: '#83b4ec', //'#e58569',
+	secondary1: '#419d78',
+	secondary2: '#e0a458',
+    secondary3: '#d9594c',
     white,
     black,
 }

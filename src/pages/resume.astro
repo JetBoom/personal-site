@@ -24,8 +24,8 @@ const title = 'Resume'
         <PageSection class="gap-4">
             <PageTitle>{title}</PageTitle>
 
-            <p class="text-center text-lg whitespace-pre-line">Personal information and references are not listed here.
-			Looking for consulting or have a job proposition? <a href={`mailto:${siteConfig.email}`} class="underline">Contact me</a> directly.</p>
+            <p class="text-center text-fg/60 text-lg whitespace-pre-line">Personal information not listed.
+			Looking for consulting? <a href={`mailto:${siteConfig.email}`} class="underline">Contact</a> me.</p>
 
             <NamedList name="Experience" id="experience">
                 {experience.map(({ slug, data: { name, url, title, startYear, startMonth, endYear, endMonth, image, linkedin } }) => (

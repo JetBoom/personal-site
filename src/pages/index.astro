@@ -7,6 +7,7 @@ import SplashMenu from '@/components/SplashPage/SplashMenu.astro'
 import { siteConfig } from '@/site.config'
 import PageSection from '@/components/PageSection.astro'
 import SectionWrapper from '@/components/SectionWrapper.astro'
+import HighlightedText from '@/components/HighlightedText.astro'
 // import ListWorkHistory from '@/components/WorkHistory/ListWorkHistory.astro'
 
 const { author, jobTitle } = siteConfig
@@ -21,6 +22,7 @@ const { author, jobTitle } = siteConfig
 	            <div>
 	                <div class="pfp" />
 	            </div>
+
 	            <div class="flex flex-col items-center text-center font-loto font-light pointer-events-none">
 	                <div class="text-4xl md:text-6xl text-color-gradient letter-deco">
 	                    {Array.from(author).map((c, index) => <div style={`--slot:${index};`}>{c}</div>)}
@@ -32,9 +34,9 @@ const { author, jobTitle } = siteConfig
 	        </div>
 
 	        <SplashMenu>
-	            <SplashLink href="/resume">Resume</SplashLink>
-	            <SplashLink href={`https://github.com/${siteConfig.github}`} target="_blank">GitHub</SplashLink>
-	            <SplashLink href={`mailto:${siteConfig.email}`} target="_blank">Contact</SplashLink>
+	            <SplashLink class="text-secondary2" href="/resume">Resume</SplashLink>
+	            <SplashLink class="text-primary" href={`https://github.com/${siteConfig.github}`} target="_blank">GitHub</SplashLink>
+	            <SplashLink class="text-secondary1" href={`mailto:${siteConfig.email}`} target="_blank">Contact</SplashLink>
 	        </SplashMenu>
 
 			<!-- <div class="absolute bottom-14 flex justify-center w-full text-xl drop-shadow text-primary">
@@ -57,11 +59,14 @@ const { author, jobTitle } = siteConfig
 		position: absolute;
 		inset: 0;
 		z-index: -100;
-		background: radial-gradient(ellipse at top, #1B2735 0%, #090A0F 100%);
+		background-size: 150% 100%;
+		background-repeat: no-repeat;
+		background-position: top;
+		background: radial-gradient(ellipse at top, #1B2735 0%, transparent 60%);
 	}
 
 	.text-color-gradient {
-		background: linear-gradient(var(--col-fg), var(--col-primary));
+		background: linear-gradient(var(--col-secondary1) 0%, var(--col-primary) 80%);
 		background-clip: text;
 		color: transparent;
 		overflow: visible;
@@ -98,7 +103,7 @@ const { author, jobTitle } = siteConfig
 		position: relative;
 		outline: 2px solid var(--col-bg);
 		z-index: 1;
-		@apply size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-[background-size] hover:bg-[length:100%_100%];
+		@apply size-32 md:size-64 shadow-md shadow-black bg-[url(/myself.jpg)] bg-[length:180%_180%] bg-center rounded-full transition-all hover:bg-[length:100%_100%];
 	}
 
 	.pfp::before {

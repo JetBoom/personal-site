@@ -8,8 +8,11 @@
 	:root {
 		--col-fg: #f9f8f6;
     	--col-bg: #110f10;
-		--col-primary: #5887bd;
+		--col-primary: #53a2be;
 		--col-primary-accent: #83b4ec;
+		--col-secondary1: #419d78;
+		--col-secondary2: #e0a458;
+		--col-secondary3: #d9594c;
 	}
 
 	html {

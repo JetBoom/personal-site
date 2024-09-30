@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'span'>
+
+---
+
+<span {...Astro.props}><slot /></span>
+
+<style>
+    span {
+        position: relative;
+    }
+
+    span::before {
+        content: '';
+        display: inline;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 40%;
+        bottom: 0;
+        background-color: currentColor;
+        opacity: 0.15;
+        pointer-events: none;
+    }
+</style>
+    

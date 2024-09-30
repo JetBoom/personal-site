@@ -1,0 +1,128 @@
+---
+interface Props {
+    threshold?: number
+}
+
+const {
+    threshold = 100,
+} = Astro.props
+---
+
+<div class="astro-loading-indicator" aria-hidden="true" transition:persist />
+
+<style is:global>
+    .astro-loading-indicator {
+        position: fixed;
+        pointer-events: none;
+        position: fixed;
+        top: 70%;
+        left: 50%;
+        width: 6rem;
+        height: 6rem;
+        transition: opacity 200ms ease-out;
+        opacity: 0;
+
+        &, &::before, &::after {
+            z-index: 13370;
+            overflow: visible;
+            border: 3px solid transparent;
+            border-top-color: currentColor;
+            transform: translate(-50%, -50%);
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-duration: 900ms;
+            border-radius: 50%;
+            filter: drop-shadow(0px 0px 0.5rem currentColor);
+            animation-play-state: paused;
+        }
+
+        &::before, &::after {
+            content: '';
+            display: inline;
+            position: absolute;
+            animation-name: loading-spin-sub;
+        }
+
+        & {
+            transform: translate(-50%, -50%);
+            animation-name: loading-spin;
+            color: var(--col-primary);
+            animation-delay: -1200ms;
+        }
+
+        &::before {
+            inset: 10%;
+            color: var(--col-secondary1);
+            animation-direction: reverse;
+            animation-duration: 334ms;
+            animation-delay: -300ms;
+        }
+
+        &::after {
+            inset: 20%;
+            color: var(--col-secondary2);
+            animation-delay: -600ms;
+        }
+
+        &.loading {
+            opacity: 1;
+
+            &, &::before, &::after {
+                animation-play-state: running;
+            }
+        }
+    }
+    
+    @keyframes loading-spin {
+        0% { 
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    @keyframes loading-spin-sub {
+        0% { 
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<script is:inline define:vars={{ threshold }}>
+    let thresholdTimeout = undefined
+
+    // const element = document.createElement('div')
+    // element.classList.add('astro-loading-indicator')
+    // element.ariaHidden = 'true'
+    // console.log('added')
+
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     document.body.prepend(element)
+    // })
+
+    document.addEventListener('astro:before-preparation', () => {
+        if (thresholdTimeout) window.clearTimeout(thresholdTimeout)
+
+        thresholdTimeout = setTimeout(() => {
+            // element.classList.add('loading')
+            document.querySelectorAll('.astro-loading-indicator').forEach(e => e.classList.add('loading'))
+        }, threshold)
+    })
+
+    document.addEventListener('astro:before-swap', () => {
+        // document.body.prepend(element)
+
+        if (!thresholdTimeout) return
+        
+        window.clearTimeout(thresholdTimeout)
+
+        // element.classList.remove('loading')
+        document.querySelectorAll('.astro-loading-indicator').forEach(e => e.classList.remove('loading'))
+    })
+</script>

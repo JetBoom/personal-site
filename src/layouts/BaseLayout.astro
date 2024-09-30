@@ -6,6 +6,7 @@ import Footer from '@/components/Footer.astro'
 import TwSizeIndicator from '@/components/TwSizeIndicator.astro'
 import EditBlog from '@/components/editBlog.astro'
 import { cn } from '@/utils/cn'
+import LoadingIndicator from '@/components/LoadingIndicator.astro'
 
 const {
     title,
@@ -21,6 +22,7 @@ const {
     <head>
         <BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
         <ViewTransitions />
+        <LoadingIndicator />
     </head>
 
     <body>
