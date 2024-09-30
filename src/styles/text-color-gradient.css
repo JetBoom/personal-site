@@ -1,0 +1,8 @@
+.text-color-gradient {
+    background: linear-gradient(var(--col-secondary1) 0%, var(--col-primary) 80%);
+    background-clip: text;
+    color: transparent;
+    overflow: visible;
+    line-height: 1.5em!important;
+    text-shadow: 1px 1px 0.5em #0008;
+}

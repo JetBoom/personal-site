@@ -1,0 +1,53 @@
+---
+import { cn } from '@/utils/cn'
+import type { HTMLAttributes } from 'astro/types'
+
+type Props = HTMLAttributes<'div'> & {
+    text: string
+}
+
+const {
+    class: className,
+    text,
+    ...props
+} = Astro.props
+
+const textArray = Array.from(text)
+---
+
+<div
+    class={cn(
+        'wavy-text',
+        className,
+    )}
+    {...props}
+>
+    {textArray.map((c, index) => <div style={`--slot:${index};`}>{c}</div>)}
+</div>
+
+<style>
+    .wavy-text {
+		display: flex;
+		gap: 0.25em;
+		text-transform: uppercase;
+
+		& > * {
+			animation-name: text-wave;
+			animation-timing-function: ease-in-out;
+			animation-duration: 3s;
+			animation-delay: calc(var(--slot) * -400ms);
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+		}
+	}
+
+	@keyframes text-wave {
+		0% {
+			transform: translateY(-0.15em);
+		}
+
+		100% {
+			transform: translateY(0.15em);
+		}
+	}
+</style>
