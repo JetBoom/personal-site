@@ -23,8 +23,8 @@ module.exports = {
         extend: {
             colors,
             fontFamily: {
-                body: ['"Inter Tight Variable"', ...defaultTheme.fontFamily.sans],
-                loto: ['loto', ...defaultTheme.fontFamily.sans],
+                body: ['lato', ...defaultTheme.fontFamily.sans],
+                loto: ['lato', ...defaultTheme.fontFamily.sans],
             },
             gridTemplateColumns: {
                 list: 'repeat(auto-fill, minmax(400px, max-content))'

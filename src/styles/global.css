@@ -16,7 +16,7 @@
 	}
 
 	html {
-		font-family: 'Inter Tight Variable';
+		font-family: 'lato', sans-serif;
 		@apply scroll-smooth;
 	}
 
@@ -40,17 +40,6 @@
 
 	.prose code {
 		@apply text-sm;
-	}
-
-	@font-face {
-		font-family: 'Inter Tight Variable';
-		src: url(../assets/fonts/InterTight-VariableFont_wght.ttf);
-	}
-
-	@font-face {
-		font-family: 'Inter Tight Variable';
-		font-style: italic;
-		src: url(../assets/fonts/InterTight-Italic-VariableFont_wght.ttf);
 	}
 
 	h1, .prose h1,
