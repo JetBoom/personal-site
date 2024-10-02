@@ -14,16 +14,15 @@ const {
 ---
 
 <div
-    style={`--anim-duration: ${animDuration};`}
     class={cn('anim-hover-up-down inline', className)}
     {...props}>
     <slot />
 </div>
 
-<style>
+<style define:vars={{ animDuration }}>
     .anim-hover-up-down {
         animation-name: hover-up-down;
-        animation-duration: var(--anim-duration);
+        animation-duration: var(--animDuration);
         animation-timing-function: cubic-bezier(0.455, 0.030, 0.515, 0.955);
         animation-iteration-count: infinite;
         animation-fill-mode: both;
