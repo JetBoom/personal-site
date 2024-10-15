@@ -42,7 +42,7 @@
 		"@iconify-json/ri": "latest",
 		"@iconify-json/skill-icons": "latest",
 		"@tinacms/cli": "^1.6.0",
-		"astro": "4.16.3",
+		"astro": "4.16.5",
 		"astro-icon": "^1.1.1",
 		"octokit": "^4.0.2",
 		"sass": "^1.77.8",
