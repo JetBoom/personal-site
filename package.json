@@ -51,7 +51,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "3.1.8",
-		"@astrojs/sitemap": "3.2.0",
+		"@astrojs/sitemap": "3.2.1",
 		"@astrojs/tailwind": "5.1.2",
 		"@eslint/js": "^9.11.0",
 		"@pagefind/default-ui": "^1.0.3",
