@@ -37,7 +37,7 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
-		"@astrojs/rss": "4.0.9",
+		"@astrojs/rss": "4.0.11",
 		"@iconify-json/logos": "latest",
 		"@iconify-json/ri": "latest",
 		"@iconify-json/skill-icons": "latest",
