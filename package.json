@@ -55,7 +55,7 @@
 		"@astrojs/tailwind": "5.1.4",
 		"@eslint/js": "^9.11.0",
 		"@pagefind/default-ui": "^1.0.3",
-		"@tailwindcss/typography": "0.5.15",
+		"@tailwindcss/typography": "0.5.16",
 		"@types/eslint__js": "^8.42.3",
 		"@typescript-eslint/parser": "^8.2.0",
 		"clsx": "2.1.1",
