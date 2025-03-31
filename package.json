@@ -56,7 +56,7 @@
 		"@eslint/js": "^9.11.0",
 		"@pagefind/default-ui": "^1.0.3",
 		"@tailwindcss/typography": "0.5.16",
-		"@types/eslint__js": "^8.42.3",
+		"@types/eslint__js": "^9.14.0",
 		"@typescript-eslint/parser": "^8.2.0",
 		"clsx": "2.1.1",
 		"eslint": "^9.10.0",
