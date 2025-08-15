@@ -68,7 +68,7 @@
 		"motion": "^12.5.0",
 		"pagefind": "^1.1.0",
 		"reading-time": "^1.5.0",
-		"remark-directive": "^3.0.0",
+		"remark-directive": "^4.0.0",
 		"remark-oembed": "^1.2.2",
 		"slugify": "^1.6.6",
 		"tailwind-merge": "3.3.0",
