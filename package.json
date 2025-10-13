@@ -63,7 +63,7 @@
 		"eslint-plugin-astro": "^1.2.3",
 		"eslint-plugin-jsx-a11y": "^6.9.0",
 		"husky": "^9.1.6",
-		"lint-staged": "^15.2.10",
+		"lint-staged": "^16.2.4",
 		"mdast-util-to-string": "^4.0.0",
 		"motion": "^12.5.0",
 		"pagefind": "^1.1.0",
